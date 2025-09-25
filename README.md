@@ -1,3 +1,3 @@
 # PROJECT DAWGEMO
 
-Website will be for a smallish business
+Website for a smallish business
