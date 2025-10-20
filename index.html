@@ -1,83 +1,234 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <link rel="icon" type="image/jpg" href="/image.jpg" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>dawgemo-pwp-trevor</title>
-        <script type="module" src="/src/main.tsx"></script>
-    </head>
+<head>
 
-    <body>
-        <!-- <div id="root"></div> -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Husky Well & Pump Service Website</title>
+    <link href="/src/index.css" rel="stylesheet"><script>tailwind.config = { darkMode: 'media' }</script>
 
-        <!-- Header -->
-        <header>
-            <div>
-                <h1>Milestone One</h1>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white dark:bg-gray-800 bg-opacity-95 shadow-lg z-50 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="/home" class="flex items-center">
+                    <img src="./public/assets/images/jaw.jpg" alt="Husky" class="h-10 w-auto">
+                </a>
+                <ul class="flex gap-8 items-center">
+                    <li>
+                        <a href="#home" class="text-gray-700 dark:text-gray-300 hover:text-blue-900 dark:hover:text-blue-400 font-medium transition">Home</a>
+                    </li>
+                    <li>
+                        <a href="#services" class="text-gray-700 dark:text-gray-300 hover:text-blue-900 dark:hover:text-blue-400 font-medium transition">Services</a>
+                    </li>
+                    <li>
+                        <a href="#service-area" class="text-gray-700 dark:text-gray-300 hover:text-blue-900 dark:hover:text-blue-400 font-medium transition">Service Area</a>
+                    </li>
+                    <li>
+                        <a href="#our-work" class="text-gray-700 dark:text-gray-300 hover:text-blue-900 dark:hover:text-blue-400 font-medium transition">Our Work</a>
+                    </li>
+                    <li>
+                        <a href="#about" class="text-gray-700 dark:text-gray-300 hover:text-blue-900 dark:hover:text-blue-400 font-medium transition">About Us</a>
+                        </li>
+                    <li>
+                        <a href="#contact" class="bg-blue-900 dark:bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-800 dark:hover:bg-blue-500 transition">Contact</a>
+                    </li>
+                </ul>
             </div>
-        </header>
+        </div>
+    </nav>
 
-        <!-- Main -->
-        <main>
+    <!-- Hero Section -->
+    <section id="home" class="relative h-screen flex items-center justify-center text-center text-white overflow-hidden">
+        <video class="absolute top-0 left-0 w-full h-full object-cover-z-20" autoplay muted loop>
+            <source src="video.mp4" type="video/mp4">
+        </video>
+        <div class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 -z-10"></div>
+        <div class="z-10 px-4">
+            <h1 class="text-6xl font-bold mb-4 drop-shadow-lg">Husky</h1>
+            <p class="text-2xl drop-shadow-md">Water when you need it!</p>
+        </div>
+    </section>
 
-            <!-- Purpose, Audience, and Goal -->
-            <section>
-                <div class="m-4 max-w-4xl align-middle gap-x-4 rounded-xl bg-white p-6 shadow-lg outline outline-black/5 dark:bg-slate-800 dark:shadow-none dark:-outline-offset-1 dark:outline-white/10">
-                    <h2 class="text-2xl pb-4.5 items-center">Purpose, Audience, and Goals</h2>
-                    <p class="pb-2">
-                        <strong>Purpose:</strong>
-                        This website is aimed to update Husky Well & Pump Service's current website and offer potential customers the opportunity to learn about our company, see our work, get needed information, and the ability to contact us.
-                    </p>
-                    <p class="pb-2">
-                        <strong>Audience:</strong>
-                        The audience for this website will be potential customers, general contractors, job applicants, and other drilling businesses.
-                    </p>
-                    <p class="pb-2">
-                        <strong>Goals:</strong>
-                        My goals for this website is to create something that my family and I can be proud of, inform people about our business, show potential customers we are continuously keeping up with the times, allow potential customers an easy and enjoyable way to get in contact with us, and to showcase the work we've done.
-                    </p>
+    <!-- Services Section -->
+    <section id="services" class="py-20 px-6 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold text-center text-blue-900 dark:text-blue-400 mb-12">Our Services</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white dark:bg-gray-700 p-8 rounded-xl shadow-lg hover:-translate-y-2 transition">
+                    <h3 class="text-xl font-bold text-blue-900 dark:text-blue-400 mb-4">Service 1</h3>
+                    <p class="text-gray-600 dark:text-gray-300">This is where I will put a service we offer, but for not it says this because I am tired and lazy.</p>
                 </div>
-            </section>
-
-            <!-- Persona -->
-            <section>
-                <div class="m-4 max-w-4xl align-middle gap-x-4 rounded-xl bg-white p-6 shadow-lg outline outline-black/5 dark:bg-slate-800 dark:shadow-none dark:-outline-offset-1 dark:outline-white/10">
-                    <h2 class="text-2xl pb-4.5 items-center">Persona</h2>
-                    <p class="pb-2">
-                        <strong>Name:</strong>
-                        Ryan Garcia
-                    </p>
-                    <p class="pb-2">
-                        <strong>Age:</strong>
-                        37
-                    </p>
-                    <p class="pb-2">
-                        <strong>Profession:</strong>
-                        Self Employed General Contractor
-                    </p>
-                    <p class="pb-2">
-                        <strong>Technology:</strong>
-                        Mac user that's a little behind the times. Ryan has an iPhone 14 (6.1-inch) and MacBook Pro (15-inch, 2016).
-                    </p>
-                    <p class="pb-2">
-                        <strong>Attitudes and Behaviors:</strong>
-                        Ryan is a busy man who's always on the go, as he has many projects he oversees. While working, Ryan only uses his iPhone to search for subcontractors; he will spend a short amount of time per business to see if they are a good candidate. At home, he uses his laptop and spends more time researching good subcontractors.
-                    </p>
-                    <p class="pb-2">
-                        <strong>Frustrations and Needs:</strong>
-                        When searching for subcontractors on the go, Ryan needs to find the about-info of a business quickly, so he can contact them right away. Ryan hates bad websites, and will not hesitate to look for another business that takes their webpage seriously. ESPECIALLY when that website doesn't have a dark-mode.
-                    </p>
-                    <p class="pb-2">
-                        <strong>Goals:</strong>
-                        Ryan's job is to get information about a subcontractor quickly, so he can get a quote from them, they can make a deal, and the subcontractor can get to work. His goal is to determine if a business is the right fit for the job and to hire them by looking at, via their website, some work they've done, what areas they work in, and their contact information.
-                    </p>
-                    <p>
-                        <strong>User Story:</strong>
-                        I need a water well drilled for a site I am overseeing that is going to have a home built on it.
-                    </p>
+                <div class="bg-white dark:bg-gray-700 p-8 rounded-xl shadow-lg hover:-translate-y-2 transition">
+                    <h3 class="text-xl font-bold text-blue-900 dark:text-blue-400 mb-4">Service 2</h3>
+                    <p class="text-gray-600 dark:text-gray-300">This is where I will put a service we offer, but for not it says this because I am tired and lazy.</p>
                 </div>
-            </section>
-        </main>
-    </body>
+                <div class="bg-white dark:bg-gray-700 p-8 rounded-xl shadow-lg hover:-translate-y-2 transition">
+                    <h3 class="text-xl font-bold text-blue-900 dark:text-blue-400 mb-4">Service 3</h3>
+                    <p class="text-gray-600 dark:text-gray-300">This is where I will put a service we offer, but for not it says this because I am tired and lazy.</p>
+                </div>
+                <div class="bg-white dark:bg-gray-700 p-8 rounded-xl shadow-lg hover:-translate-y-2 transition">
+                    <h3 class="text-xl font-bold text-blue-900 dark:text-blue-400 mb-4">Service 4</h3>
+                    <p class="text-gray-600 dark:text-gray-300">This is where I will put a service we offer, but for not it says this because I am tired and lazy.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Area Section -->
+    <section id="service-area" class="py-20 px-6 bg-white dark:bg-gray-900 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold text-center text-blue-900 dark:text-blue-400 mb-12">Service Area</h2>
+            <p class="text-center text-gray-600 dark:text-gray-300 mb-8 text-lg">We proudly serve the following areas:</p>
+            <div class="w-full h-96 rounded-xl overflow-hidden shadow-xl">
+                <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1PpNvllVDkPfK552xAIQHPjv_gp-K0v0&ehbc=2E312F&noprof=1" class="w-full h-full border-0" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Work Section -->
+    <section id="our-work" class="py-20 px-6 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold text-center text-blue-900 dark:text-blue-400 mb-12">Our Work</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="h-72 bg-gray-300 dark:bg-gray-600 rounded-xl shadow-lg flex items-center justify-center text-gray-500 dark:text-gray-400">[Project Image 1]</div>
+                <div class="h-72 bg-gray-300 dark:bg-gray-600 rounded-xl shadow-lg flex items-center justify-center text-gray-500 dark:text-gray-400">[Project Image 2]</div>
+                <div class="h-72 bg-gray-300 dark:bg-gray-600 rounded-xl shadow-lg flex items-center justify-center text-gray-500 dark:text-gray-400">[Project Image 3]</div>
+                <div class="h-72 bg-gray-300 dark:bg-gray-600 rounded-xl shadow-lg flex items-center justify-center text-gray-500 dark:text-gray-400">[Project Image 4]</div>
+                <div class="h-72 bg-gray-300 dark:bg-gray-600 rounded-xl shadow-lg flex items-center justify-center text-gray-500 dark:text-gray-400">[Project Image 5]</div>
+                <div class="h-72 bg-gray-300 dark:bg-gray-600 rounded-xl shadow-lg flex items-center justify-center text-gray-500 dark:text-gray-400">[Project Image 6]</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-6 bg-white dark:bg-gray-900 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold text-center text-blue-900 dark:text-blue-400 mb-16">About Us</h2>
+
+            <!-- Our History -->
+            <div class="mb-16">
+                <h3 class="text-3xl font-bold text-blue-900 dark:text-blue-400 mb-8">Our History</h3>
+                <div class="relative pl-12 border-l-4 border-blue-900 dark:border-blue-400">
+                    <div class="mb-8 relative">
+                        <div class="absolute -left-14 top-0 w-4 h-4 bg-blue-900 dark:bg-blue-400 rounded-full"></div>
+                        <div class="font-bold text-blue-900 dark:text-blue-400 mb-2">1985</div>
+                        <p class="text-gray-600 dark:text-gray-300">Timeline</p>
+                    </div>
+                    <div class="mb-8 relative">
+                        <div class="absolute -left-14 top-0 w-4 h-4 bg-blue-900 dark:bg-blue-400 rounded-full"></div>
+                        <div class="font-bold text-blue-900 dark:text-blue-400 mb-2">1995</div>
+                        <p class="text-gray-600 dark:text-gray-300">Timeline</p>
+                    </div>
+                    <div class="mb-8 relative">
+                        <div class="absolute -left-14 top-0 w-4 h-4 bg-blue-900 dark:bg-blue-400 rounded-full"></div>
+                        <div class="font-bold text-blue-900 dark:text-blue-400 mb-2">2005</div>
+                        <p class="text-gray-600 dark:text-gray-300">Timeline</p>
+                    </div>
+                    <div class="mb-8 relative">
+                        <div class="absolute -left-14 top-0 w-4 h-4 bg-blue-900 dark:bg-blue-400 rounded-full"></div>
+                        <div class="font-bold text-blue-900 dark:text-blue-400 mb-2">2015</div>
+                        <p class="text-gray-600 dark:text-gray-300">Timeline</p>
+                    </div>
+                    <div class="relative">
+                        <div class="absolute -left-14 top-0 w-4 h-4 bg-blue-900 dark:bg-blue-400 rounded-full"></div>
+                        <div class="font-bold text-blue-900 dark:text-blue-400 mb-2">Present</div>
+                        <p class="text-gray-600 dark:text-gray-300">Timeline</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Our Values -->
+            <div class="mb-16">
+                <h3 class="text-3xl font-bold text-blue-900 dark:text-blue-400 mb-8">Our Values</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="text-center p-6">
+                        <h4 class="text-xl font-bold text-blue-900 dark:text-blue-400 mb-4">Value 1</h4>
+                        <p class="text-gray-600 dark:text-gray-300">Gonna put values here whenever I get the time, but for now I am very tired and want to go to sleep.</p>
+                    </div>
+                    <div class="text-center p-6">
+                        <h4 class="text-xl font-bold text-blue-900 dark:text-blue-400 mb-4">Value 2</h4>
+                        <p class="text-gray-600 dark:text-gray-300">Gonna put values here whenever I get the time, but for now I am very tired and want to go to sleep.</p>
+                    </div>
+                    <div class="text-center p-6">
+                        <h4 class="text-xl font-bold text-blue-900 dark:text-blue-400 mb-4">Value 3</h4>
+                        <p class="text-gray-600 dark:text-gray-300">Gonna put values here whenever I get the time, but for now I am very tired and want to go to sleep.</p>
+                    </div>
+                    <div class="text-center p-6">
+                        <h4 class="text-xl font-bold text-blue-900 dark:text-blue-400 mb-4">Value 4</h4>
+                        <p class="text-gray-600 dark:text-gray-300">Gonna put values here whenever I get the time, but for now I am very tired and want to go to sleep.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Meet the Crew -->
+            <div>
+                <h3 class="text-3xl font-bold text-blue-900 dark:text-blue-400 mb-8">Meet the Crew</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="text-center">
+                        <div class="w-48 h-48 bg-gray-300 dark:bg-gray-600 rounded-full mx-auto mb-4 flex items-center justify-center text-gray-500 dark:text-gray-400">[Photo]</div>
+                        <h4 class="text-xl font-bold text-blue-900 dark:text-blue-400 mb-2">First Last</h4>
+                        <p class="text-gray-600 dark:text-gray-300 font-medium">Job Title</p>
+                        <p class="text-gray-500 dark:text-gray-400 text-sm">Blurb about person and what they do.</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-48 h-48 bg-gray-300 dark:bg-gray-600 rounded-full mx-auto mb-4 flex items-center justify-center text-gray-500 dark:text-gray-400">[Photo]</div>
+                        <h4 class="text-xl font-bold text-blue-900 dark:text-blue-400 mb-2">First Last</h4>
+                        <p class="text-gray-600 dark:text-gray-300 font-medium">Job Title</p>
+                        <p class="text-gray-500 dark:text-gray-400 text-sm">Blurb about person and what they do.</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-48 h-48 bg-gray-300 dark:bg-gray-600 rounded-full mx-auto mb-4 flex items-center justify-center text-gray-500 dark:text-gray-400">[Photo]</div>
+                        <h4 class="text-xl font-bold text-blue-900 dark:text-blue-400 mb-2">First Last</h4>
+                        <p class="text-gray-600 dark:text-gray-300 font-medium">Job Title</p>
+                        <p class="text-gray-500 dark:text-gray-400 text-sm">Blurb about person and what they do.</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-48 h-48 bg-gray-300 dark:bg-gray-600 rounded-full mx-auto mb-4 flex items-center justify-center text-gray-500 dark:text-gray-400">[Photo]</div>
+                        <h4 class="text-xl font-bold text-blue-900 dark:text-blue-400 mb-2">First Last</h4>
+                        <p class="text-gray-600 dark:text-gray-300 font-medium">Job Title</p>
+                        <p class="text-gray-500 dark:text-gray-400 text-sm">Blurb about person and what they do.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-6 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold text-center text-blue-900 dark:text-blue-400 mb-12">Contact Us</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <form class="space-y-6">
+                    <div class="flex flex-col">
+                        <label for="name" class="mb-2 font-medium text-gray-700 dark:text-blue-400">Name</label>
+                        <input type="text" id="name" name="name" required class="p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900 dark:focus:ring-blue-400 dark:bg-gray-600">
+                    </div>
+                    <div class="flex flex-col">
+                        <label for="email" class="mb-2 font-medium text-gray-700 dark:text-blue-400">Email</label>
+                        <input type="email" id="email" name="email" required class="p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900 dark:focus:ring-blue-400 dark:bg-gray-600">
+                    </div>
+                    <div class="flex flex-col">
+                        <label for="phone" class="mb-2 font-medium text-gray-700 dark:text-blue-400">Phone</label>
+                        <input type="tel" id="phone" name="phone" required class="p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900 dark:focus:ring-blue-400 dark:bg-gray-600">
+                    </div>
+                    <div class="flex flex-col">
+                        <label for="message" class="mb-2 font-medium text-gray-700 dark:text-blue-400">Message</label>
+                        <textarea id="message" name="message" required rows="6" class="p-3 border border-gray-300 dark:border-gray-600 rounded-lg resize-y focus:outline-none focus:ring-2 focus:ring-blue-900 dark:focus:ring-blue-400 dark:bg-gray-600"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-blue-900 text-white py-3 px-6 rounded-lg hover:bg-blue-800 transition font-medium text-lg">Send Message</button>
+                </form>
+                <div class="w-full h-96 lg:h-full rounded-xl overflow-hidden shadow-xl">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.911959894982!2d-106.76037112377561!3d34.65692628555955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8721f732a4cc8011%3A0xb9834c05f3fcf27e!2sHusky%20Drilling%20Company!5e0!3m2!1sen!2sus!4v1760955144624!5m2!1sen!2sus" class="w-full h-full border-0" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script type="module" src="/src/main.js"></script>
+
+</body>
 </html>
