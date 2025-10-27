@@ -10,10 +10,12 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "daisyui": "^5.3.10",
     "vite": "^7.1.12"
   },
   "dependencies": {
-    "flowbite": "^3.1.2"
+    "@tailwindcss/vite": "^4.1.16",
+    "flowbite": "^3.1.2",
+    "tailwindcss": "^4.1.16"
   }
 }
-
