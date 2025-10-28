@@ -1,9 +1,8 @@
-@import "tailwindcss";
 @plugin "daisyui" {
     themes: nord --default, sunset --prefersdark;
-    root: ":root";
-    /*include: ;*/
-    /*exclude: ;*/
-    /*prefix: ;*/
+    root: "#my-app";
+    include: button, navbar;
+    exclude: "";
+    prefix: "";
     logs: true;
 }
