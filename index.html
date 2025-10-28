@@ -1,329 +1,348 @@
 <!doctype html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Husky Well & Pump Service - Water When You Need It</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>tailwind.config = { darkMode: 'media' }</script>
+
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Husky Well & Pump Service - Water When You Need It</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config = {darkMode: 'media'}</script>
+
 </head>
 <body class="bg-white dark:bg-gray-900">
 
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full bg-white dark:bg-gray-800 bg-opacity-95 shadow-lg z-50 transition-colors duration-300">
-        <div class="max-w-7xl mx-auto px-6 py-4">
-            <div class="flex justify-between items-center">
-                <a href="/" class="flex items-center">
-                    <span class="text-2xl font-bold text-blue-900 dark:text-blue-400">🐺
-                        Husky
-                    </span>
-                </a>
-                <ul class="flex gap-8 items-center">
-                    <li>
-                        <a href="/" class="text-gray-700 dark:text-gray-300 hover:text-blue-900 dark:hover:text-blue-400 font-medium transition">
-                            Home
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#services" class="text-gray-700 dark:text-gray-300 hover:text-blue-900 dark:hover:text-blue-400 font-medium transition">
-                            Services
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#service-area" class="text-gray-700 dark:text-gray-300 hover:text-blue-900 dark:hover:text-blue-400 font-medium transition">
-                            Service Area
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#our-work" class="text-gray-700 dark:text-gray-300 hover:text-blue-900 dark:hover:text-blue-400 font-medium transition">
-                            Our Work
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#about" class="text-gray-700 dark:text-gray-300 hover:text-blue-900 dark:hover:text-blue-400 font-medium transition">
-                            About Us
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#contact" class="bg-blue-900 dark:bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-800 dark:hover:bg-blue-500 transition">
-                            Contact
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section id="home" class="relative h-screen flex items-center justify-center text-center text-white overflow-hidden">
-        <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-blue-900 to-blue-700"></div>
-        <div class="z-10 px-4">
-            <h1 class="text-6xl font-bold mb-4 drop-shadow-lg">Husky</h1>
-            <p class="text-2xl drop-shadow-md mb-8">Water when you need it!</p>
+  <!-- Navigation -->
+  <nav class="fixed top-0 w-full bg-white dark:bg-gray-800 bg-opacity-95 shadow-lg z-50 transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-6 py-4">
+      <div class="flex justify-between items-center">
+        <a href="/" class="flex items-center">
+            <span class="text-2xl font-bold text-blue-900 dark:text-blue-400">🐺
+              Husky
+            </span>
+        </a>
+        <ul class="flex gap-8 items-center">
+          <li>
+            <a href="/"
+               class="text-gray-700 dark:text-gray-300 hover:text-blue-900 dark:hover:text-blue-400 font-medium transition">
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="#services"
+               class="text-gray-700 dark:text-gray-300 hover:text-blue-900 dark:hover:text-blue-400 font-medium transition">
+              Services
+            </a>
+          </li>
+          <li>
+            <a href="#service-area"
+               class="text-gray-700 dark:text-gray-300 hover:text-blue-900 dark:hover:text-blue-400 font-medium transition">
+              Service Area
+            </a>
+          </li>
+          <li>
+            <a href="#our-work"
+               class="text-gray-700 dark:text-gray-300 hover:text-blue-900 dark:hover:text-blue-400 font-medium transition">
+              Our Work
+            </a>
+          </li>
+          <li>
+            <a href="#about"
+               class="text-gray-700 dark:text-gray-300 hover:text-blue-900 dark:hover:text-blue-400 font-medium transition">
+              About Us
+            </a>
+          </li>
+          <li>
             <a href="#contact"
-               class="inline-block bg-white text-blue-900 px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition">Get a
-                Free Quote</a>
+               class="bg-blue-900 dark:bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-800 dark:hover:bg-blue-500 transition">
+              Contact
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="relative h-screen flex items-center justify-center text-center text-white overflow-hidden">
+    <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-blue-900 to-blue-700"></div>
+    <div class="z-10 px-4">
+      <h1 class="text-6xl font-bold mb-4 drop-shadow-lg">Husky</h1>
+      <p class="text-2xl drop-shadow-md mb-8">Water when you need it!</p>
+      <a href="#contact"
+         class="inline-block bg-white text-blue-900 px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition">Get a
+        Free Quote</a>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="py-20 px-6 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-4xl font-bold text-center text-blue-900 dark:text-blue-400 mb-12">Our Services</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="bg-white dark:bg-gray-700 p-8 rounded-xl shadow-lg hover:-translate-y-2 transition">
+          <div class="text-4xl mb-4">🔧</div>
+          <h3 class="text-xl font-bold text-blue-900 dark:text-blue-400 mb-4">Well Drilling</h3>
+          <p class="text-gray-600 dark:text-gray-300">Professional water well drilling services for residential,
+            agricultural, and commercial properties. We use modern equipment to ensure efficient and reliable
+            wells.</p>
         </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="py-20 px-6 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-4xl font-bold text-center text-blue-900 dark:text-blue-400 mb-12">Our Services</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="bg-white dark:bg-gray-700 p-8 rounded-xl shadow-lg hover:-translate-y-2 transition">
-                    <div class="text-4xl mb-4">🔧</div>
-                    <h3 class="text-xl font-bold text-blue-900 dark:text-blue-400 mb-4">Well Drilling</h3>
-                    <p class="text-gray-600 dark:text-gray-300">Professional water well drilling services for residential,
-                        agricultural, and commercial properties. We use modern equipment to ensure efficient and reliable
-                        wells.</p>
-                </div>
-                <div class="bg-white dark:bg-gray-700 p-8 rounded-xl shadow-lg hover:-translate-y-2 transition">
-                    <div class="text-4xl mb-4">💧</div>
-                    <h3 class="text-xl font-bold text-blue-900 dark:text-blue-400 mb-4">Pump Installation</h3>
-                    <p class="text-gray-600 dark:text-gray-300">Expert installation of submersible and surface pumps. We'll
-                        help you select the right pump system for your water needs and ensure propper installation.</p>
-                </div>
-                <div class="bg-white dark:bg-gray-700 p-8 rounded-xl shadow-lg hover:-translate-y-2 transition">
-                    <div class="text-4xl mb-4">🔨</div>
-                    <h3 class="text-xl font-bold text-blue-900 dark:text-blue-400 mb-4">Pump Repair</h3>
-                    <p class="text-gray-600 dark:text-gray-300">24/7 emergency pump repair services. We diagnose and fix
-                        issues quickly to restore your water supply with minimal downtime.</p>
-                </div>
-                <div class="bg-white dark:bg-gray-700 p-8 rounded-xl shadow-lg hover:-translate-y-2 transition">
-                    <div class="text-4xl mb-4">⚙️</div>
-                    <h3 class="text-xl font-bold text-blue-900 dark:text-blue-400 mb-4">Maintenance</h3>
-                    <p class="text-gray-600 dark:text-gray-300">Regular maintenance plans to keep your well and pump systems
-                        running smoothly. Prevent costly repairs with our preventative care programs.</p>
-                </div>
-            </div>
+        <div class="bg-white dark:bg-gray-700 p-8 rounded-xl shadow-lg hover:-translate-y-2 transition">
+          <div class="text-4xl mb-4">💧</div>
+          <h3 class="text-xl font-bold text-blue-900 dark:text-blue-400 mb-4">Pump Installation</h3>
+          <p class="text-gray-600 dark:text-gray-300">Expert installation of submersible and surface pumps. We'll
+            help you select the right pump system for your water needs and ensure propper installation.</p>
         </div>
-    </section>
-
-    <!-- Service Area Section -->
-    <section id="service-area" class="py-20 px-6 bg-white dark:bg-gray-900 transition-colors duration-300">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-4xl font-bold text-center text-blue-900 dark:text-blue-400 mb-12">Service Area</h2>
-            <p class="text-center text-gray-600 dark:text-gray-300 mb-8 text-lg">We proudly serve communities throughout
-                central New Mexico</p>
-            <div class="w-full h-96 rounded-xl overflow-hidden shadow-xl">
-                <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1PpNvllVDkPfK552xAIQHPjv_gp-K0v0&ehbc=2E312F&noprof=1"
-                        class="w-full h-full border-0" allowfullscreen="" loading="lazy"></iframe>
-            </div>
+        <div class="bg-white dark:bg-gray-700 p-8 rounded-xl shadow-lg hover:-translate-y-2 transition">
+          <div class="text-4xl mb-4">🔨</div>
+          <h3 class="text-xl font-bold text-blue-900 dark:text-blue-400 mb-4">Pump Repair</h3>
+          <p class="text-gray-600 dark:text-gray-300">24/7 emergency pump repair services. We diagnose and fix
+            issues quickly to restore your water supply with minimal downtime.</p>
         </div>
-    </section>
-
-    <!-- Our Work Section -->
-    <section id="our-work" class="py-20 px-6 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-4xl font-bold text-center text-blue-900 dark:text-blue-400 mb-12">Our Work</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="h-72 bg-gray-300 dark:bg-gray-600 rounded-xl shadow-lg flex items-center justify-center text-gray-500 dark:text-gray-400 text-6xl">
-                    🚜
-                </div>
-                <div class="h-72 bg-gray-300 dark:bg-gray-600 rounded-xl shadow-lg flex items-center justify-center text-gray-500 dark:text-gray-400 text-6xl">
-                    💧
-                </div>
-                <div class="h-72 bg-gray-300 dark:bg-gray-600 rounded-xl shadow-lg flex items-center justify-center text-gray-500 dark:text-gray-400 text-6xl">
-                    🔧
-                </div>
-                <div class="h-72 bg-gray-300 dark:bg-gray-600 rounded-xl shadow-lg flex items-center justify-center text-gray-500 dark:text-gray-400 text-6xl">
-                    🏗️
-                </div>
-                <div class="h-72 bg-gray-300 dark:bg-gray-600 rounded-xl shadow-lg flex items-center justify-center text-gray-500 dark:text-gray-400 text-6xl">
-                    ⚙️
-                </div>
-                <div class="h-72 bg-gray-300 dark:bg-gray-600 rounded-xl shadow-lg flex items-center justify-center text-gray-500 dark:text-gray-400 text-6xl">
-                    ✅
-                </div>
-            </div>
+        <div class="bg-white dark:bg-gray-700 p-8 rounded-xl shadow-lg hover:-translate-y-2 transition">
+          <div class="text-4xl mb-4">⚙️</div>
+          <h3 class="text-xl font-bold text-blue-900 dark:text-blue-400 mb-4">Maintenance</h3>
+          <p class="text-gray-600 dark:text-gray-300">Regular maintenance plans to keep your well and pump systems
+            running smoothly. Prevent costly repairs with our preventative care programs.</p>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- About Section -->
-    <section id="about" class="py-20 px-6 bg-white dark:bg-gray-900 transition-colors duration-300">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-4xl font-bold text-center text-blue-900 dark:text-blue-400 mb-16">About Us</h2>
+  <!-- Service Area Section -->
+  <section id="service-area" class="py-20 px-6 bg-white dark:bg-gray-900 transition-colors duration-300">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-4xl font-bold text-center text-blue-900 dark:text-blue-400 mb-12">Service Area</h2>
+      <p class="text-center text-gray-600 dark:text-gray-300 mb-8 text-lg">We proudly serve communities throughout
+        central New Mexico</p>
+      <div class="w-full h-96 rounded-xl overflow-hidden shadow-xl">
+        <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1PpNvllVDkPfK552xAIQHPjv_gp-K0v0&ehbc=2E312F&noprof=1"
+                class="w-full h-full border-0" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>
+  </section>
 
-            <!-- Our History -->
-            <div class="mb-16">
-                <h3 class="text-3xl font-bold text-blue-900 dark:text-blue-400 mb-8">Our History</h3>
-                <div class="relative pl-12 border-l-4 border-blue-900 dark:border-blue-400">
-                    <div class="mb-8 relative">
-                        <div class="absolute -left-14 top-0 w-4 h-4 bg-blue-900 dark:bg-blue-400 rounded-full"></div>
-                        <div class="font-bold text-blue-900 dark:text-blue-400 mb-2">1985</div>
-                        <p class="text-gray-600 dark:text-gray-300">Husky Drilling Company founded, beginning our commitment
-                            to reliable water solutions</p>
-                    </div>
-                    <div class="mb-8 relative">
-                        <div class="absolute -left-14 top-0 w-4 h-4 bg-blue-900 dark:bg-blue-400 rounded-full"></div>
-                        <div class="font-bold text-blue-900 dark:text-blue-400 mb-2">1995</div>
-                        <p class="text-gray-600 dark:text-gray-300">Expanded services to include comprehensive pump
-                            installation and repair</p>
-                    </div>
-                    <div class="mb-8 relative">
-                        <div class="absolute -left-14 top-0 w-4 h-4 bg-blue-900 dark:bg-blue-400 rounded-full"></div>
-                        <div class="font-bold text-blue-900 dark:text-blue-400 mb-2">2005</div>
-                        <p class="text-gray-600 dark:text-gray-300">Grew our service area throughout central New Mexico</p>
-                    </div>
-                    <div class="mb-8 relative">
-                        <div class="absolute -left-14 top-0 w-4 h-4 bg-blue-900 dark:bg-blue-400 rounded-full"></div>
-                        <div class="font-bold text-blue-900 dark:text-blue-400 mb-2">2015</div>
-                        <p class="text-gray-600 dark:text-gray-300">Invested in modern drilling equipment and technology for
-                            improved service</p>
-                    </div>
-                    <div class="relative">
-                        <div class="absolute -left-14 top-0 w-4 h-4 bg-blue-900 dark:bg-blue-400 rounded-full"></div>
-                        <div class="font-bold text-blue-900 dark:text-blue-400 mb-2">Present</div>
-                        <p class="text-gray-600 dark:text-gray-300">Continuing to serve our community with quality well and
-                            pump services</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Our Values -->
-            <div class="mb-16">
-                <h3 class="text-3xl font-bold text-blue-900 dark:text-blue-400 mb-8">Our Values</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <div class="text-center p-6">
-                        <div class="text-5xl mb-4">🎯</div>
-                        <h4 class="text-xl font-bold text-blue-900 dark:text-blue-400 mb-4">Reliability</h4>
-                        <p class="text-gray-600 dark:text-gray-300">We show up on time and get the job done right. Your
-                            water supply is too important for anything less.</p>
-                    </div>
-                    <div class="text-center p-6">
-                        <div class="text-5xl mb-4">⭐</div>
-                        <h4 class="text-xl font-bold text-blue-900 dark:text-blue-400 mb-4">Quality</h4>
-                        <p class="text-gray-600 dark:text-gray-300">We use the best equipment and techniques to ensure
-                            lasting results you can depend on.</p>
-                    </div>
-                    <div class="text-center p-6">
-                        <div class="text-5xl mb-4">🤝</div>
-                        <h4 class="text-xl font-bold text-blue-900 dark:text-blue-400 mb-4">Integrity</h4>
-                        <p class="text-gray-600 dark:text-gray-300">Honest pricing, transparent communication, and doing
-                            what's right for our customers.</p>
-                    </div>
-                    <div class="text-center p-6">
-                        <div class="text-5xl mb-4">🏡</div>
-                        <h4 class="text-xl font-bold text-blue-900 dark:text-blue-400 mb-4">Community</h4>
-                        <p class="text-gray-600 dark:text-gray-300">Proud to serve our neighbors throughout New Mexico with
-                            dedicated local service.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Meet the Crew -->
-            <div>
-                <h3 class="text-3xl font-bold text-blue-900 dark:text-blue-400 mb-8">Meet the Crew</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <div class="text-center">
-                        <div class="w-48 h-48 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-6xl">
-                            👷
-                        </div>
-                        <h4 class="text-xl font-bold text-blue-900 dark:text-blue-400 mb-2">Team Member</h4>
-                        <p class="text-gray-600 dark:text-gray-300 font-medium">Drilling Specialist</p>
-                        <p class="text-gray-500 dark:text-gray-400 text-sm">Experienced professional dedicated to quality
-                            well drilling.</p>
-                    </div>
-                    <div class="text-center">
-                        <div class="w-48 h-48 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-6xl">
-                            🔧
-                        </div>
-                        <h4 class="text-xl font-bold text-blue-900 dark:text-blue-400 mb-2">Team Member</h4>
-                        <p class="text-gray-600 dark:text-gray-300 font-medium">Pump Technician</p>
-                        <p class="text-gray-500 dark:text-gray-400 text-sm">Expert in pump installation, repair, and
-                            maintenance.</p>
-                    </div>
-                    <div class="text-center">
-                        <div class="w-48 h-48 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-6xl">
-                            📋
-                        </div>
-                        <h4 class="text-xl font-bold text-blue-900 dark:text-blue-400 mb-2">Team Member</h4>
-                        <p class="text-gray-600 dark:text-gray-300 font-medium">Service Coordinator</p>
-                        <p class="text-gray-500 dark:text-gray-400 text-sm">Ensuring smooth operations and customer
-                            satisfaction.</p>
-                    </div>
-                    <div class="text-center">
-                        <div class="w-48 h-48 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-6xl">
-                            🚜
-                        </div>
-                        <h4 class="text-xl font-bold text-blue-900 dark:text-blue-400 mb-2">Team Member</h4>
-                        <p class="text-gray-600 dark:text-gray-300 font-medium">Equipment Operator</p>
-                        <p class="text-gray-500 dark:text-gray-400 text-sm">Skilled operator ensuring safe and efficient
-                            work.</p>
-                    </div>
-                </div>
-            </div>
+  <!-- Our Work Section -->
+  <section id="our-work" class="py-20 px-6 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-4xl font-bold text-center text-blue-900 dark:text-blue-400 mb-12">Our Work</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div
+          class="h-72 bg-gray-300 dark:bg-gray-600 rounded-xl shadow-lg flex items-center justify-center text-gray-500 dark:text-gray-400 text-6xl">
+          🚜
         </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 px-6 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-4xl font-bold text-center text-blue-900 dark:text-blue-400 mb-12">Contact Us</h2>
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                <form class="space-y-6" id="contactForm">
-                    <div class="flex flex-col">
-                        <label for="name" class="mb-2 font-medium text-gray-700 dark:text-blue-400">Name</label>
-                        <input type="text" id="name" name="name" required
-                               class="p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900 dark:focus:ring-blue-400 dark:bg-gray-700 dark:text-white">
-                    </div>
-                    <div class="flex flex-col">
-                        <label for="email" class="mb-2 font-medium text-gray-700 dark:text-blue-400">Email</label>
-                        <input type="email" id="email" name="email" required
-                               class="p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900 dark:focus:ring-blue-400 dark:bg-gray-700 dark:text-white">
-                    </div>
-                    <div class="flex flex-col">
-                        <label for="phone" class="mb-2 font-medium text-gray-700 dark:text-blue-400">Phone</label>
-                        <input type="tel" id="phone" name="phone" required
-                               class="p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900 dark:focus:ring-blue-400 dark:bg-gray-700 dark:text-white">
-                    </div>
-                    <div class="flex flex-col">
-                        <label for="message" class="mb-2 font-medium text-gray-700 dark:text-blue-400">Message</label>
-                        <textarea id="message" name="message" required rows="6"
-                                  class="p-3 border border-gray-300 dark:border-gray-600 rounded-lg resize-y focus:outline-none focus:ring-2 focus:ring-blue-900 dark:focus:ring-blue-400 dark:bg-gray-700 dark:text-white"></textarea>
-                    </div>
-                    <button type="submit"
-                            class="w-full bg-blue-900 dark:bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-800 dark:hover:bg-blue-500 transition font-medium text-lg">
-                        Send Message
-                    </button>
-                    <p id="formStatus" class="text-center text-sm text-gray-600 dark:text-gray-400"></p>
-                </form>
-                <div class="w-full h-96 lg:h-full rounded-xl overflow-hidden shadow-xl">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.911959894982!2d-106.76037112377561!3d34.65692628555955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8721f732a4cc8011%3A0xb9834c05f3fcf27e!2sHusky%20Drilling%20Company!5e0!3m2!1sen!2sus!4v1760955144624!5m2!1sen!2sus"
-                            class="w-full h-full border-0" allowfullscreen="" loading="lazy"></iframe>
-                </div>
-            </div>
+        <div
+          class="h-72 bg-gray-300 dark:bg-gray-600 rounded-xl shadow-lg flex items-center justify-center text-gray-500 dark:text-gray-400 text-6xl">
+          💧
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-blue-900 dark:bg-gray-950 text-white py-12 px-6">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-                <div>
-                    <h3 class="text-xl font-bold mb-4">Husky Well & Pump</h3>
-                    <p class="text-blue-200">Professional well drilling and pump services throughout central New Mexico.</p>
-                </div>
-                <div>
-                    <h3 class="text-xl font-bold mb-4">Contact</h3>
-                    <p class="text-blue-200 mb-2">📞 (555) 123-4567</p>
-                    <p class="text-blue-200 mb-2">📧 info@huskywellpump.com</p>
-                    <p class="text-blue-200">⏰ Mon-Fri: 7AM-6PM</p>
-                </div>
-                <div>
-                    <h3 class="text-xl font-bold mb-4">Emergency Service</h3>
-                    <p class="text-blue-200 mb-2">24/7 Emergency Repairs</p>
-                    <p class="text-blue-200">📞 (555) 911-PUMP</p>
-                </div>
-            </div>
-            <div class="border-t border-blue-700 pt-8 text-center text-blue-200">
-                <p>&copy; 2025 Husky Well & Pump Service. All rights reserved.</p>
-            </div>
+        <div
+          class="h-72 bg-gray-300 dark:bg-gray-600 rounded-xl shadow-lg flex items-center justify-center text-gray-500 dark:text-gray-400 text-6xl">
+          🔧
         </div>
-    </footer>
+        <div
+          class="h-72 bg-gray-300 dark:bg-gray-600 rounded-xl shadow-lg flex items-center justify-center text-gray-500 dark:text-gray-400 text-6xl">
+          🏗️
+        </div>
+        <div
+          class="h-72 bg-gray-300 dark:bg-gray-600 rounded-xl shadow-lg flex items-center justify-center text-gray-500 dark:text-gray-400 text-6xl">
+          ⚙️
+        </div>
+        <div
+          class="h-72 bg-gray-300 dark:bg-gray-600 rounded-xl shadow-lg flex items-center justify-center text-gray-500 dark:text-gray-400 text-6xl">
+          ✅
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <script type="module" src="/src/main.js"></script>
+  <!-- About Section -->
+  <section id="about" class="py-20 px-6 bg-white dark:bg-gray-900 transition-colors duration-300">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-4xl font-bold text-center text-blue-900 dark:text-blue-400 mb-16">About Us</h2>
+
+      <!-- Our History -->
+      <div class="mb-16">
+        <h3 class="text-3xl font-bold text-blue-900 dark:text-blue-400 mb-8">Our History</h3>
+        <div class="relative pl-12 border-l-4 border-blue-900 dark:border-blue-400">
+          <div class="mb-8 relative">
+            <div class="absolute -left-14 top-0 w-4 h-4 bg-blue-900 dark:bg-blue-400 rounded-full"></div>
+            <div class="font-bold text-blue-900 dark:text-blue-400 mb-2">1985</div>
+            <p class="text-gray-600 dark:text-gray-300">Husky Drilling Company founded, beginning our commitment
+              to reliable water solutions</p>
+          </div>
+          <div class="mb-8 relative">
+            <div class="absolute -left-14 top-0 w-4 h-4 bg-blue-900 dark:bg-blue-400 rounded-full"></div>
+            <div class="font-bold text-blue-900 dark:text-blue-400 mb-2">1995</div>
+            <p class="text-gray-600 dark:text-gray-300">Expanded services to include comprehensive pump
+              installation and repair</p>
+          </div>
+          <div class="mb-8 relative">
+            <div class="absolute -left-14 top-0 w-4 h-4 bg-blue-900 dark:bg-blue-400 rounded-full"></div>
+            <div class="font-bold text-blue-900 dark:text-blue-400 mb-2">2005</div>
+            <p class="text-gray-600 dark:text-gray-300">Grew our service area throughout central New Mexico</p>
+          </div>
+          <div class="mb-8 relative">
+            <div class="absolute -left-14 top-0 w-4 h-4 bg-blue-900 dark:bg-blue-400 rounded-full"></div>
+            <div class="font-bold text-blue-900 dark:text-blue-400 mb-2">2015</div>
+            <p class="text-gray-600 dark:text-gray-300">Invested in modern drilling equipment and technology for
+              improved service</p>
+          </div>
+          <div class="relative">
+            <div class="absolute -left-14 top-0 w-4 h-4 bg-blue-900 dark:bg-blue-400 rounded-full"></div>
+            <div class="font-bold text-blue-900 dark:text-blue-400 mb-2">Present</div>
+            <p class="text-gray-600 dark:text-gray-300">Continuing to serve our community with quality well and
+              pump services</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Our Values -->
+      <div class="mb-16">
+        <h3 class="text-3xl font-bold text-blue-900 dark:text-blue-400 mb-8">Our Values</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="text-center p-6">
+            <div class="text-5xl mb-4">🎯</div>
+            <h4 class="text-xl font-bold text-blue-900 dark:text-blue-400 mb-4">Reliability</h4>
+            <p class="text-gray-600 dark:text-gray-300">We show up on time and get the job done right. Your
+              water supply is too important for anything less.</p>
+          </div>
+          <div class="text-center p-6">
+            <div class="text-5xl mb-4">⭐</div>
+            <h4 class="text-xl font-bold text-blue-900 dark:text-blue-400 mb-4">Quality</h4>
+            <p class="text-gray-600 dark:text-gray-300">We use the best equipment and techniques to ensure
+              lasting results you can depend on.</p>
+          </div>
+          <div class="text-center p-6">
+            <div class="text-5xl mb-4">🤝</div>
+            <h4 class="text-xl font-bold text-blue-900 dark:text-blue-400 mb-4">Integrity</h4>
+            <p class="text-gray-600 dark:text-gray-300">Honest pricing, transparent communication, and doing
+              what's right for our customers.</p>
+          </div>
+          <div class="text-center p-6">
+            <div class="text-5xl mb-4">🏡</div>
+            <h4 class="text-xl font-bold text-blue-900 dark:text-blue-400 mb-4">Community</h4>
+            <p class="text-gray-600 dark:text-gray-300">Proud to serve our neighbors throughout New Mexico with
+              dedicated local service.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Meet the Crew -->
+      <div>
+        <h3 class="text-3xl font-bold text-blue-900 dark:text-blue-400 mb-8">Meet the Crew</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="text-center">
+            <div
+              class="w-48 h-48 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-6xl">
+              👷
+            </div>
+            <h4 class="text-xl font-bold text-blue-900 dark:text-blue-400 mb-2">Team Member</h4>
+            <p class="text-gray-600 dark:text-gray-300 font-medium">Drilling Specialist</p>
+            <p class="text-gray-500 dark:text-gray-400 text-sm">Experienced professional dedicated to quality
+              well drilling.</p>
+          </div>
+          <div class="text-center">
+            <div
+              class="w-48 h-48 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-6xl">
+              🔧
+            </div>
+            <h4 class="text-xl font-bold text-blue-900 dark:text-blue-400 mb-2">Team Member</h4>
+            <p class="text-gray-600 dark:text-gray-300 font-medium">Pump Technician</p>
+            <p class="text-gray-500 dark:text-gray-400 text-sm">Expert in pump installation, repair, and
+              maintenance.</p>
+          </div>
+          <div class="text-center">
+            <div
+              class="w-48 h-48 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-6xl">
+              📋
+            </div>
+            <h4 class="text-xl font-bold text-blue-900 dark:text-blue-400 mb-2">Team Member</h4>
+            <p class="text-gray-600 dark:text-gray-300 font-medium">Service Coordinator</p>
+            <p class="text-gray-500 dark:text-gray-400 text-sm">Ensuring smooth operations and customer
+              satisfaction.</p>
+          </div>
+          <div class="text-center">
+            <div
+              class="w-48 h-48 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-6xl">
+              🚜
+            </div>
+            <h4 class="text-xl font-bold text-blue-900 dark:text-blue-400 mb-2">Team Member</h4>
+            <p class="text-gray-600 dark:text-gray-300 font-medium">Equipment Operator</p>
+            <p class="text-gray-500 dark:text-gray-400 text-sm">Skilled operator ensuring safe and efficient
+              work.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 px-6 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-4xl font-bold text-center text-blue-900 dark:text-blue-400 mb-12">Contact Us</h2>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <form class="space-y-6" id="contactForm">
+          <div class="flex flex-col">
+            <label for="name" class="mb-2 font-medium text-gray-700 dark:text-blue-400">Name</label>
+            <input type="text" id="name" name="name" required
+                   class="p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900 dark:focus:ring-blue-400 dark:bg-gray-700 dark:text-white">
+          </div>
+          <div class="flex flex-col">
+            <label for="email" class="mb-2 font-medium text-gray-700 dark:text-blue-400">Email</label>
+            <input type="email" id="email" name="email" required
+                   class="p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900 dark:focus:ring-blue-400 dark:bg-gray-700 dark:text-white">
+          </div>
+          <div class="flex flex-col">
+            <label for="phone" class="mb-2 font-medium text-gray-700 dark:text-blue-400">Phone</label>
+            <input type="tel" id="phone" name="phone" required
+                   class="p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900 dark:focus:ring-blue-400 dark:bg-gray-700 dark:text-white">
+          </div>
+          <div class="flex flex-col">
+            <label for="message" class="mb-2 font-medium text-gray-700 dark:text-blue-400">Message</label>
+            <textarea id="message" name="message" required rows="6"
+                      class="p-3 border border-gray-300 dark:border-gray-600 rounded-lg resize-y focus:outline-none focus:ring-2 focus:ring-blue-900 dark:focus:ring-blue-400 dark:bg-gray-700 dark:text-white"></textarea>
+          </div>
+          <button type="submit"
+                  class="w-full bg-blue-900 dark:bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-800 dark:hover:bg-blue-500 transition font-medium text-lg">
+            Send Message
+          </button>
+          <p id="formStatus" class="text-center text-sm text-gray-600 dark:text-gray-400"></p>
+        </form>
+        <div class="w-full h-96 lg:h-full rounded-xl overflow-hidden shadow-xl">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.911959894982!2d-106.76037112377561!3d34.65692628555955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8721f732a4cc8011%3A0xb9834c05f3fcf27e!2sHusky%20Drilling%20Company!5e0!3m2!1sen!2sus!4v1760955144624!5m2!1sen!2sus"
+            class="w-full h-full border-0" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-blue-900 dark:bg-gray-950 text-white py-12 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+        <div>
+          <h3 class="text-xl font-bold mb-4">Husky Well & Pump</h3>
+          <p class="text-blue-200">Professional well drilling and pump services throughout central New Mexico.</p>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold mb-4">Contact</h3>
+          <p class="text-blue-200 mb-2">📞 (555) 123-4567</p>
+          <p class="text-blue-200 mb-2">📧 info@huskywellpump.com</p>
+          <p class="text-blue-200">⏰ Mon-Fri: 7AM-6PM</p>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold mb-4">Emergency Service</h3>
+          <p class="text-blue-200 mb-2">24/7 Emergency Repairs</p>
+          <p class="text-blue-200">📞 (555) 911-PUMP</p>
+        </div>
+      </div>
+      <div class="border-t border-blue-700 pt-8 text-center text-blue-200">
+        <p>&copy; 2025 Husky Well & Pump Service. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/main.js"></script>
 
 </body>
 </html>
