@@ -1,8 +1,0 @@
-@plugin "daisyui" {
-    themes: nord --default, sunset --prefersdark;
-    root: "#my-app";
-    include: button, navbar;
-    exclude: "";
-    prefix: "";
-    logs: true;
-}
