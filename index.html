@@ -7,31 +7,74 @@
     <title>project-dawgemo</title>
   </head>
   <body>
-    <div class="navbar bg-base-100 shadow-sm">
-      <div class="flex-1">
-        <a class="btn btn-ghost text-xl">🐺 Husky</a>
+    <!-- navbar -->
+    <div class="navbar bg-base-200 shadow-sm">
+      <!-- desktop view -->
+      <div class="hidden lg:contents">
+        <div class="flex-1">
+          <a class="text-xl">🐺 Husky Well & Pump Service</a>
+        </div>
+        <div>
+          <ul class="menu menu-horizontal px-1">
+            <li><a>Home</a></li>
+            <li><a>Services</a></li>
+            <li><a>Service Area</a></li>
+            <li><a>Our Work</a></li>
+            <li>
+              <details>
+                <summary>About Us</summary>
+                <ul class="bg-base-200 p-2 w-33 mt-5">
+                  <li><a>Our History</a></li>
+                  <li><a>Our Values</a></li>
+                  <li><a>Meet the Crew</a></li>
+                </ul>
+              </details>
+            </li>
+          </ul>
+          <button class="btn btn-outline btn-secondary hover:bg-gradient-to-l hover:from-secondary hover:to-primary hover:border-transparent dark:hover:bg-gradient-to-r">
+            Contact
+          </button>
+        </div>
       </div>
-      <div class="flex-none">
-        <ul class="menu menu-horizontal px-1">
-          <li><a>Services</a></li>
-          <li><a>Service Area</a></li>
-          <li><a>Our Work</a></li>
-          <li>
-            <details>
-              <summary>About Us</summary>
-              <ul class="bg-base-100 rounded-t-none p-2">
-                <li><a>Our History</a></li>
-                <li><a>Our Values</a></li>
-                <li><a>Meet the Crew</a></li>
-              </ul>
-            </details>
-          </li>
-        </ul>
-        <button class="btn btn-outline btn-secondary">
+      <!-- mobile view -->
+      <div class="contents lg:hidden">
+        <div class="flex-1">
+          <a class="text-xl">🐺 Husky</a>
+        </div>
+        <button class="lg:hidden btn btn-xs btn-outline btn-secondary hover:btn-transparent hover:bg-gradient-to-l hover:from-secondary hover:to-primary hover:border-transparent dark:hover:bg-gradient-to-r">
           Contact
         </button>
+        <div class="dropdown dropdown-end ml-auto">
+          <div tabindex="0" role="button" class="btn btn-ghost px-2">
+            <svg class="h-5 w-5" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 6h-16 M20 12h-16 M20 18h-16"/>
+            </svg>
+          </div>
+          <ul class="menu menu-sm dropdown-content bg-base-200 rounded-box mt-5 w-52 p-2 shadow">
+            <li><a>Home</a></li>
+            <li><a>Services</a></li>
+            <li><a>Service Area</a></li>
+            <li><a>Our Work</a></li>
+            <li>
+              <details>
+                <summary>About Us</summary>
+                <ul class="bg-base-200 p-2 w-33">
+                  <li><a>Our History</a></li>
+                  <li><a>Our Values</a></li>
+                  <li><a>Meet the Crew</a></li>
+                </ul>
+              </details>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
+    <!-- hero section -->
+    <!-- services section -->
+    <!-- service area section -->
+    <!-- our work section -->
+    <!-- about us section -->
+    <!-- contact section -->
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
