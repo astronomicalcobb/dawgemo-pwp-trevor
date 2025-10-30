@@ -7,15 +7,17 @@
     <title>project-dawgemo</title>
   </head>
   <body>
+
     <!-- navbar -->
-    <div class="navbar bg-base-200 shadow-sm">
+    <div class="navbar bg-base-200 shadow-sm min-h-12 px-1 md:px-2.5 lg:px-4">
+
       <!-- desktop view -->
       <div class="hidden lg:contents">
         <div class="flex-1">
-          <a class="text-xl">🐺 Husky Well & Pump Service</a>
+          <a class="text-xl text-base-content">🐺 Husky Well & Pump Service</a>
         </div>
-        <div>
-          <ul class="menu menu-horizontal px-1">
+        <div class="flex items-center gap-2">
+          <ul class="menu menu-horizontal gap-1 px-1 text-base-content">
             <li><a>Home</a></li>
             <li><a>Services</a></li>
             <li><a>Service Area</a></li>
@@ -23,7 +25,7 @@
             <li>
               <details>
                 <summary>About Us</summary>
-                <ul class="bg-base-200 p-2 w-33 mt-5">
+                <ul class="bg-base-200 rounded-box shadow p-2 w-33 mt-6 text-base-content">
                   <li><a>Our History</a></li>
                   <li><a>Our Values</a></li>
                   <li><a>Meet the Crew</a></li>
@@ -31,45 +33,62 @@
               </details>
             </li>
           </ul>
+  
           <!-- contact button -->
-          <button class="hover:cursor-pointer relative px-8 py-4 text-lg font-semibold text-base-content bg-transparent rounded-xs overflow-hidden group">
+          <button class="relative px-4 py-1.5 pb-2 text-md font-semibold text-base-content bg-transparent rounded-sm overflow-hidden group hover:cursor-pointer active:scale-95 transition-transform duration-100">
             <!-- gradient border -->
-            <span class="absolute inset-0 rounded-lg bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 p-[2px]">
-              <span class="flex items-center justify-center w-full h-full bg-base-100 rounded-lg group-hover:bg-transparent transition-colors duration-80"></span>
-            </span>
+            <span class="absolute inset-0 rounded-sm bg-gradient-to-r from-primary to-secondary p-[2px]">
+            <span class="flex items-center justify-center w-full h-full bg-base-200 rounded-sm group-hover:bg-transparent transition-colors duration-300"></span>
+          </span>
             <!-- gradient background on hover -->
-            <span class="absolute inset-[2px] rounded-lg bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+            <span class="absolute inset-[2px] rounded-sm bg-gradient-to-r from-primary to-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
             <!-- button text -->
-            <span class="relative z-10"> Contact </span>
+            <span class="relative z-10">Contact</span>
           </button>
         </div>
       </div>
+  
       <!-- mobile view -->
       <div class="contents lg:hidden">
-        <div class="flex-1">
-          <a class="text-xl">🐺 Husky</a>
+        <div class="flex-1 pl-1.5">
+          <a class="text-lg text-base-content md:hidden">🐺</a>
+          <a class="hidden md:block text-lg text-base-content">🐺 Husky Well & Pump Service</a>
         </div>
-        <button class="btn btn-sm btn-outline btn-secondary hover:bg-gradient-to-l hover:from-secondary hover:to-primary hover:border-transparent">
-          Contact
-        </button>
+
+        <!-- dropdown menu -->
         <div class="dropdown dropdown-end ml-auto">
-          <div tabindex="0" role="button" class="btn btn-ghost px-2">
+          <div tabindex="0" role="button" class="btn px-2 bg-transparent border-transparent">
             <svg class="h-5 w-5" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 6h-16 M20 12h-16 M20 18h-16"/>
             </svg>
           </div>
-          <ul class="menu menu-sm dropdown-content bg-base-200 rounded-box mt-5 w-52 p-2 shadow">
-            <li><a>Home</a></li>
-            <li><a>Services</a></li>
-            <li><a>Service Area</a></li>
-            <li><a>Our Work</a></li>
+
+          <ul class="menu menu-sm dropdown-content bg-base-200 rounded-box shadow p-2 mt-4 mr-1 md:mr-0 w-54">
+            <!-- contact button -->
+            <li>
+              <button class="relative px-4 py-1.5 pb-2 m-1 text-sm font-semibold text-base-content bg-transparent rounded-sm overflow-hidden group hover:cursor-pointer active:scale-95 transition-transform duration-100">
+                <!-- gradient border -->
+                <span class="absolute inset-0 rounded-sm bg-gradient-to-r from-primary to-secondary p-[2px]">
+                <span class="flex items-center w-full h-full bg-base-100 rounded-sm group-hover:bg-transparent transition-colors duration-300"></span>
+              </span>
+                <!-- gradient background on hover -->
+                <span class="absolute inset-[2px] rounded-sm bg-gradient-to-r from-primary to-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                <!-- button text -->
+                <span class="relative z-10">Contact</span>
+              </button>
+            </li>
+  
+            <li><a class="pl-5 py-2 mb-1">Home</a></li>
+            <li><a class="pl-5 py-2 mb-1">Services</a></li>
+            <li><a class="pl-5 py-2 mb-1">Service Area</a></li>
+            <li><a class="pl-5 py-2 mb-1">Our Work</a></li>
             <li>
               <details>
-                <summary>About Us</summary>
-                <ul class="bg-base-200 p-2 w-33">
-                  <li><a>Our History</a></li>
-                  <li><a>Our Values</a></li>
-                  <li><a>Meet the Crew</a></li>
+                <summary class="pl-5 py-2 mb-1">About Us</summary>
+                <ul class="bg-base-200 p-2 py-0">
+                  <li><a class="py-2 mb-1">Our History</a></li>
+                  <li><a class="py-2 mb-1">Our Values</a></li>
+                  <li><a class="py-2 mb-1">Meet the Crew</a></li>
                 </ul>
               </details>
             </li>
