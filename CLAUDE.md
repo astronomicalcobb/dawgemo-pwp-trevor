@@ -140,5 +140,5 @@ Maps use border and matching background color to prevent white corners from show
 - Sections use `py-20 px-6` for consistent vertical/horizontal padding
 - Content containers: `max-w-7xl mx-auto` for centered max-width layout
 - Cards: `rounded-md shadow-lg` for consistent card styling
-- Hover effects: `hover:translate-2 transition` on service cards
+- Hover effects: `hover:-translate-y-2 transition` on service cards
 - Dark mode: Every styled element has `dark:` variants for colors
