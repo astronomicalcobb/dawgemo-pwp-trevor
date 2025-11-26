@@ -32,14 +32,15 @@ document.getElementById('subject').addEventListener('input', function(e) {
   const counter = document.getElementById('subjectCounter')
   const length = e.target.value.length
   const maxLength = 128
+  const minLength =
 
   counter.textContent = `(${length}/${maxLength})`
 
   if (length === maxLength) {
     counter.className = 'text-sm text-red-600 dark:text-red-400 ml-2'
-  } else if (length > maxLength * 0.7) {
+  } else if (length > maxLength * 0.8) {
     counter.className = 'text-sm text-yellow-600 dark:text-yellow-400 ml-2'
-  } else {
+  } else if (length >= 5){
     counter.className = 'text-sm text-green-600 dark:text-green-400 ml-2'
   }
 })
@@ -65,7 +66,7 @@ function setupMessageFormatting() {
     } else if (length >= minLength) {
       counter.className = 'text-sm text-green-600 dark:text-green-400 ml-2'
     } else {
-      counter.className = 'text-sm text-slate-500 dark:text-slate-400 ml-2'
+      counter.className = 'text-sm text-gray-500 dark:text-gray-400 ml-2'
     }
   })
 }

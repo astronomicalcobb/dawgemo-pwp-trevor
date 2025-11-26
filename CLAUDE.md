@@ -48,12 +48,23 @@ The entire website is contained in `index.html` with the following sections in o
 
 Dark mode is implemented using Tailwind's `dark:` variant with `darkMode: 'media'` configuration. Colors automatically switch based on user's system preference.
 
+**Dark Mode Color Palette:**
+- **Backgrounds**: gray-800 and gray-900 alternating for sections, gray-700 for cards
+- **Primary Text**: gray-300 for body text
+- **Headings**: cyan-400 for all h2/h3 headings
+- **Accents**: cyan-400 for links, icons, and interactive elements
+- **Navigation**: gray-800 background with cyan-400 logo/links
+- **Buttons**: cyan-600 with cyan-700 hover states
+- **Borders**: gray-700 for subtle separation
+
 ### JavaScript Entry Point
 
 `src/main.js` is the single JavaScript entry point that:
 - Imports Flowbite for interactive components
 - Initializes Lucide icons with `createIcons({ icons })`
-- Note: Line 5 has a bug - uses `document.append()` instead of proper DOM insertion
+- Imports and initializes EmailJS for contact form submissions
+- Imports IMask for phone number formatting
+- Handles form validation and input formatting (name capitalization, phone masking, character counters)
 
 ### Styling
 
@@ -80,24 +91,54 @@ Tailwind is loaded via CDN in the HTML `<head>` with inline configuration: `tail
 ## Key Implementation Details
 
 ### Navigation
-Fixed-position navbar (`fixed top-0 w-full`) with smooth scrolling enabled via `scroll-smooth` class on `<html>`. All nav links use anchor links to section IDs.
+Fixed-position navbar (`fixed top-0 w-full`) with smooth scrolling enabled via `scroll-smooth` class on `<html>`. All nav links use anchor links to section IDs. Responsive padding is applied to the nav element (`px-4 sm:px-6 md:px-8 lg:px-10`) to ensure content alignment with sections at all breakpoints.
 
 ### Forms
-Contact form (#contactForm) includes name, email, phone, and message fields. Form submission handling is not implemented - no event listener attached in main.js.
+Contact form (#contactForm) includes name, email, phone, subject, and message fields with full validation and submission handling via EmailJS. The form uses a responsive grid layout (`grid grid-cols-1 sm:grid-cols-2 gap-4`) for name/phone fields. Features include:
+- Name input with automatic capitalization
+- Phone input with IMask formatting: `(000) 000-0000`
+- Subject field with character counter (max 128 chars) and color-coded feedback
+- Message textarea with character counter (min 16, max 1024 chars) and validation hints
+- EmailJS integration for sending emails (service_8uwodx9, template_8ir0hso)
 
 ### Maps
-Two embedded Google Maps:
+Two embedded Google Maps with rounded corners (`rounded-md` on both container and iframe):
 - Service area map in #service-area section
 - Contact location map in #contact section (points to Husky Drilling Company location)
+Maps use border and matching background color to prevent white corners from showing.
 
 ### Color Scheme
-Primary brand colors: Blue-900 (dark blue) for light mode, Blue-400 for dark mode
-Secondary: Gray scale for backgrounds and text
+
+**Light Mode:**
+- **Backgrounds**: gray-200 for body, gray-100 and gray-200 alternating for sections, gray-50 for cards
+- **Primary Text**: gray-700 for body text
+- **Headings**: cyan-600 for all h2/h3 headings
+- **Accents**: cyan-600 for links, icons, and interactive elements
+- **Navigation**: gray-100 background with cyan-600 logo, gray-700 text with cyan-600 hover states
+- **Buttons**: cyan-600 with cyan-700 hover states, gray-100 text
+- **Borders**: gray-300 for subtle separation
+- **Footer**: gray-100 background with gray-700 text and cyan-600 headings
+
+**Dark Mode:**
+- **Backgrounds**: gray-800 and gray-900 alternating for sections, gray-700 for cards
+- **Primary Text**: gray-300 for body text
+- **Headings**: cyan-400 for all h2/h3 headings
+- **Accents**: cyan-400 for links, icons, and interactive elements
+- **Navigation**: gray-800 background with gray-300 text
+- **Buttons**: cyan-600 with cyan-700 hover states
+- **Borders**: gray-700 for subtle separation
+- **Footer**: gray-950 background with gray-400 text and gray-300 headings
+
+**Consistent Elements:**
+- Both modes use gray color palette for backgrounds and neutrals
+- cyan is the primary brand color across both modes (cyan-600 in light, cyan-400 in dark)
+- Smooth transitions on color changes: `transition-colors duration-300`
+- Buttons use cyan-600/cyan-700 in both modes for consistency
 
 ## Common Patterns
 
 - Sections use `py-20 px-6` for consistent vertical/horizontal padding
 - Content containers: `max-w-7xl mx-auto` for centered max-width layout
 - Cards: `rounded-md shadow-lg` for consistent card styling
-- Hover effects: `hover:-translate-y-2 transition` on service cards
+- Hover effects: `hover:-trangray-y-2 transition` on service cards
 - Dark mode: Every styled element has `dark:` variants for colors
