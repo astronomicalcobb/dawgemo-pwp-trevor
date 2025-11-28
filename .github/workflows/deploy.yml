@@ -27,4 +27,5 @@ jobs:
       - name: Deploy to server
         run: |
           ssh-keyscan -H huskydrilling.com >> ~/.ssh/known_hosts
+          scp -r /path/to/your/website/* astrocobb@huskydrilling.com:/var/www/huskydrilling.com/html/
           rsync -avz --delete ./dist/ astrocobb@huskydrilling.com:/var/www/huskydrilling.com/html/
