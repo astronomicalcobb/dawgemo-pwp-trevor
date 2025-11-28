@@ -1,5 +1,6 @@
 To-do:
 - Publish website
+- Reorganize class attributes for faster and more efficient editing
 - Add favicon
 - Finish styling
 - Fix footer formatting
