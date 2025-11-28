@@ -1,15 +1,22 @@
 name: Deploy via SSH
-'on':
-  - push
-  - repository_dispatch
+on:
+  push:
+    branches:
+      - main
+  repository_dispatch:
 permissions:
   actions: read
   contents: read
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    environment: production
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
       - uses: webfactory/ssh-agent@v0.9.0
         with:
           ssh-private-key: ${{ secrets.PRIVATE_KEY }}
@@ -20,4 +27,4 @@ jobs:
       - name: Deploy to server
         run: |
           ssh-keyscan -H huskydrilling.com >> ~/.ssh/known_hosts
-          scp -r ./dist/* astrocobb@huskydrilling.com:/var/www/huskydrilling.com/html
+          rsync -avz --delete ./dist/ astrocobb@huskydrilling.com:/var/www/huskydrilling.com/html/
