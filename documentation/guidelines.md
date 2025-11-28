@@ -6,6 +6,7 @@ To-do:
 
 Planned Features:
 - Add contact buttons
+- Add reCAPTCHA to the contact form
 - Switch UI package
 - Add actual logo and (maybe) font
 - Add pop-outs for some cards
