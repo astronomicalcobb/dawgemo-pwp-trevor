@@ -1,19 +1,18 @@
 To-do:
-- Publish website
+- Finish the map
 - Reorganize class attributes for faster and more efficient editing
 - Add favicon
 - Finish styling
-- Fix footer formatting
 
 Planned Features:
 - Add contact buttons
 - Add reCAPTCHA to the contact form
-- Switch UI package
 - Add actual logo and (maybe) font
 - Add pop-outs for some cards
+- Refresh buttons
 - Update timeline
 - Add meet the crew section
-- Refresh buttons
+- Switch UI package
 - Change links to buttons
 
 Bugs:

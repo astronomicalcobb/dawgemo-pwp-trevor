@@ -5,12 +5,10 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Husky Drilling</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>tailwind.config = { darkMode: 'media' }</script>
+		<link href="/src/style.css" rel="stylesheet">
 		<link rel="icon" type="image" href="/dawg.png">
-		<!--<link rel="icon"-->
-		<!--			href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐺</text></svg>"-->
-		<!--/>-->
+    <script>(g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]);for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({key:"AIzaSyAi3vqD5-waWnp7BmeKYW7TmPr3ptE7RmU",v:"weekly"});</script>
+
   </head>
   <body class="bg-gray-200 dark:bg-gray-900">
 
@@ -154,10 +152,7 @@
         <p class="text-left text-gray-700 dark:text-gray-300 mb-3 sm:mb-6 md:mb-8 lg:mb-10 text-lg">
 					We proudly serve communities throughout central New Mexico
 				</p>
-        <div class="w-full h-[32vh] sm:h-[64vh] border-2 border-gray-300 dark:border-gray-700 rounded-md overflow-hidden shadow-xl bg-gray-300 dark:bg-gray-700">
-          <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1PpNvllVDkPfK552xAIQHPjv_gp-K0v0&ehbc=2E312F&noprof=1"
-									class="w-full h-full rounded-md" allowfullscreen="" loading="lazy"></iframe>
-        </div>
+        <div id="service-area-map" class="w-full h-[32vh] sm:h-[64vh] border-2 border-gray-300 dark:border-gray-700 rounded-md overflow-hidden shadow-xl bg-gray-300 dark:bg-gray-700"></div>
       </div>
     </section>
 
@@ -350,59 +345,61 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="px-4 py-11 sm:px-6 sm:py-12 md:px-8 md:py-13 lg:px-10 lg:py-14 bg-gray-100 dark:bg-gray-800 transition-colors duration-300">
+    <section id="contact" class="px-4 py-11 sm:px-6 sm:py-12 md:px-8 md:py-13 lg:px-10 lg:py-14 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
       <div class="max-w-7xl mx-auto">
         <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-left text-cyan-600 dark:text-gray-300 mb-3 sm:mb-5 md:mb-7 lg:mb-9">Contact Us</h2>
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-					<form id="contactForm">
-						<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:items-end">
+					<form id="contactForm" class="flex flex-col">
+						<div class="flex-grow">
+							<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
 
-							<!-- Name Field -->
-							<div class="flex flex-col">
-								<label for="name" class="mb-2 font-medium text-gray-700 dark:text-gray-300">
-									Name
+								<!-- Name Field -->
+								<div class="flex flex-col">
+									<label for="name" class="mb-2 font-medium text-gray-700 dark:text-gray-300">
+										Name
+									</label>
+									<input type="text" id="name" name="name" placeholder="Full Name" required
+												 class="p-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-1 focus:ring-cyan-600 dark:focus:ring-gray-400 dark:bg-gray-700 dark:text-gray-300">
+								</div>
+
+								<!-- Phone Field -->
+								<div class="flex flex-col">
+									<label for="phone" class="mb-2 font-medium text-gray-700 dark:text-gray-300">
+										Phone
+									</label>
+									<input type="tel" id="phone" name="phone" maxlength="64" minlength="4" placeholder="(505) 555-5555" required
+												 class="p-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-1 focus:ring-cyan-600 dark:focus:ring-gray-400 dark:bg-gray-700 dark:text-gray-300">
+								</div>
+							</div>
+
+							<!-- Email Field -->
+							<div class="flex flex-col mt-2">
+								<label for="email" class="mb-2 font-medium text-gray-700 dark:text-gray-300">
+									Email
 								</label>
-								<input type="text" id="name" name="name" placeholder="Full Name" required
+								<input type="email" id="email" name="email" maxlength="64" minlength="8" placeholder="youremail@example.com" required
 											 class="p-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-1 focus:ring-cyan-600 dark:focus:ring-gray-400 dark:bg-gray-700 dark:text-gray-300">
 							</div>
 
-							<!-- Phone Field -->
-							<div class="flex flex-col">
-								<label for="phone" class="mb-2 font-medium text-gray-700 dark:text-gray-300">
-									Phone
+							<!-- Subject Field -->
+							<div class="flex flex-col mt-2">
+								<label for="subject" class="mb-2 font-medium text-gray-700 dark:text-gray-300">
+									Subject
+									<span id="subjectCounter" class="text-xs text-gray-500 dark:text-gray-400 ml-2">(0/128)</span>
 								</label>
-								<input type="tel" id="phone" name="phone" maxlength="64" minlength="4" placeholder="(505) 555-5555" required
+								<input type="text" id="subject" name="subject" maxlength="128" minlength="4" placeholder="Enter the subject..." required
 											 class="p-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-1 focus:ring-cyan-600 dark:focus:ring-gray-400 dark:bg-gray-700 dark:text-gray-300">
 							</div>
-						</div>
 
-						<!-- Email Field -->
-						<div class="flex flex-col mt-2">
-							<label for="email" class="mb-2 font-medium text-gray-700 dark:text-gray-300">
-								Email
-							</label>
-							<input type="email" id="email" name="email" maxlength="64" minlength="8" placeholder="example@huskydrilling.com" required
-										 class="p-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-1 focus:ring-cyan-600 dark:focus:ring-gray-400 dark:bg-gray-700 dark:text-gray-300">
-						</div>
-
-						<!-- Subject Field -->
-						<div class="flex flex-col mt-2">
-							<label for="subject" class="mb-2 font-medium text-gray-700 dark:text-gray-300">
-								Subject
-								<span id="subjectCounter" class="text-xs text-gray-500 dark:text-gray-400 ml-2">(0/128)</span>
-							</label>
-							<input type="text" id="subject" name="subject" maxlength="128" minlength="4" placeholder="Enter the subject..." required
-										 class="p-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-1 focus:ring-cyan-600 dark:focus:ring-gray-400 dark:bg-gray-700 dark:text-gray-300">
-						</div>
-
-						<!-- Message Field -->
-						<div class="flex flex-col mt-2">
-							<label for="message" class="mb-2 font-medium text-gray-700 dark:text-gray-300">
-								Message
-								<span id="messageCounter" class="text-xs text-gray-500 dark:text-gray-400 ml-2">(0/1024)</span>
-							</label>
-							<textarea id="message" name="message" rows="6" minlength="16" maxlength="1024" placeholder="Enter your message..." required
-												class="p-2 border border-gray-300 dark:border-gray-600 rounded-md resize-y focus:outline-none focus:ring-1 focus:ring-cyan-600 dark:focus:ring-gray-400 dark:bg-gray-700 dark:text-gray-300"></textarea>
+							<!-- Message Field -->
+							<div class="flex flex-col mt-2">
+								<label for="message" class="mb-2 font-medium text-gray-700 dark:text-gray-300">
+									Message
+									<span id="messageCounter" class="text-xs text-gray-500 dark:text-gray-400 ml-2">(0/1024)</span>
+								</label>
+								<textarea id="message" name="message" rows="11" minlength="16" maxlength="1024" placeholder="Enter your message..." required
+													class="p-2 border border-gray-300 dark:border-gray-600 rounded-md resize-y focus:outline-none focus:ring-1 focus:ring-cyan-600 dark:focus:ring-gray-400 dark:bg-gray-700 dark:text-gray-300"></textarea>
+							</div>
 						</div>
 
 						<!-- Submit Button -->
@@ -411,14 +408,18 @@
 							Send Message
 						</button>
 
-						<p id="formStatus" class="text-center text-sm text-gray-700 dark:text-gray-400 mt-2"></p>
+						<p id="formStatus" class="text-center text-sm text-gray-700 dark:text-gray-400"></p>
 					</form>
 
-					<!-- Company Map -->
-          <div class="w-full h-96 lg:h-full rounded-md overflow-hidden shadow-xl">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.911959894982!2d-106.76037112377561!3d34.65692628555955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8721f732a4cc8011%3A0xb9834c05f3fcf27e!2sHusky%20Drilling%20Company!5e0!3m2!1sen!2sus!4v1760955144624!5m2!1sen!2sus"
-              class="w-full h-full border-0" allowfullscreen="" loading="lazy"></iframe>
+					<!-- Company Map & Details -->
+          <div class="flex flex-col gap-4 sm:gap-6 md:gap-8 lg:gap-10">
+            <div id="contact-map" class="w-full h-72 lg:h-80 border-2 border-gray-300 dark:border-gray-700 rounded-md overflow-hidden shadow-lg"></div>
+            <div id="place-details" class="bg-gray-200 dark:bg-gray-700 p-5 sm:p-6 md:p-8 lg:p-10 rounded-md shadow-lg">
+              <div class="animate-pulse">
+                <div class="h-4 bg-gray-200 dark:bg-gray-600 rounded w-3/4 mb-2"></div>
+                <div class="h-3 bg-gray-200 dark:bg-gray-600 rounded w-1/2"></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -433,26 +434,26 @@
           <div>
             <div class="flex items-center mb-4">
               <span class="text-3xl mr-2">🐺</span>
-              <h3 class="text-xl sm:text-2xl font-bold text-cyan-600 dark:text-gray-300">Husky Drilling</h3>
+              <h3 class="text-xl sm:text-2xl font-bold text-gray-700 dark:text-gray-300">Husky Drilling</h3>
             </div>
-            <p class="text-gray-700 dark:text-gray-400 leading-relaxed">
+            <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
               Professional water well drilling and pump services throughout central New Mexico.
             </p>
           </div>
 
           <!-- Contact Info -->
           <div>
-            <h3 class="text-xl sm:text-2xl font-bold mb-4 text-cyan-600 dark:text-gray-300">Contact</h3>
+            <h3 class="text-xl sm:text-2xl font-bold mb-4 text-gray-700 dark:text-gray-300">Contact</h3>
             <div class="space-y-3">
-              <a href="tel:5058640779" class="flex items-center text-gray-700 dark:text-gray-400 hover:text-cyan-600 dark:hover:text-gray-400 transition group">
+              <a href="tel:5058640779" class="flex items-center text-gray-700 dark:text-gray-400 hover:text-cyan-600 dark:hover:text-gray-600 transition group">
                 <i data-lucide="phone" class="inline w-5 h-5 mr-3 group-hover:scale-110 transition-transform"></i>
                 <span>(505) 864-0779</span>
               </a>
-              <a href="mailto:huskywellservice@gmail.com" class="flex items-center text-gray-700 dark:text-gray-400 hover:text-cyan-600 dark:hover:text-gray-400 transition group">
+              <a href="mailto:huskywellservice@gmail.com" class="flex items-center text-gray-600 dark:text-gray-400 hover:text-cyan-600 dark:hover:text-gray-400 transition group">
                 <i data-lucide="mail" class="inline w-5 h-5 mr-3 group-hover:scale-110 transition-transform"></i>
                 <span>huskywellservice@gmail.com</span>
               </a>
-              <div class="flex items-center text-gray-700 dark:text-gray-400">
+              <div class="flex items-center text-gray-600 dark:text-gray-400">
                 <i data-lucide="clock-4" class="inline w-5 h-5 mr-3"></i>
                 <span>Mon-Fri: 9AM-5PM</span>
               </div>
@@ -461,13 +462,13 @@
 
           <!-- Quick Links -->
           <div>
-            <h3 class="text-xl sm:text-2xl font-bold mb-4 text-cyan-600 dark:text-gray-300">Quick Links</h3>
+            <h3 class="text-xl sm:text-2xl font-bold mb-4 text-gray-700 dark:text-gray-300">Quick Links</h3>
             <nav class="space-y-2">
-              <a href="#services" class="block text-gray-700 dark:text-gray-400 hover:text-cyan-600 dark:hover:text-gray-400 transition hover:translate-x-1-x-1 transform duration-200">Services</a>
-              <a href="#service-area" class="block text-gray-700 dark:text-gray-400 hover:text-cyan-600 dark:hover:text-gray-400 transition hover:translate-x-1-x-1 transform duration-200">Service Area</a>
-              <a href="#gallery" class="block text-gray-700 dark:text-gray-400 hover:text-cyan-600 dark:hover:text-gray-400 transition hover:translate-x-1-x-1 transform duration-200">Gallery</a>
-              <a href="#about" class="block text-gray-700 dark:text-gray-400 hover:text-cyan-600 dark:hover:text-gray-400 transition hover:translate-x-1-x-1 transform duration-200">About Us</a>
-              <a href="#contact" class="block text-gray-700 dark:text-gray-400 hover:text-cyan-600 dark:hover:text-gray-400 transition hover:translate-x-1-x-1 transform duration-200">Contact</a>
+              <a href="#services" class="block text-gray-600 dark:text-gray-400 hover:text-cyan-800 dark:hover:text-gray-400 transition hover:translate-x-1-x-1 transform duration-200">Services</a>
+              <a href="#service-area" class="block text-gray-600 dark:text-gray-400 hover:text-cyan-800 dark:hover:text-gray-400 transition hover:translate-x-1-x-1 transform duration-200">Service Area</a>
+              <a href="#gallery" class="block text-gray-600 dark:text-gray-400 hover:text-cyan-800 dark:hover:text-gray-400 transition hover:translate-x-1-x-1 transform duration-200">Gallery</a>
+              <a href="#about" class="block text-gray-600 dark:text-gray-400 hover:text-cyan-800 dark:hover:text-gray-400 transition hover:translate-x-1-x-1 transform duration-200">About Us</a>
+              <a href="#contact" class="block text-gray-600 dark:text-gray-400 hover:text-cyan-800 dark:hover:text-gray-400 transition hover:translate-x-1-x-1 transform duration-200">Contact</a>
             </nav>
           </div>
         </div>

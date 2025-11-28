@@ -90,6 +90,9 @@ Tailwind is loaded via CDN in the HTML `<head>` with inline configuration: `tail
 
 ## Key Implementation Details
 
+### Dev Server Proxy
+Developer to run local development server via `npm run dev` instead of Claude Code.
+
 ### Navigation
 Fixed-position navbar (`fixed top-0 w-full`) with smooth scrolling enabled via `scroll-smooth` class on `<html>`. All nav links use anchor links to section IDs. Responsive padding is applied to the nav element (`px-4 sm:px-6 md:px-8 lg:px-10`) to ensure content alignment with sections at all breakpoints.
 
@@ -104,7 +107,7 @@ Contact form (#contactForm) includes name, email, phone, subject, and message fi
 ### Maps
 Two embedded Google Maps with rounded corners (`rounded-md` on both container and iframe):
 - Service area map in #service-area section
-- Contact location map in #contact section (points to Husky Drilling Company location)
+- Contact location map in #contact section (points to Husky Well & Pump Service location)
 Maps use border and matching background color to prevent white corners from showing.
 
 ### Color Scheme
