@@ -17,6 +17,8 @@ Planned Features:
 
 Bugs:
 - Favicon is not showing
+- Navbar cuts off section titles
+- Mobile view of the hero section (move image and center text)
 - Hamburger button hover state
 - Hamburger menu doesn't close when an option is selected
 - Mobile hover state for cards
