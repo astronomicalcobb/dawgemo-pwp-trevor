@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "WebFetch(domain:flowbite.com)",
-      "WebSearch"
+      "WebSearch",
+      "Bash(git add:*)"
     ],
     "deny": [],
     "ask": []
