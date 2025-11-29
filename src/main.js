@@ -10,7 +10,7 @@ createIcons({ icons })
 const huskyLocation = { lat: 34.656926, lng: -106.757983 }
 const huskyPlaceId = null
 
-const SERVICE_AREA_COORDS = [
+const serviceAreaCoords = [
   { lat: 34.787351, lng: -106.4659051 },
   { lat: 34.8044779, lng: -106.454148 },
   { lat: 34.8115781, lng: -106.4458863 },
@@ -221,7 +221,7 @@ async function initMaps() {
   const serviceAreaEl = document.getElementById('service-area-map')
   if (serviceAreaEl) {
     const bounds = new google.maps.LatLngBounds()
-    SERVICE_AREA_COORDS.forEach(coord => bounds.extend(coord))
+    serviceAreaCoords.forEach(coord => bounds.extend(coord))
     const polygonCenter = bounds.getCenter()
 
     serviceAreaMap = new Map(serviceAreaEl, {
@@ -231,7 +231,7 @@ async function initMaps() {
 
     const { Polygon } = await google.maps.importLibrary('maps')
     serviceAreaPolygon = new Polygon({
-      paths: SERVICE_AREA_COORDS,
+      paths: serviceAreaCoords,
       strokeColor: '#0F9D58',
       strokeOpacity: 0.8,
       strokeWeight: 2,
