@@ -7,12 +7,9 @@ emailjs.init('2Zxpf0h3F0WtUFVCf')
 createIcons({ icons })
 
 // Google Maps initialization
-const HUSKY_LOCATION = { lat: 34.656926, lng: -106.757983 }
-// Place ID from original embed URL: ChIJEYDMpDL3IocRfvL887wEk7k
-// Using null for now - will search by location instead
-const HUSKY_PLACE_ID = null
+const huskyLocation = { lat: 34.656926, lng: -106.757983 }
+const huskyPlaceId = null
 
-// Service area polygon coordinates from KML
 const SERVICE_AREA_COORDS = [
   { lat: 34.787351, lng: -106.4659051 },
   { lat: 34.8044779, lng: -106.454148 },
@@ -173,7 +170,6 @@ const SERVICE_AREA_COORDS = [
   { lat: 34.7716411, lng: -106.4670399 }
 ]
 
-// Dark mode map styles
 const darkMapStyles = [
   { elementType: 'geometry', stylers: [{ color: '#242f3e' }] },
   { elementType: 'labels.text.stroke', stylers: [{ color: '#242f3e' }] },
@@ -197,12 +193,11 @@ const darkMapStyles = [
 
 const lightMapStyles = []
 
-let serviceAreaMap, contactMap, serviceAreaMarker, contactMarker, serviceAreaPolygon
+let serviceAreaMap, contactMap, contactMarker, serviceAreaPolygon
 
 function isDarkMode() {
-  // Check if dark mode is active by looking at the root element or system preference
   return window.matchMedia('(prefers-color-scheme: dark)').matches ||
-         document.documentElement.classList.contains('dark')
+    document.documentElement.classList.contains('dark')
 }
 
 function getMapStyles() {
@@ -216,28 +211,24 @@ async function initMaps() {
 
   const mapOptions = {
     zoom: 8,
-    center: HUSKY_LOCATION,
+    center: huskyLocation,
     styles: getMapStyles(),
     mapTypeControl: false,
     streetViewControl: false,
     fullscreenControl: true
   }
 
-  // Initialize service area map
   const serviceAreaEl = document.getElementById('service-area-map')
   if (serviceAreaEl) {
-    // Calculate polygon bounds and center first
     const bounds = new google.maps.LatLngBounds()
     SERVICE_AREA_COORDS.forEach(coord => bounds.extend(coord))
     const polygonCenter = bounds.getCenter()
 
-    // Create map centered on polygon
     serviceAreaMap = new Map(serviceAreaEl, {
       ...mapOptions,
       center: polygonCenter
     })
 
-    // Create polygon overlay for service area
     const { Polygon } = await google.maps.importLibrary('maps')
     serviceAreaPolygon = new Polygon({
       paths: SERVICE_AREA_COORDS,
@@ -249,11 +240,9 @@ async function initMaps() {
       map: serviceAreaMap
     })
 
-    // Fit map to polygon bounds with minimal padding for maximum zoom
     serviceAreaMap.fitBounds(bounds, { top: 10, right: 10, bottom: 10, left: 10 })
   }
 
-  // Initialize contact map
   const contactMapEl = document.getElementById('contact-map')
   if (contactMapEl) {
     contactMap = new Map(contactMapEl, {
@@ -263,14 +252,13 @@ async function initMaps() {
 
     contactMarker = new Marker({
       map: contactMap,
-      position: HUSKY_LOCATION,
+      position: huskyLocation,
       title: 'Husky Well & Pump Service'
     })
 
-    // Fetch place details using PlacesService (legacy API)
     const service = new PlacesService(contactMap)
     const request = {
-      location: HUSKY_LOCATION,
+      location: huskyLocation,
       radius: 50,
       query: 'Husky Well & Pump Service'
     }
@@ -294,85 +282,6 @@ async function initMaps() {
   }
 }
 
-// Render place details
-function renderPlaceDetails(place) {
-  const container = document.getElementById('place-details')
-  if (!container) return
-
-  const isOpen = place.regularOpeningHours?.periods ? checkIfOpen(place.regularOpeningHours) : null
-  const openStatus = isOpen === null ? '' : isOpen
-    ? '<span class="text-green-600 dark:text-green-400 font-medium">Open now</span>'
-    : '<span class="text-red-600 dark:text-red-400 font-medium">Closed</span>'
-
-  const rating = place.rating
-    ? `<div class="flex items-center gap-1 mt-2">
-        <span class="text-yellow-500">★</span>
-        <span class="text-gray-700 dark:text-gray-300 font-medium">${place.rating.toFixed(1)}</span>
-        <span class="text-gray-500 dark:text-gray-400 text-sm">(${place.userRatingCount} reviews)</span>
-       </div>`
-    : ''
-
-  const hours = place.regularOpeningHours?.weekdayText
-    ? `<div class="mt-3">
-        <button id="toggle-hours" class="text-cyan-600 dark:text-cyan-400 text-sm font-medium hover:underline hover:cursor-pointer flex items-center gap-1">
-          <span>View hours</span>
-          <svg class="w-4 h-4 transition-transform" id="hours-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-          </svg>
-        </button>
-        <div id="hours-list" class="hidden mt-2 text-sm text-gray-600 dark:text-gray-400 space-y-1">
-          ${place.regularOpeningHours.weekdayText.map(day => `<p>${day}</p>`).join('')}
-        </div>
-       </div>`
-    : ''
-
-  container.innerHTML = `
-    <h3 class="text-lg font-bold text-gray-800 dark:text-gray-200">${place.displayName}</h3>
-    <p class="text-gray-600 dark:text-gray-400 text-sm mt-1">${place.formattedAddress}</p>
-    ${rating}
-    <div class="mt-2">${openStatus}</div>
-    ${hours}
-    <a href="https://www.google.com/maps/place/?q=place_id:${HUSKY_PLACE_ID}"
-       target="_blank"
-       rel="noopener noreferrer"
-       class="inline-block mt-3 text-cyan-600 dark:text-cyan-400 text-sm font-medium hover:underline">
-      View on Google Maps →
-    </a>
-  `
-
-  // Add toggle functionality for hours
-  const toggleBtn = document.getElementById('toggle-hours')
-  const hoursList = document.getElementById('hours-list')
-  const chevron = document.getElementById('hours-chevron')
-
-  if (toggleBtn && hoursList) {
-    toggleBtn.addEventListener('click', () => {
-      hoursList.classList.toggle('hidden')
-      chevron.classList.toggle('rotate-180')
-    })
-  }
-}
-
-function checkIfOpen(openingHours) {
-  if (!openingHours?.periods) return null
-
-  const now = new Date()
-  const day = now.getDay()
-  const time = now.getHours() * 100 + now.getMinutes()
-
-  for (const period of openingHours.periods) {
-    if (period.open?.day === day) {
-      const openTime = period.open.hour * 100 + period.open.minute
-      const closeTime = period.close ? period.close.hour * 100 + period.close.minute : 2400
-      if (time >= openTime && time < closeTime) {
-        return true
-      }
-    }
-  }
-  return false
-}
-
-// Render place details (legacy API)
 function renderPlaceDetailsLegacy(place) {
   const container = document.getElementById('place-details')
   if (!container) return
@@ -407,7 +316,6 @@ function renderPlaceDetailsLegacy(place) {
         ? '<span class="text-green-600 dark:text-green-400 font-medium">Open now</span>'
         : '<span class="text-red-600 dark:text-red-400 font-medium">Closed</span>'
     } catch (e) {
-      // isOpen() not available or failed
       openStatus = ''
     }
   }
@@ -426,7 +334,6 @@ function renderPlaceDetailsLegacy(place) {
     </a>
   `
 
-  // Add toggle functionality for hours
   const toggleBtn = document.getElementById('toggle-hours')
   const hoursList = document.getElementById('hours-list')
   const chevron = document.getElementById('hours-chevron')
@@ -443,9 +350,9 @@ function renderPlaceDetailsError() {
   const container = document.getElementById('place-details')
   if (!container) return
 
-  const mapsUrl = HUSKY_PLACE_ID
-    ? `https://www.google.com/maps/place/?q=place_id:${HUSKY_PLACE_ID}`
-    : `https://www.google.com/maps/search/?api=1&query=${HUSKY_LOCATION.lat},${HUSKY_LOCATION.lng}`
+  const mapsUrl = huskyPlaceId
+    ? `https://www.google.com/maps/place/?q=place_id:${huskyPlaceId}`
+    : `https://www.google.com/maps/search/?api=1&query=${huskyLocation.lat},${huskyLocation.lng}`
 
   container.innerHTML = `
     <h3 class="text-lg font-bold text-gray-800 dark:text-gray-200">Husky Well & Pump Service</h3>
@@ -459,7 +366,6 @@ function renderPlaceDetailsError() {
   `
 }
 
-// Update map styles based on dark mode preference
 function updateMapStyles() {
   const styles = getMapStyles()
   if (serviceAreaMap) {
@@ -470,39 +376,34 @@ function updateMapStyles() {
   }
 }
 
-// Listen for dark mode changes
 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', updateMapStyles)
 
-// Initialize maps when DOM is ready
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', initMaps)
 } else {
   initMaps()
 }
 
-// Format name
 function formatName(input) {
   let value = input.value
   value = value.toLowerCase().replace(/\b[a-z]/g, letter => letter.toUpperCase())
   input.value = value
 }
-document.getElementById('name').addEventListener('input', function(e) {
+
+document.getElementById('name').addEventListener('input', function (e) {
   formatName(e.target)
 })
 
-// Format phone number
 const phoneInput = document.getElementById('phone')
 const phoneMask = IMask(phoneInput, {
   mask: '(000) 000-0000'
 })
 
-// Format email
-document.getElementById('email').addEventListener('input', function(e) {
+document.getElementById('email').addEventListener('input', function (e) {
   e.target.value = e.target.value.toLowerCase().trim()
 })
 
-// Format subject with counter
-document.getElementById('subject').addEventListener('input', function(e) {
+document.getElementById('subject').addEventListener('input', function (e) {
   const counter = document.getElementById('subjectCounter')
   const length = e.target.value.length
   const maxLength = 128
@@ -513,27 +414,24 @@ document.getElementById('subject').addEventListener('input', function(e) {
     counter.className = 'text-sm text-red-600 dark:text-red-400 ml-2'
   } else if (length > maxLength * 0.8) {
     counter.className = 'text-sm text-yellow-600 dark:text-yellow-400 ml-2'
-  } else if (length > 3){
+  } else if (length > 3) {
     counter.className = 'text-sm text-green-600 dark:text-green-400 ml-2'
   } else {
     counter.className = 'text-sm text-gray-500 dark:text-gray-400 ml-2'
   }
 })
 
-// Format message with counter and hints
 function setupMessageFormatting() {
   const messageInput = document.getElementById('message')
   const counter = document.getElementById('messageCounter')
   const minLength = 16
   const maxLength = 1024
 
-  messageInput.addEventListener('input', function(e) {
+  messageInput.addEventListener('input', function (e) {
     const length = e.target.value.length
 
-    // Update counter
     counter.textContent = `(${length}/${maxLength})`
 
-    // Color code counter
     if (length === maxLength) {
       counter.className = 'text-sm text-red-600 dark:text-red-400 ml-2 font-semibold'
     } else if (length > maxLength * 0.8) {
@@ -545,19 +443,17 @@ function setupMessageFormatting() {
     }
   })
 }
+
 setupMessageFormatting()
 
-// Form submission
-document.getElementById('contactForm').addEventListener('submit', function(e) {
+document.getElementById('contactForm').addEventListener('submit', function (e) {
   e.preventDefault()
 
   const formStatus = document.getElementById('formStatus')
   const submitButton = e.target.querySelector('button[type="submit"]')
 
-  // Clear previous status
   formStatus.textContent = ''
 
-  // Validate name has first and last
   const name = document.getElementById('name').value.trim()
   const nameParts = name.split(/\s+/).filter(part => part.length > 0)
   if (nameParts.length < 2) {
@@ -566,7 +462,6 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
     return
   }
 
-  // Validate subject length
   const subject = document.getElementById('subject').value.trim()
   if (subject.length < 5) {
     formStatus.textContent = 'Subject must be at least 5 characters.'
@@ -574,7 +469,6 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
     return
   }
 
-  // Validate message length
   const message = document.getElementById('message').value.trim()
   if (message.length < 16) {
     formStatus.textContent = 'Message must be at least 20 characters.'
@@ -588,25 +482,24 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
   const templateParams = {
     from_name: name,
     from_email: document.getElementById('email').value,
-    phone: phoneMask.unmaskedValue, // ✅ Fixed: Get just the digits
     subject: subject,
     message: message
   }
 
   emailjs.send('service_8uwodx9', 'template_8ir0hso', templateParams)
-    .then(function(response) {
+    .then(function (response) {
       console.log('SUCCESS!', response.status)
       formStatus.textContent = 'Thank you! Your message has been sent successfully.'
       formStatus.className = 'text-center text-sm text-green-600 dark:text-green-400 mt-2'
       document.getElementById('contactForm').reset()
-      phoneMask.value = '' // Reset mask
+      phoneMask.value = ''
     })
-    .catch(function(error) {
+    .catch(function (error) {
       console.error('FAILED...', error)
       formStatus.textContent = 'Failed to send message. Please try again or call us directly.'
       formStatus.className = 'text-center text-sm text-red-600 dark:text-red-400 mt-2'
     })
-    .finally(function() {
+    .finally(function () {
       submitButton.disabled = false
       submitButton.textContent = 'Send Message'
     })
