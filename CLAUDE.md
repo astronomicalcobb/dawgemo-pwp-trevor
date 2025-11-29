@@ -67,11 +67,19 @@ Dark mode is implemented using Tailwind's `dark:` variant with `darkMode: 'media
 - Initializes Lucide icons with `createIcons({ icons })`
 - Imports and initializes EmailJS for contact form submissions
 - Imports IMask for phone number formatting
+- Handles mobile menu interactions:
+  - Closes menu when navigation link is clicked
+  - Removes focus from hamburger button after click
 - Initializes Google Maps API with two maps:
   - Service area map with polygon overlay showing coverage area
   - Contact map with marker and dynamic Google Place details (rating, hours, address)
 - Handles dark/light mode map styling based on system preference
-- Handles form validation and input formatting (name capitalization, phone masking, character counters)
+- Handles form validation and input formatting:
+  - Name capitalization
+  - Phone masking with IMask
+  - Email validation with regex pattern
+  - Character counters for subject (128 max) and message (1024 max) with color-coded feedback
+  - Form submission via EmailJS with counter reset on success
 
 ### Styling
 
@@ -129,7 +137,13 @@ Developer to run local development server via `npm run dev` instead of Claude Co
 ### Navigation
 Fixed-position navbar (`fixed top-0 w-full`) with smooth scrolling enabled via `scroll-smooth` class on `<html>`. All nav links use anchor links to section IDs. Responsive padding is applied to the nav element (`px-4 sm:px-6 md:px-8 lg:px-10`) to ensure content alignment with sections at all breakpoints.
 
-Mobile menu uses Flowbite's `data-collapse-toggle` for hamburger menu functionality with Lucide menu icon.
+All sections have responsive scroll margins to prevent navbar overlap:
+- Mobile: `scroll-mt-12` (48px) for regular sections, `scroll-mt-16` (64px) for hero
+- Desktop: `sm:scroll-mt-16` (64px) for all sections
+
+Mobile menu uses Flowbite's `data-collapse-toggle` for hamburger menu functionality with Lucide menu icon. JavaScript automatically:
+- Closes menu when navigation link is clicked
+- Removes focus from hamburger button after click to clear focus styles
 
 ### Services
 Four service cards in responsive grid layout (`#services`):
@@ -142,8 +156,9 @@ Card features:
 - Responsive grid: 1 column mobile, 2 columns tablet, 4 columns desktop
 - Centered text layout with Lucide icons
 - Hover effect: `-translate-y-2` lift animation
-- Icon color: cyan-600 (light) / cyan-500 (dark)
-- Background: gray-300 (light) / gray-700 (dark)
+- Icon color: cyan-500 in both light and dark modes
+- Card background: gray-300 (light) / gray-700 (dark)
+- Card text: gray-700 (light) / gray-400 (dark)
 
 ### Forms
 Contact form (#contactForm) includes name, email, phone, subject, and message fields with full validation and submission handling via EmailJS. The form uses a responsive grid layout (`grid grid-cols-1 sm:grid-cols-2 gap-4`) for name/phone fields.
@@ -151,22 +166,25 @@ Contact form (#contactForm) includes name, email, phone, subject, and message fi
 **Field Features:**
 - **Name**: Automatic capitalization on input, must have first and last name (2+ words)
 - **Phone**: IMask formatting `(000) 000-0000`, 4-64 chars
-- **Email**: Automatically lowercased and trimmed, 8-64 chars
-- **Subject**: Character counter with color-coding (gray → green → yellow → red), max 128 chars, min 5 chars required
-- **Message**: Character counter with validation feedback, min 16 chars, max 1024 chars
+- **Email**: Automatically lowercased and trimmed, custom validation with regex pattern, 8-64 chars
+- **Subject**: Character counter with color-coding (gray → green at 1+ chars → yellow at 80% → red at max or < 4 chars), max 128 chars, min 4 chars required
+- **Message**: Character counter with validation feedback (gray → green at 16+ chars → yellow at 80% → red at max or < 16 chars), min 16 chars, max 1024 chars
 
 **Validation Rules:**
 - Name must contain at least 2 space-separated words
-- Subject minimum 5 characters
+- Subject minimum 4 characters
 - Message minimum 16 characters
-- Email and phone use standard HTML5 validation
+- Email uses custom regex validation pattern
+- Phone uses standard HTML5 validation with IMask formatting
 
 **EmailJS Integration:**
 - Service ID: `service_8uwodx9`
 - Template ID: `template_8ir0hso`
 - Public Key: `2Zxpf0h3F0WtUFVCf`
+- Template parameters include: name, phone, email, subject, message
 - Success/error feedback displayed below submit button
 - Form resets on successful submission
+- Character counters reset to (0/128) and (0/1024) with gray styling
 - Button disabled during submission with "Sending..." text
 
 ### Maps
@@ -183,9 +201,10 @@ Two embedded Google Maps initialized via JavaScript in `main.js` using Google Ma
 - Marker at Husky Well & Pump Service location (34.656926, -106.757983)
 - Dynamically fetches Google Place details via Places API
 - Displays rating, reviews count, business hours, and open/closed status
-- Collapsible hours section with toggle interaction
+- Collapsible hours section with toggle interaction (cyan-600/cyan-500 button color)
+- "View on Google Maps" link styled cyan-600 (light) / cyan-500 (dark)
 - Fallback to static info if Places API fails
-- Place details rendered in `#place-details` container
+- Place details rendered in `#place-details` container with responsive padding
 
 **Map Styling:**
 - Dark mode styles automatically applied based on system preference
@@ -206,16 +225,20 @@ Photo gallery section (`#gallery`) displaying 6 images of drilling operations:
 Company history and values (`#about`) with two subsections:
 
 **Our History Timeline:**
-- Vertical timeline with left border (`border-l-4 border-cyan-600`)
+- Vertical timeline with left border (`border-l-4 border-cyan-600 dark:border-cyan-500`)
 - 5 timeline items: 1960, 1965, 1989, 1992, Present
-- Each item has cyan dot marker with scale-on-hover effect
+- Each item has cyan dot marker (`bg-cyan-600 dark:bg-cyan-500`) with scale-on-hover effect (`group-hover:scale-125`)
+- Timeline year labels: `text-cyan-600 dark:text-cyan-500`
 - Cards with hover translate-up effect (`hover:-translate-y-2`)
+- Card background: gray-50 (light) / gray-700 (dark)
 - Responsive left padding and dot positioning
 
 **Our Values Grid:**
 - 4 value cards: Reliability, Quality, Integrity, Community
 - Responsive grid: 1 column mobile, 2 columns tablet, 4 columns desktop
 - Lucide icons for each value (shield-check, badge-check, handshake, house)
+- Icon color: cyan-600 (light) / cyan-500 (dark)
+- Card text: gray-700 (light) / gray-400 (dark)
 - Same card styling as services section
 
 ### Footer
@@ -242,19 +265,21 @@ Three-column footer layout with company info, contact details, and quick links:
 
 **Dark Mode:**
 - **Backgrounds**: gray-800 and gray-900 alternating for sections, gray-700 for cards
-- **Primary Text**: gray-300 for body text
-- **Headings**: cyan-400 for all h2/h3 headings
-- **Accents**: cyan-400 for links, icons, and interactive elements
+- **Primary Text**: gray-300 for headings and primary text, gray-400 for body/card text
+- **Headings**: gray-300 for all h2/h3 section headings
+- **Accents**: cyan-500 for icons, timeline elements, and interactive elements
 - **Navigation**: gray-800 background with gray-300 text
-- **Buttons**: cyan-600 with cyan-700 hover states
-- **Borders**: gray-700 for subtle separation
+- **Buttons**: cyan-500 background with cyan-700 hover states, gray-100 text
+- **Borders**: gray-700 for subtle separation, cyan-500 for timeline borders
 - **Footer**: gray-950 background with gray-400 text and gray-300 headings
 
 **Consistent Elements:**
 - Both modes use gray color palette for backgrounds and neutrals
-- cyan is the primary brand color across both modes (cyan-600 in light, cyan-400 in dark)
+- cyan is the primary brand color across both modes:
+  - Light mode: cyan-600 for most accents, cyan-500 for service icons
+  - Dark mode: cyan-500 for most accents (icons, buttons, timeline elements)
 - Smooth transitions on color changes: `transition-colors duration-300`
-- Buttons use cyan-600/cyan-700 in both modes for consistency
+- Buttons use cyan-500 (dark) / cyan-600 (light) with cyan-700 hover in both modes
 
 ## Common Patterns
 
