@@ -1,7 +1,7 @@
 To-do:
 - Finish the map
 - Reorganize class attributes for faster and more efficient editing
-- Add favicon
+- [x] Add favicon
 - Finish styling
 
 Planned Features:
@@ -16,7 +16,7 @@ Planned Features:
 - Change links to buttons
 
 Bugs:
-- Favicon is not showing
+- [x] Favicon is not showing
 - Navbar cuts off section titles
 - Mobile view of the hero section (move image and center text)
 - Hamburger button hover state
