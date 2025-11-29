@@ -314,7 +314,7 @@ function renderPlaceDetailsLegacy(place) {
       const isOpen = place.opening_hours.isOpen()
       openStatus = isOpen
         ? '<span class="text-green-600 dark:text-green-400 font-medium">Open now</span>'
-        : '<span class="text-red-600 dark:text-red-400 font-medium">Closed</span>'
+        : '<span class="text-red-600 dark:text-red-400 font-medium">Closed now</span>'
     } catch (e) {
       openStatus = ''
     }
