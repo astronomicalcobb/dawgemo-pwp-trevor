@@ -28,6 +28,9 @@ npm run watch
 - **Styling**: Tailwind CSS (via CDN in index.html) + PostCSS with @tailwindcss/postcss plugin
 - **UI Components**: Flowbite 4.0.1 (pre-built Tailwind components)
 - **Icons**: Lucide 0.554.0 (icon library)
+- **Maps**: Google Maps JavaScript API (loaded via inline script, version: weekly)
+- **Forms**: EmailJS 4.x (loaded via CDN, initialized with public key: 2Zxpf0h3F0WtUFVCf)
+- **Input Masking**: IMask (for phone number formatting)
 - **JavaScript**: Vanilla JS (ES modules)
 
 ## Architecture
@@ -38,10 +41,10 @@ The entire website is contained in `index.html` with the following sections in o
 1. Navigation (fixed top nav with links to all sections)
 2. Hero Section (#home)
 3. Services Section (#services) - 4 service cards
-4. Service Area Section (#service-area) - embedded Google Map
-5. Our Work Section (#our-work) - 6 placeholder gallery items
-6. About Section (#about) - includes History timeline, Values grid, and Meet the Crew
-7. Contact Section (#contact) - contact form and embedded map
+4. Service Area Section (#service-area) - embedded Google Map with service area polygon
+5. Gallery Section (#gallery) - 6 gallery images
+6. About Section (#about) - includes History timeline and Values grid
+7. Contact Section (#contact) - contact form and embedded map with place details
 8. Footer
 
 ### Dark Mode
@@ -64,16 +67,20 @@ Dark mode is implemented using Tailwind's `dark:` variant with `darkMode: 'media
 - Initializes Lucide icons with `createIcons({ icons })`
 - Imports and initializes EmailJS for contact form submissions
 - Imports IMask for phone number formatting
+- Initializes Google Maps API with two maps:
+  - Service area map with polygon overlay showing coverage area
+  - Contact map with marker and dynamic Google Place details (rating, hours, address)
+- Handles dark/light mode map styling based on system preference
 - Handles form validation and input formatting (name capitalization, phone masking, character counters)
 
 ### Styling
 
-`src/index.css` configures Flowbite integration:
-- Imports Flowbite's default theme
-- Loads Flowbite plugin for Tailwind
-- Sources Flowbite components from node_modules
+`src/style.css` configures Tailwind CSS and imports:
+- Referenced in HTML via `<link href="/src/style.css" rel="stylesheet">`
+- Processed by PostCSS with @tailwindcss/postcss plugin during build
+- May include Flowbite integration or custom CSS
 
-Tailwind is loaded via CDN in the HTML `<head>` with inline configuration: `tailwind.config = {darkMode: 'media'}`
+Note: Tailwind classes are used extensively throughout the HTML with responsive variants and dark mode support.
 
 ## File Organization
 
@@ -81,8 +88,8 @@ Tailwind is loaded via CDN in the HTML `<head>` with inline configuration: `tail
 /
 ├── index.html          # Main single-page HTML file
 ├── src/
-│   ├── main.js        # JavaScript entry point (Flowbite + Lucide initialization)
-│   └── index.css      # Flowbite configuration
+│   ├── main.js        # JavaScript entry point (Flowbite, Lucide, Google Maps, EmailJS, IMask, form handling)
+│   └── style.css      # Tailwind CSS configuration and imports
 ├── public/assets/     # Static assets directory
 ├── documentation/ui/  # UI reference links (Penguin UI, Radix UI, shadcn/ui)
 └── postcss.config.cjs # PostCSS configuration for Tailwind
@@ -90,25 +97,136 @@ Tailwind is loaded via CDN in the HTML `<head>` with inline configuration: `tail
 
 ## Key Implementation Details
 
+### Google Maps API
+The Google Maps JavaScript API is loaded in the `<head>` via inline loader script:
+- API Key: `AIzaSyAi3vqD5-waWnp7BmeKYW7TmPr3ptE7RmU`
+- Version: `weekly` (automatically uses latest stable version)
+- Dynamic library loading via `google.maps.importLibrary()` in main.js
+- Libraries used: `maps`, `marker`, `places`
+
 ### Dev Server Proxy
 Developer to run local development server via `npm run dev` instead of Claude Code.
+
+### Branding & Hero
+**Page Title:** "Husky Drilling" (in `<title>` tag)
+
+**Favicons:**
+- Light mode: `/favicon.png`
+- Dark mode: `/favicon-dark.png` (via media query in link tag)
+
+**Logos:**
+- Light mode: `/assets/images/dawg.png`
+- Dark mode: `/assets/images/dawg-dark.png`
+- Logo switching handled via `dark:hidden` and `hidden dark:block` classes
+
+**Hero Section:**
+- Full viewport height (`h-screen`)
+- Background image: `/assets/images/hero.jpeg` with overlay
+- Responsive object positioning: `object-right` on mobile, `object-center` on larger screens
+- CTA button linking to contact section
+- Responsive typography scaling across breakpoints
 
 ### Navigation
 Fixed-position navbar (`fixed top-0 w-full`) with smooth scrolling enabled via `scroll-smooth` class on `<html>`. All nav links use anchor links to section IDs. Responsive padding is applied to the nav element (`px-4 sm:px-6 md:px-8 lg:px-10`) to ensure content alignment with sections at all breakpoints.
 
+Mobile menu uses Flowbite's `data-collapse-toggle` for hamburger menu functionality with Lucide menu icon.
+
+### Services
+Four service cards in responsive grid layout (`#services`):
+1. **Drilling** - arrow-down-to-line icon
+2. **Pump Installation** - droplet icon
+3. **Well Services** - wrench icon
+4. **Maintenance** - cog icon
+
+Card features:
+- Responsive grid: 1 column mobile, 2 columns tablet, 4 columns desktop
+- Centered text layout with Lucide icons
+- Hover effect: `-translate-y-2` lift animation
+- Icon color: cyan-600 (light) / cyan-500 (dark)
+- Background: gray-300 (light) / gray-700 (dark)
+
 ### Forms
-Contact form (#contactForm) includes name, email, phone, subject, and message fields with full validation and submission handling via EmailJS. The form uses a responsive grid layout (`grid grid-cols-1 sm:grid-cols-2 gap-4`) for name/phone fields. Features include:
-- Name input with automatic capitalization
-- Phone input with IMask formatting: `(000) 000-0000`
-- Subject field with character counter (max 128 chars) and color-coded feedback
-- Message textarea with character counter (min 16, max 1024 chars) and validation hints
-- EmailJS integration for sending emails (service_8uwodx9, template_8ir0hso)
+Contact form (#contactForm) includes name, email, phone, subject, and message fields with full validation and submission handling via EmailJS. The form uses a responsive grid layout (`grid grid-cols-1 sm:grid-cols-2 gap-4`) for name/phone fields.
+
+**Field Features:**
+- **Name**: Automatic capitalization on input, must have first and last name (2+ words)
+- **Phone**: IMask formatting `(000) 000-0000`, 4-64 chars
+- **Email**: Automatically lowercased and trimmed, 8-64 chars
+- **Subject**: Character counter with color-coding (gray → green → yellow → red), max 128 chars, min 5 chars required
+- **Message**: Character counter with validation feedback, min 16 chars, max 1024 chars
+
+**Validation Rules:**
+- Name must contain at least 2 space-separated words
+- Subject minimum 5 characters
+- Message minimum 16 characters
+- Email and phone use standard HTML5 validation
+
+**EmailJS Integration:**
+- Service ID: `service_8uwodx9`
+- Template ID: `template_8ir0hso`
+- Public Key: `2Zxpf0h3F0WtUFVCf`
+- Success/error feedback displayed below submit button
+- Form resets on successful submission
+- Button disabled during submission with "Sending..." text
 
 ### Maps
-Two embedded Google Maps with rounded corners (`rounded-md` on both container and iframe):
-- Service area map in #service-area section
-- Contact location map in #contact section (points to Husky Well & Pump Service location)
-Maps use border and matching background color to prevent white corners from showing.
+Two embedded Google Maps initialized via JavaScript in `main.js` using Google Maps JavaScript API:
+
+**Service Area Map** (`#service-area-map`):
+- Displays polygon overlay showing service coverage area across central New Mexico
+- 171 coordinate points defining the service boundary
+- Green polygon (`#0F9D58`) with 15% fill opacity
+- Auto-fitted bounds to center the polygon
+- Responsive height: `32vh` mobile, `64vh` desktop
+
+**Contact Map** (`#contact-map`):
+- Marker at Husky Well & Pump Service location (34.656926, -106.757983)
+- Dynamically fetches Google Place details via Places API
+- Displays rating, reviews count, business hours, and open/closed status
+- Collapsible hours section with toggle interaction
+- Fallback to static info if Places API fails
+- Place details rendered in `#place-details` container
+
+**Map Styling:**
+- Dark mode styles automatically applied based on system preference
+- Custom dark map theme with muted colors
+- Style updates on theme change via `matchMedia` listener
+- Border and background color match section backgrounds to prevent white corners
+
+### Gallery
+Photo gallery section (`#gallery`) displaying 6 images of drilling operations:
+- Responsive grid: 1 column mobile, 2 columns tablet, 3 columns desktop
+- Fixed card height: `h-72` with `overflow-hidden`
+- Images use `object-cover` to fill card space
+- Hover effect: `group-hover:scale-105` for subtle zoom on image
+- Images include: sunset drilling scenes, rig setup in El Cerro, Corrales job, equipment photos
+- All images stored in `/assets/images/` directory
+
+### About Section
+Company history and values (`#about`) with two subsections:
+
+**Our History Timeline:**
+- Vertical timeline with left border (`border-l-4 border-cyan-600`)
+- 5 timeline items: 1960, 1965, 1989, 1992, Present
+- Each item has cyan dot marker with scale-on-hover effect
+- Cards with hover translate-up effect (`hover:-translate-y-2`)
+- Responsive left padding and dot positioning
+
+**Our Values Grid:**
+- 4 value cards: Reliability, Quality, Integrity, Community
+- Responsive grid: 1 column mobile, 2 columns tablet, 4 columns desktop
+- Lucide icons for each value (shield-check, badge-check, handshake, house)
+- Same card styling as services section
+
+### Footer
+Three-column footer layout with company info, contact details, and quick links:
+- Responsive grid: 1 column mobile, 3 columns tablet+
+- Dark/light mode logo switching
+- Contact info with Lucide icons (phone, mail, clock-4)
+- Clickable phone/email links with hover effects
+- Quick navigation links with translate-x hover effect
+- Copyright notice with top border separator
+- Footer background: gray-100 (light) / gray-950 (dark)
 
 ### Color Scheme
 
@@ -140,8 +258,10 @@ Maps use border and matching background color to prevent white corners from show
 
 ## Common Patterns
 
-- Sections use `py-20 px-6` for consistent vertical/horizontal padding
+- Sections use responsive padding: `px-4 sm:px-6 md:px-8 lg:px-10` (horizontal) and `py-11 sm:py-12 md:py-13 lg:py-14` (vertical)
 - Content containers: `max-w-7xl mx-auto` for centered max-width layout
 - Cards: `rounded-md shadow-lg` for consistent card styling
-- Hover effects: `hover:-translate-y-2 transition` on service cards
+- Hover effects: `hover:-translate-y-2 transition` on service cards and timeline items
+- Grid layouts: Responsive grids using `grid-cols-1` with breakpoint variants (sm:, md:, lg:, xl:)
 - Dark mode: Every styled element has `dark:` variants for colors
+- Color transitions: `transition-colors duration-300` for smooth theme changes

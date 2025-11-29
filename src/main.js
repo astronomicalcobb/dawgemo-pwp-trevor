@@ -6,6 +6,29 @@ import emailjs from '@emailjs/browser'
 emailjs.init('2Zxpf0h3F0WtUFVCf')
 createIcons({ icons })
 
+// Close mobile menu when navigation link is clicked
+document.addEventListener('DOMContentLoaded', () => {
+  const navMenu = document.getElementById('navbar-menu')
+  const navLinks = navMenu.querySelectorAll('a')
+  const hamburgerButton = document.querySelector('[data-collapse-toggle="navbar-menu"]')
+
+  // Remove focus from hamburger button after click
+  if (hamburgerButton) {
+    hamburgerButton.addEventListener('click', () => {
+      setTimeout(() => {
+        hamburgerButton.blur()
+      }, 100)
+    })
+  }
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      // Close the menu by adding the 'hidden' class
+      navMenu.classList.add('hidden')
+    })
+  })
+})
+
 // Google Maps initialization
 const huskyLocation = { lat: 34.656926, lng: -106.757983 }
 const huskyPlaceId = null
@@ -294,20 +317,6 @@ function renderPlaceDetailsLegacy(place) {
        </div>`
     : ''
 
-  const hours = place.opening_hours?.weekday_text
-    ? `<div class="mt-3">
-        <button id="toggle-hours" class="text-cyan-600 dark:text-cyan-400 text-sm font-medium hover:underline hover:cursor-pointer flex items-center gap-1">
-          <span>View hours</span>
-          <svg class="w-4 h-4 transition-transform" id="hours-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-          </svg>
-        </button>
-        <div id="hours-list" class="hidden mt-2 text-sm text-gray-600 dark:text-gray-400 space-y-1">
-          ${place.opening_hours.weekday_text.map(day => `<p>${day}</p>`).join('')}
-        </div>
-       </div>`
-    : ''
-
   let openStatus = ''
   if (place.opening_hours?.isOpen) {
     try {
@@ -320,6 +329,20 @@ function renderPlaceDetailsLegacy(place) {
     }
   }
 
+  const hours = place.opening_hours?.weekday_text
+    ? `<div class="mt-3">
+        <button id="toggle-hours" class="text-cyan-600 dark:text-cyan-500 text-sm font-medium hover:underline hover:cursor-pointer flex items-center gap-1">
+          <span>View hours</span>
+          <svg class="w-4 h-4 transition-transform" id="hours-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+        <div id="hours-list" class="hidden mt-2 text-sm text-gray-600 dark:text-gray-400 space-y-1">
+          ${place.opening_hours.weekday_text.map(day => `<p>${day}</p>`).join('')}
+        </div>
+       </div>`
+    : ''
+
   container.innerHTML = `
     <h3 class="text-lg font-bold text-gray-800 dark:text-gray-200">${place.name}</h3>
     <p class="text-gray-600 dark:text-gray-400 text-sm mt-1">${place.formatted_address}</p>
@@ -329,7 +352,7 @@ function renderPlaceDetailsLegacy(place) {
     <a href="${place.url}"
        target="_blank"
        rel="noopener noreferrer"
-       class="inline-block mt-3 text-cyan-600 dark:text-cyan-400 text-sm font-medium hover:underline">
+       class="inline-block mt-3 text-cyan-600 dark:text-cyan-500 text-sm font-medium hover:underline">
       View on Google Maps →
     </a>
   `
@@ -384,68 +407,88 @@ if (document.readyState === 'loading') {
   initMaps()
 }
 
+// Name formatting function
 function formatName(input) {
   let value = input.value
   value = value.toLowerCase().replace(/\b[a-z]/g, letter => letter.toUpperCase())
   input.value = value
 }
 
+// Call the formatName function when the user types in the input field
 document.getElementById('name').addEventListener('input', function (e) {
   formatName(e.target)
 })
 
+// Masking phone input
 const phoneInput = document.getElementById('phone')
 const phoneMask = IMask(phoneInput, {
   mask: '(000) 000-0000'
 })
 
-document.getElementById('email').addEventListener('input', function (e) {
-  e.target.value = e.target.value.toLowerCase().trim()
-})
+// Email validation
+const emailInput = document.querySelector('input[type="email"]')
+emailInput.addEventListener('input', function() {
+  const email = this.value
+  const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
 
-document.getElementById('subject').addEventListener('input', function (e) {
-  const counter = document.getElementById('subjectCounter')
-  const length = e.target.value.length
-  const maxLength = 128
-
-  counter.textContent = `(${length}/${maxLength})`
-
-  if (length === maxLength) {
-    counter.className = 'text-sm text-red-600 dark:text-red-400 ml-2'
-  } else if (length > maxLength * 0.8) {
-    counter.className = 'text-sm text-yellow-600 dark:text-yellow-400 ml-2'
-  } else if (length > 3) {
-    counter.className = 'text-sm text-green-600 dark:text-green-400 ml-2'
+  if (!isValid && email.length > 0) {
+    this.setCustomValidity('Please enter a valid email')
   } else {
-    counter.className = 'text-sm text-gray-500 dark:text-gray-400 ml-2'
+    this.setCustomValidity('')
   }
 })
 
-function setupMessageFormatting() {
-  const messageInput = document.getElementById('message')
-  const counter = document.getElementById('messageCounter')
-  const minLength = 16
-  const maxLength = 1024
+// Subject length counter
+function formatSubject() {
+  const subjectInput = document.getElementById('subject')
+  const counter = document.getElementById('subjectCounter')
+  const maxLength = 128
 
-  messageInput.addEventListener('input', function (e) {
+
+  subjectInput.addEventListener('input', function (e) {
     const length = e.target.value.length
 
     counter.textContent = `(${length}/${maxLength})`
 
-    if (length === maxLength) {
+    if (length === maxLength || length < 4) {
       counter.className = 'text-sm text-red-600 dark:text-red-400 ml-2 font-semibold'
     } else if (length > maxLength * 0.8) {
-      counter.className = 'text-sm text-yellow-600 dark:text-yellow-400 ml-2'
-    } else if (length >= minLength) {
-      counter.className = 'text-sm text-green-600 dark:text-green-400 ml-2'
+      counter.className = 'text-sm text-yellow-600 dark:text-yellow-400 ml-2 font-semibold'
     } else {
-      counter.className = 'text-sm text-gray-500 dark:text-gray-400 ml-2'
+      counter.className = 'text-sm text-green-600 dark:text-green-400 ml-2 font-semibold'
     }
   })
 }
 
-setupMessageFormatting()
+// Call the formatSubject function when the page loads
+formatSubject()
 
+// Message length counter
+function formatMessage() {
+  const messageInput = document.getElementById('message')
+  const counter = document.getElementById('messageCounter')
+  const maxLength = 1024
+  const minLength = 16
+
+  messageInput.addEventListener('input', function (e) {
+    let length = e.target.value.length
+
+    counter.textContent = `(${length}/${maxLength})`
+
+    if (length === maxLength || length < minLength) {
+      counter.className = 'text-sm text-red-600 dark:text-red-400 ml-2 font-semibold'
+    } else if (length > maxLength * 0.8) {
+      counter.className = 'text-sm text-yellow-600 dark:text-yellow-400 ml-2 font-semibold'
+    } else if (length >= minLength) {
+      counter.className = 'text-sm text-green-600 dark:text-green-400 ml-2 font-semibold'
+    }
+  })
+}
+
+// Call the formatMessage function when the page loads
+formatMessage()
+
+// Submit form
 document.getElementById('contactForm').addEventListener('submit', function (e) {
   e.preventDefault()
 
@@ -463,8 +506,8 @@ document.getElementById('contactForm').addEventListener('submit', function (e) {
   }
 
   const subject = document.getElementById('subject').value.trim()
-  if (subject.length < 5) {
-    formStatus.textContent = 'Subject must be at least 5 characters.'
+  if (subject.length < 4) {
+    formStatus.textContent = 'Subject must be at least 4 characters.'
     formStatus.className = 'text-center text-sm text-red-600 dark:text-red-400 mt-2'
     return
   }
@@ -481,7 +524,8 @@ document.getElementById('contactForm').addEventListener('submit', function (e) {
 
   const templateParams = {
     from_name: name,
-    from_email: document.getElementById('email').value,
+    phone: phoneInput.value,
+    from_email: emailInput.value,
     subject: subject,
     message: message
   }
@@ -493,6 +537,11 @@ document.getElementById('contactForm').addEventListener('submit', function (e) {
       formStatus.className = 'text-center text-sm text-green-600 dark:text-green-400 mt-2'
       document.getElementById('contactForm').reset()
       phoneMask.value = ''
+
+      document.getElementById('subjectCounter').textContent = '(0/128)'
+      document.getElementById('subjectCounter').className = 'ml-2 text-sm text-gray-500 dark:text-gray-400'
+      document.getElementById('messageCounter').textContent = '(0/1024)'
+      document.getElementById('messageCounter').className = 'ml-2 text-sm text-gray-500 dark:text-gray-400'
     })
     .catch(function (error) {
       console.error('FAILED...', error)
