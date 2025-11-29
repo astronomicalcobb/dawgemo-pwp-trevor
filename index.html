@@ -41,7 +41,7 @@
 
 		<!-- Navigation -->
 		<nav
-			class="fixed top-0 w-full bg-gray-100/95 dark:bg-gray-800/95 shadow-lg z-50 transition-colors duration-300 px-4 sm:px-6 md:px-8 lg:px-10">
+			class="fixed top-0 z-50 w-full px-4 bg-gray-100/95 shadow-lg transition-colors duration-300 dark:bg-gray-800/95 sm:px-6 md:px-8 lg:px-10">
 			<div class="max-w-7xl mx-auto">
 				<div class="flex flex-wrap items-center justify-between py-3 lg:py-0">
 
@@ -55,9 +55,7 @@
 					<button
 						data-collapse-toggle="navbar-menu"
 						type="button"
-						class="lg:hidden inline-flex items-center justify-center w-10 h-10 p-2 rounded-md transition
-            			 dark:text-gray-300 dark:hover:bg-gray-800 dark:focus:bg-gray-900
-            			      text-gray-700      hover:bg-gray-200      focus:bg-gray-300"
+						class="inline-flex items-center justify-center w-10 h-10 p-2 text-gray-700 rounded-md transition hover:bg-gray-200 focus:bg-gray-300 dark:text-gray-300 dark:hover:bg-gray-800 dark:focus:bg-gray-900 lg:hidden"
 						aria-controls="navbar-menu"
 						aria-expanded="false">
 						<span class="sr-only">Open main menu</span>
@@ -66,40 +64,40 @@
 
 					<!-- Navigation Menu -->
 					<div class="hidden w-full lg:block lg:w-auto" id="navbar-menu">
-						<ul class="flex flex-col lg:flex-row gap-4 lg:items-center lg:m-0 pr-0 py-4 rounded-md md:rounded-none">
+						<ul class="flex flex-col gap-4 pr-0 py-4 rounded-md lg:flex-row lg:items-center lg:m-0 md:rounded-none">
 							<li>
 								<a href="#home"
-									 class="block bg py-2 px-3 text-gray-700 dark:text-gray-300 hover:text-cyan-600 dark:hover:text-gray-400 font-medium transition md:p-0">
+									 class="block py-2 px-3 font-medium text-gray-700 transition hover:text-cyan-600 dark:text-gray-300 dark:hover:text-gray-400 md:p-0">
 									Home
 								</a>
 							</li>
 							<li>
 								<a href="#services"
-									 class="block py-2 px-3 text-gray-700 dark:text-gray-300 hover:text-cyan-600 dark:hover:text-gray-400 font-medium transition md:p-0">
+									 class="block py-2 px-3 font-medium text-gray-700 transition hover:text-cyan-600 dark:text-gray-300 dark:hover:text-gray-400 md:p-0">
 									Services
 								</a>
 							</li>
 							<li>
 								<a href="#service-area"
-									 class="block py-2 px-3 text-gray-700 dark:text-gray-300 hover:text-cyan-600 dark:hover:text-gray-400 font-medium transition md:p-0">
+									 class="block py-2 px-3 font-medium text-gray-700 transition hover:text-cyan-600 dark:text-gray-300 dark:hover:text-gray-400 md:p-0">
 									Service Area
 								</a>
 							</li>
 							<li>
 								<a href="#gallery"
-									 class="block py-2 px-3 text-gray-700 dark:text-gray-300 hover:text-cyan-600 dark:hover:text-gray-400 font-medium transition md:p-0">
+									 class="block py-2 px-3 font-medium text-gray-700 transition hover:text-cyan-600 dark:text-gray-300 dark:hover:text-gray-400 md:p-0">
 									Gallery
 								</a>
 							</li>
 							<li>
 								<a href="#about"
-									 class="block pt-2 pb-4 px-3 text-gray-700 dark:text-gray-300 hover:text-cyan-600 dark:hover:text-gray-400 font-medium transition md:p-0">
+									 class="block pt-2 pb-4 px-3 font-medium text-gray-700 transition hover:text-cyan-600 dark:text-gray-300 dark:hover:text-gray-400 md:p-0">
 									About Us
 								</a>
 							</li>
 							<li>
 								<a href="#contact"
-									 class="block md:inline-block px-6 py-2 pb-2.5 rounded-md font-bold text-gray-100 dark:text-gray-200 bg-cyan-600 hover:bg-cyan-700 dark:bg-cyan-600 dark:hover:bg-cyan-700 focus:bg-cyan-700 dark:focus:bg-cyan-800 transition">
+									 class="block px-6 py-2 pb-2.5 font-bold text-gray-100 bg-cyan-600 rounded-md transition hover:bg-cyan-700 focus:bg-cyan-700 dark:text-gray-200 dark:bg-cyan-600 dark:hover:bg-cyan-700 dark:focus:bg-cyan-800 md:inline-block">
 									Contact
 								</a>
 							</li>
@@ -110,39 +108,48 @@
 		</nav>
 
 		<!-- Hero Section -->
-		<section id="home"
-						 class="relative h-screen flex items-center justify-center text-center text-gray-300 overflow-hidden pt-16 sm:pt-0">
+		<section
+			id="home"
+			class="relative flex h-screen items-center justify-center overflow-hidden pt-16 text-center text-gray-300 sm:pt-0">
 			<div class="absolute top-0 left-0 w-full h-full">
-				<img src="/assets/images/hero.jpeg" alt="Sunset drilling baby!" class="w-full h-full object-cover object-right sm:object-center">
+				<img
+					src="/assets/images/hero.jpeg"
+					alt="Sunset drilling baby!"
+					class="w-full h-full object-cover object-right sm:object-center">
 			</div>
-			<div class="z-10 px-4 max-w-4xl mx-auto">
-				<h1
-					class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-200 mb-4 drop-shadow-lg">
-					Husky Well & Pump Service</h1>
-				<p class="text-lg md:text-xl lg:text-2xl text-gray-200 drop-shadow-md mb-6 md:mb-8">Water
-					when you need it!</p>
-				<a href="#contact"
-					 class="inline-block px-4 sm:px-6 py-2 md:px-8 md:py-3 rounded-md text-sm md:text-base font-bold bg-cyan-600 text-gray-100 hover:bg-cyan-700 focus:bg-cyan-700 transition dark:bg-cyan-600 dark:text-gray-200 dark:hover:bg-cyan-700 dark:focus:bg-cyan-600">
+			<div class="z-10 max-w-4xl px-4 mx-auto">
+				<h1 class="mb-4 text-3xl font-bold text-gray-200 drop-shadow-lg sm:text-4xl md:text-5xl lg:text-6xl">
+					Husky Well & Pump Service
+				</h1>
+				<p class="mb-6 text-lg text-gray-200 drop-shadow-md md:text-xl md:mb-8 lg:text-2xl">
+					Water when you need it!
+				</p>
+				<a
+					href="#contact"
+					class="inline-block px-4 py-2 text-sm font-bold text-gray-100 bg-cyan-600 rounded-md transition hover:bg-cyan-700 focus:bg-cyan-700 dark:bg-cyan-600 dark:text-gray-200 dark:hover:bg-cyan-700 dark:focus:bg-cyan-600 sm:px-6 md:px-8 md:py-3 md:text-base">
 					Get a Free Quote
 				</a>
 			</div>
 		</section>
 
 		<!-- Services -->
-		<section id="services"
-						 class="px-4 py-11 sm:px-6 sm:py-12 md:px-8 md:py-13 lg:px-10 lg:py-14 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
+		<section
+			id="services"
+			class="px-4 py-11 bg-gray-50 transition-colors duration-300 dark:bg-gray-800 sm:px-6 sm:py-12 md:px-8 md:py-13 lg:px-10 lg:py-14">
 			<div class="max-w-7xl mx-auto">
-				<h2
-					class="text-2xl md:text-3xl lg:text-4xl font-bold text-left text-cyan-900 dark:text-gray-300 mb-3 sm:mb-5 md:mb-7 lg:mb-9">
-					Services</h2>
-				<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-6 md:gap-8 lg:gap-10">
+				<h2 class="mb-3 text-2xl font-bold text-left text-cyan-900 dark:text-gray-300 sm:mb-5 md:text-3xl md:mb-7 lg:text-4xl lg:mb-9">
+					Services
+				</h2>
+				<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 md:gap-8 lg:gap-10 xl:grid-cols-4">
 
 					<!--	Drilling	-->
-					<div
-						class="bg-gray-300 dark:bg-gray-700 p-5 sm:p-6 md:p-8 lg:p-10 rounded-md shadow-lg hover:-translate-y-2 transition">
-						<i data-lucide="arrow-down-to-line"
-							 class="h-14 w-14 text-cyan-600 dark:text-gray-300 mb-4 mx-auto block"></i>
-						<h3 class="text-lg md:text-xl lg:text-2xl font-bold text-cyan-600 dark:text-cyan-400 mb-2">Drilling</h3>
+					<div class="p-5 bg-gray-300 rounded-md shadow-lg transition hover:-translate-y-2 dark:bg-gray-700 sm:p-6 md:p-8 lg:p-10">
+						<i
+							data-lucide="arrow-down-to-line"
+							class="block w-14 h-14 mx-auto mb-4 text-cyan-600 dark:text-gray-300"></i>
+						<h3 class="mb-2 text-lg font-bold text-cyan-600 dark:text-cyan-400 md:text-xl lg:text-2xl">
+							Drilling
+						</h3>
 						<p class="text-gray-700 dark:text-gray-300">
 							Professional water well drilling services for residential, agricultural, and
 							commercial properties. We use tried and true methods to ensure efficient and reliable wells.
@@ -150,11 +157,13 @@
 					</div>
 
 					<!--	Pump Installation	 -->
-					<div
-						class="bg-gray-300 dark:bg-gray-700 p-5 sm:p-6 md:p-8 lg:p-10 rounded-md shadow-lg hover:-translate-y-2 transition">
-						<i data-lucide="droplet" class="h-14 w-14 text-cyan-600 dark:text-gray-300 mb-4 mx-auto block"></i>
-						<h3 class="text-lg md:text-xl lg:text-2xl font-bold text-cyan-600 dark:text-cyan-400 mb-2">Pump
-							Installation</h3>
+					<div class="p-5 bg-gray-300 rounded-md shadow-lg transition hover:-translate-y-2 dark:bg-gray-700 sm:p-6 md:p-8 lg:p-10">
+						<i
+							data-lucide="droplet"
+							class="block w-14 h-14 mx-auto mb-4 text-cyan-600 dark:text-gray-300"></i>
+						<h3 class="mb-2 text-lg font-bold text-cyan-600 dark:text-cyan-400 md:text-xl lg:text-2xl">
+							Pump Installation
+						</h3>
 						<p class="text-gray-700 dark:text-gray-300">
 							Expert installation of submersible and surface pumps. We'll help you select the right
 							pump system for your water needs and ensure propper installation.
@@ -162,11 +171,13 @@
 					</div>
 
 					<!--	Well Services	 -->
-					<div
-						class="bg-gray-300 dark:bg-gray-700 p-5 sm:p-6 md:p-8 lg:p-10 rounded-md shadow-lg hover:-translate-y-2 transition">
-						<i data-lucide="wrench" class="h-14 w-14 text-cyan-600 dark:text-gray-300 mb-4 mx-auto block"></i>
-						<h3 class="text-lg md:text-xl lg:text-2xl font-bold text-cyan-600 dark:text-cyan-400 mb-2">Well
-							Services</h3>
+					<div class="p-5 bg-gray-300 rounded-md shadow-lg transition hover:-translate-y-2 dark:bg-gray-700 sm:p-6 md:p-8 lg:p-10">
+						<i
+							data-lucide="wrench"
+							class="block w-14 h-14 mx-auto mb-4 text-cyan-600 dark:text-gray-300"></i>
+						<h3 class="mb-2 text-lg font-bold text-cyan-600 dark:text-cyan-400 md:text-xl lg:text-2xl">
+							Well Services
+						</h3>
 						<p class="text-gray-700 dark:text-gray-300">
 							Emergency well services. We diagnose and fix issues quickly to restore
 							your water supply with minimal downtime.
@@ -174,10 +185,13 @@
 					</div>
 
 					<!--	Maintenance	 -->
-					<div
-						class="bg-gray-300 dark:bg-gray-700 p-5 sm:p-6 md:p-8 lg:p-10 rounded-md shadow-lg hover:-translate-y-2 transition">
-						<i data-lucide="cog" class="h-14 w-14 text-cyan-600 dark:text-gray-300 mb-4 mx-auto block"></i>
-						<h3 class="text-lg md:text-xl lg:text-2xl font-bold text-cyan-600 dark:text-cyan-400 mb-2">Maintenance</h3>
+					<div class="p-5 bg-gray-300 rounded-md shadow-lg transition hover:-translate-y-2 dark:bg-gray-700 sm:p-6 md:p-8 lg:p-10">
+						<i
+							data-lucide="cog"
+							class="block w-14 h-14 mx-auto mb-4 text-cyan-600 dark:text-gray-300"></i>
+						<h3 class="mb-2 text-lg font-bold text-cyan-600 dark:text-cyan-400 md:text-xl lg:text-2xl">
+							Maintenance
+						</h3>
 						<p class="text-gray-700 dark:text-gray-300">
 							Regular maintenance plans to keep your well and pump systems running smoothly.
 							Prevent costly repairs with preventative care.
@@ -188,31 +202,35 @@
 		</section>
 
 		<!-- Service Area -->
-		<section id="service-area"
-						 class="px-4 py-11 sm:px-6 sm:py-12 md:px-8 md:py-13 lg:px-10 lg:py-14 bg-gray-200 dark:bg-gray-900 transition-colors duration-300">
+		<section
+			id="service-area"
+			class="px-4 py-11 bg-gray-200 transition-colors duration-300 dark:bg-gray-900 sm:px-6 sm:py-12 md:px-8 md:py-13 lg:px-10 lg:py-14">
 			<div class="max-w-7xl mx-auto">
-				<h2
-					class="text-2xl md:text-3xl lg:text-4xl font-bold text-left text-cyan-600 dark:text-gray-300 mb-2 sm:mb-4 md:mb-6 lg:mb-8">
-					Service Area</h2>
-				<p class="text-left text-gray-700 dark:text-gray-300 mb-3 sm:mb-6 md:mb-8 lg:mb-10 text-lg">
+				<h2 class="mb-2 text-2xl font-bold text-left text-cyan-600 dark:text-gray-300 sm:mb-4 md:text-3xl md:mb-6 lg:text-4xl lg:mb-8">
+					Service Area
+				</h2>
+				<p class="mb-3 text-lg text-left text-gray-700 dark:text-gray-300 sm:mb-6 md:mb-8 lg:mb-10">
 					We proudly serve communities throughout central New Mexico
 				</p>
-				<div id="service-area-map"
-						 class="w-full h-[32vh] sm:h-[64vh] border-2 border-gray-300 dark:border-gray-700 rounded-md overflow-hidden shadow-xl bg-gray-300 dark:bg-gray-700"></div>
+				<div
+					id="service-area-map"
+					class="w-full h-[32vh] overflow-hidden bg-gray-300 border-2 border-gray-300 rounded-md shadow-xl dark:bg-gray-700 dark:border-gray-700 sm:h-[64vh]">
+				</div>
 			</div>
 		</section>
 
 		<!-- Gallery -->
-		<section id="gallery"
-						 class="px-4 py-11 sm:px-6 sm:py-12 md:px-8 md:py-13 lg:px-10 lg:py-14 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
+		<section
+			id="gallery"
+			class="px-4 py-11 bg-gray-50 transition-colors duration-300 dark:bg-gray-800 sm:px-6 sm:py-12 md:px-8 md:py-13 lg:px-10 lg:py-14">
 			<div class="max-w-7xl mx-auto">
-				<h2
-					class="text-2xl md:text-3xl lg:text-4xl font-bold text-left text-cyan-900 dark:text-gray-300 mb-3 sm:mb-5 md:mb-7 lg:mb-9">
-					Gallery</h2>
-				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 lg:gap-10">
+				<h2 class="mb-3 text-2xl font-bold text-left text-cyan-900 dark:text-gray-300 sm:mb-5 md:text-3xl md:mb-7 lg:text-4xl lg:mb-9">
+					Gallery
+				</h2>
+				<div class="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2 md:gap-8 lg:grid-cols-3 lg:gap-10">
 
 					<!-- Image Card 1 -->
-					<div class="relative h-72 bg-gray-300 dark:bg-gray-600 rounded-md shadow-lg overflow-hidden group">
+					<div class="group relative h-72 overflow-hidden bg-gray-300 rounded-md shadow-lg dark:bg-gray-600">
 						<img
 							src="/assets/images/sunset-rig1.jpeg"
 							alt="Drilling while the sun sets..."
@@ -221,73 +239,71 @@
 					</div>
 
 					<!-- Image Card 2 -->
-					<div class="relative h-72 bg-gray-300 dark:bg-gray-600 rounded-md shadow-lg overflow-hidden group">
+					<div class="group relative h-72 overflow-hidden bg-gray-300 rounded-md shadow-lg dark:bg-gray-600">
 						<img
 							src="/assets/images/corrales.jpeg"
 							alt="Drilling in Corrales"
-							class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-						>
+							class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
 					</div>
 
 					<!-- Image Card 3 -->
-					<div class="relative h-72 bg-gray-300 dark:bg-gray-600 rounded-md shadow-lg overflow-hidden group">
+					<div class="group relative h-72 overflow-hidden bg-gray-300 rounded-md shadow-lg dark:bg-gray-600">
 						<img
 							src="/assets/images/el-cerro.jpeg"
 							alt="Setting up the Autocar Constructor in El Cerro..."
-							class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-						>
+							class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
 					</div>
 
 					<!-- Image Card 4 -->
-					<div class="relative h-72 bg-gray-300 dark:bg-gray-600 rounded-md shadow-lg overflow-hidden group">
+					<div class="group relative h-72 overflow-hidden bg-gray-300 rounded-md shadow-lg dark:bg-gray-600">
 						<img
 							src="/assets/images/el-cerro1.jpeg"
 							alt="Autocar Constructor stuck at a job due to bad starter..."
-							class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-						>
+							class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
 					</div>
 
 					<!-- Image Card 5 -->
-					<div class="relative h-72 bg-gray-300 dark:bg-gray-600 rounded-md shadow-lg overflow-hidden group">
+					<div class="group relative h-72 overflow-hidden bg-gray-300 rounded-md shadow-lg dark:bg-gray-600">
 						<img
 							src="/assets/images/contreras.jpeg"
 							alt="El hefe talking to Jason..."
-							class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-						>
+							class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
 					</div>
 
 					<!-- Image Card 6 -->
-					<div class="relative h-72 bg-gray-300 dark:bg-gray-600 rounded-md shadow-lg overflow-hidden group">
+					<div class="group relative h-72 overflow-hidden bg-gray-300 rounded-md shadow-lg dark:bg-gray-600">
 						<img
 							src="/assets/images/sunset-rig.jpeg"
 							alt="Finishing the job..."
-							class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-						>
+							class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
 					</div>
 				</div>
 			</div>
 		</section>
 
 		<!-- About Us -->
-		<section id="about"
-						 class="px-4 py-11 sm:px-6 sm:py-12 md:px-8 md:py-13 lg:px-10 lg:py-14 bg-gray-200 dark:bg-gray-900 transition-colors duration-300">
+		<section
+			id="about"
+			class="px-4 py-11 bg-gray-200 transition-colors duration-300 dark:bg-gray-900 sm:px-6 sm:py-12 md:px-8 md:py-13 lg:px-10 lg:py-14">
 			<div class="max-w-7xl mx-auto">
-				<h2
-					class="text-2xl md:text-3xl lg:text-4xl font-bold text-left text-cyan-600 dark:text-gray-300 mb-3 sm:mb-5 md:mb-7 lg:mb-9">
-					About Us</h2>
+				<h2 class="mb-3 text-2xl font-bold text-left text-cyan-600 dark:text-gray-300 sm:mb-5 md:text-3xl md:mb-7 lg:text-4xl lg:mb-9">
+					About Us
+				</h2>
 
 				<!-- Our History -->
 				<div class="mb-11 sm:mb-13 md:mb-14 lg:mb-16">
-					<h3 class="sm:text-lg md:text-xl lg:text-2xl font-bold text-cyan-600 dark:text-gray-300 mb-8">Our History</h3>
-					<div class="relative pl-8 sm:pl-12 border-l-4 border-cyan-600 dark:border-cyan-400">
+					<h3 class="mb-8 font-bold text-cyan-600 dark:text-gray-300 sm:text-lg md:text-xl lg:text-2xl">
+						Our History
+					</h3>
+					<div class="relative pl-8 border-l-4 border-cyan-600 dark:border-cyan-400 sm:pl-12">
 
 						<!-- Timeline Item 1 -->
-						<div class="mb-10 relative group">
-							<div
-								class="absolute -left-10 sm:-left-14 top-1 w-6 h-6 bg-cyan-600 dark:bg-cyan-400 rounded-full border-4 border-gray-200 dark:border-gray-900 shadow-lg group-hover:scale-125 transition-transform duration-300"></div>
-							<div
-								class="bg-gray-50 dark:bg-gray-700 p-5 sm:p-6 md:p-8 rounded-md shadow-lg hover:-translate-y-2 transition-all duration-300">
-								<div class="text-xl sm:text-2xl font-bold text-cyan-600 dark:text-cyan-400 mb-3">1960</div>
+						<div class="group relative mb-10">
+							<div class="absolute -left-10 top-1 w-6 h-6 bg-cyan-600 border-4 border-gray-200 rounded-full shadow-lg transition-transform duration-300 group-hover:scale-125 dark:bg-cyan-400 dark:border-gray-900 sm:-left-14"></div>
+							<div class="p-5 bg-gray-50 rounded-md shadow-lg transition-all duration-300 hover:-translate-y-2 dark:bg-gray-700 sm:p-6 md:p-8">
+								<div class="mb-3 text-xl font-bold text-cyan-600 dark:text-cyan-400 sm:text-2xl">
+									1960
+								</div>
 								<p class="text-gray-700 dark:text-gray-300">
 									Charles "Richard" Herrera began his career with Teton Exploration as a drill hand,
 									helping in uranium exploration near Riverton, Wyoming. At just 18 years old, his work
@@ -297,12 +313,12 @@
 						</div>
 
 						<!-- Timeline Item 2 -->
-						<div class="mb-10 relative group">
-							<div
-								class="absolute -left-10 sm:-left-14 top-1 w-6 h-6 bg-cyan-600 dark:bg-cyan-400 rounded-full border-4 border-gray-200 dark:border-gray-900 shadow-lg group-hover:scale-125 transition-transform duration-300"></div>
-							<div
-								class="bg-gray-50 dark:bg-gray-700 p-5 sm:p-6 md:p-8 rounded-md shadow-lg hover:-translate-y-2 transition-all duration-300">
-								<div class="text-xl sm:text-2xl font-bold text-cyan-600 dark:text-cyan-400 mb-3">1965</div>
+						<div class="group relative mb-10">
+							<div class="absolute -left-10 top-1 w-6 h-6 bg-cyan-600 border-4 border-gray-200 rounded-full shadow-lg transition-transform duration-300 group-hover:scale-125 dark:bg-cyan-400 dark:border-gray-900 sm:-left-14"></div>
+							<div class="p-5 bg-gray-50 rounded-md shadow-lg transition-all duration-300 hover:-translate-y-2 dark:bg-gray-700 sm:p-6 md:p-8">
+								<div class="mb-3 text-xl font-bold text-cyan-600 dark:text-cyan-400 sm:text-2xl">
+									1965
+								</div>
 								<p class="text-gray-700 dark:text-gray-300">
 									Richard and his wife, Hope, relocated to Grants, New Mexico,
 									where Teton Exploration continued its uranium drilling operations.
@@ -311,12 +327,12 @@
 						</div>
 
 						<!-- Timeline Item 3 -->
-						<div class="mb-10 relative group">
-							<div
-								class="absolute -left-10 sm:-left-14 top-1 w-6 h-6 bg-cyan-600 dark:bg-cyan-400 rounded-full border-4 border-gray-200 dark:border-gray-900 shadow-lg group-hover:scale-125 transition-transform duration-300"></div>
-							<div
-								class="bg-gray-50 dark:bg-gray-700 p-5 sm:p-6 md:p-8 rounded-md shadow-lg hover:-translate-y-2 transition-all duration-300">
-								<div class="text-xl sm:text-2xl font-bold text-cyan-600 dark:text-cyan-400 mb-3">1989</div>
+						<div class="group relative mb-10">
+							<div class="absolute -left-10 top-1 w-6 h-6 bg-cyan-600 border-4 border-gray-200 rounded-full shadow-lg transition-transform duration-300 group-hover:scale-125 dark:bg-cyan-400 dark:border-gray-900 sm:-left-14"></div>
+							<div class="p-5 bg-gray-50 rounded-md shadow-lg transition-all duration-300 hover:-translate-y-2 dark:bg-gray-700 sm:p-6 md:p-8">
+								<div class="mb-3 text-xl font-bold text-cyan-600 dark:text-cyan-400 sm:text-2xl">
+									1989
+								</div>
 								<p class="text-gray-700 dark:text-gray-300">
 									After nearly three decades of working in extreme environments, advancing through multiple
 									positions, and gaining deep field experience, Richard and his family moved to Belen,
@@ -327,12 +343,12 @@
 						</div>
 
 						<!-- Timeline Item 4 -->
-						<div class="mb-10 relative group">
-							<div
-								class="absolute -left-10 sm:-left-14 top-1 w-6 h-6 bg-cyan-600 dark:bg-cyan-400 rounded-full border-4 border-gray-200 dark:border-gray-900 shadow-lg group-hover:scale-125 transition-transform duration-300"></div>
-							<div
-								class="bg-gray-50 dark:bg-gray-700 p-5 sm:p-6 md:p-8 rounded-md shadow-lg hover:-translate-y-2 transition-all duration-300">
-								<div class="text-xl sm:text-2xl font-bold text-cyan-600 dark:text-cyan-400 mb-3">1992</div>
+						<div class="group relative mb-10">
+							<div class="absolute -left-10 top-1 w-6 h-6 bg-cyan-600 border-4 border-gray-200 rounded-full shadow-lg transition-transform duration-300 group-hover:scale-125 dark:bg-cyan-400 dark:border-gray-900 sm:-left-14"></div>
+							<div class="p-5 bg-gray-50 rounded-md shadow-lg transition-all duration-300 hover:-translate-y-2 dark:bg-gray-700 sm:p-6 md:p-8">
+								<div class="mb-3 text-xl font-bold text-cyan-600 dark:text-cyan-400 sm:text-2xl">
+									1992
+								</div>
 								<p class="text-gray-700 dark:text-gray-300">
 									<em>Star Drilling</em> was rebranded as <em>Husky Drilling</em> and began delivering
 									fresh water to communities throughout the Rio Grande Valley.
@@ -341,12 +357,12 @@
 						</div>
 
 						<!-- Timeline Item 5 -->
-						<div class="relative group">
+						<div class="group relative">
 							<div
-								class="absolute -left-10 sm:-left-14 top-1 w-6 h-6 bg-cyan-600 dark:bg-cyan-400 rounded-full border-4 border-gray-200 dark:border-gray-900 shadow-lg group-hover:scale-125 transition-transform duration-300"></div>
+								class="absolute -left-10 top-1 w-6 h-6 bg-cyan-600 border-4 border-gray-200 rounded-full shadow-lg transition-transform duration-300 group-hover:scale-125 dark:bg-cyan-400 dark:border-gray-900 sm:-left-14"></div>
 							<div
-								class="bg-gray-50 dark:bg-gray-700 p-5 sm:p-6 md:p-8 rounded-md shadow-lg hover:-translate-y-2 transition-all duration-300">
-								<div class="text-xl sm:text-2xl font-bold text-cyan-600 dark:text-cyan-400 mb-3">Present</div>
+								class="p-5 bg-gray-50 rounded-md shadow-lg transition-all duration-300 hover:-translate-y-2 dark:bg-gray-700 sm:p-6 md:p-8">
+								<div class="mb-3 text-xl font-bold text-cyan-600 dark:text-cyan-400 sm:text-2xl">Present</div>
 								<p class="text-gray-700 dark:text-gray-300">
 									<em>Husky</em> continues to serve the region as environmental demands, geological conditions,
 									and industry regulations evolve. Through these changes, we remain committed to
@@ -360,15 +376,15 @@
 				<!-- Our Values -->
 				<div class="border-t border-cyan-700">
 					<h3
-						class="sm:text-lg md:text-xl lg:text-2xl font-bold text-cyan-600 dark:text-gray-300 mt-9 sm:mt-10 md:mt-11 lg:mt-12 mb-3 sm:mb-5 md:mb-7 lg:mb-9">
+						class="mt-9 mb-3 font-bold text-cyan-600 dark:text-gray-300 sm:text-lg sm:mt-10 sm:mb-5 md:text-xl md:mt-11 md:mb-7 lg:text-2xl lg:mt-12 lg:mb-9">
 						Our Values</h3>
-					<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-6 md:gap-8 lg:gap-10">
+					<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 md:gap-8 lg:gap-10 xl:grid-cols-4">
 
 						<!-- Value 1 -->
 						<div
-							class="bg-gray-50 dark:bg-gray-700 p-5 sm:p-6 md:p-8 lg:p-10 rounded-md shadow-lg hover:-translate-y-2 transition text-center">
-							<i data-lucide="shield-check" class="h-14 w-14 text-cyan-600 dark:text-gray-300 mb-4 mx-auto block"></i>
-							<h3 class="text-lg md:text-xl lg:text-2xl font-bold text-cyan-600 dark:text-cyan-400 mb-2">
+							class="p-5 bg-gray-50 rounded-md shadow-lg text-center transition hover:-translate-y-2 dark:bg-gray-700 sm:p-6 md:p-8 lg:p-10">
+							<i data-lucide="shield-check" class="block w-14 h-14 mx-auto mb-4 text-cyan-600 dark:text-gray-300"></i>
+							<h3 class="mb-2 text-lg font-bold text-cyan-600 dark:text-cyan-400 md:text-xl lg:text-2xl">
 								Reliability</h3>
 							<p class="text-gray-700 dark:text-gray-300">
 								We show up on time and get the job done right. Your
@@ -378,9 +394,9 @@
 
 						<!-- Value 2 -->
 						<div
-							class="bg-gray-50 dark:bg-gray-700 p-5 sm:p-6 md:p-8 lg:p-10 rounded-md shadow-lg hover:-translate-y-2 transition text-center">
-							<i data-lucide="badge-check" class="h-14 w-14 text-cyan-600 dark:text-gray-300 mb-4 mx-auto block"></i>
-							<h3 class="text-lg md:text-xl lg:text-2xl font-bold text-cyan-600 dark:text-cyan-400 mb-2">Quality</h3>
+							class="p-5 bg-gray-50 rounded-md shadow-lg text-center transition hover:-translate-y-2 dark:bg-gray-700 sm:p-6 md:p-8 lg:p-10">
+							<i data-lucide="badge-check" class="block w-14 h-14 mx-auto mb-4 text-cyan-600 dark:text-gray-300"></i>
+							<h3 class="mb-2 text-lg font-bold text-cyan-600 dark:text-cyan-400 md:text-xl lg:text-2xl">Quality</h3>
 							<p class="text-gray-700 dark:text-gray-300">
 								We use the best equipment and techniques to ensure
 								lasting results you can depend on.
@@ -389,9 +405,9 @@
 
 						<!-- Value 3 -->
 						<div
-							class="bg-gray-50 dark:bg-gray-700 p-5 sm:p-6 md:p-8 lg:p-10 rounded-md shadow-lg hover:-translate-y-2 transition text-center">
-							<i data-lucide="handshake" class="h-14 w-14 text-cyan-600 dark:text-gray-300 mb-4 mx-auto block"></i>
-							<h3 class="text-lg md:text-xl lg:text-2xl font-bold text-cyan-600 dark:text-cyan-400 mb-2">Integrity</h3>
+							class="p-5 bg-gray-50 rounded-md shadow-lg text-center transition hover:-translate-y-2 dark:bg-gray-700 sm:p-6 md:p-8 lg:p-10">
+							<i data-lucide="handshake" class="block w-14 h-14 mx-auto mb-4 text-cyan-600 dark:text-gray-300"></i>
+							<h3 class="mb-2 text-lg font-bold text-cyan-600 dark:text-cyan-400 md:text-xl lg:text-2xl">Integrity</h3>
 							<p class="text-gray-700 dark:text-gray-300">
 								Honest pricing, transparent communication, and doing
 								what's right for our customers.
@@ -400,9 +416,9 @@
 
 						<!-- Value 4 -->
 						<div
-							class="bg-gray-50 dark:bg-gray-700 p-5 sm:p-6 md:p-8 lg:p-10 rounded-md shadow-lg hover:-translate-y-2 transition text-center">
-							<i data-lucide="house" class="h-14 w-14 text-cyan-600 dark:text-gray-300 mb-4 mx-auto block"></i>
-							<h3 class="text-lg md:text-xl lg:text-2xl font-bold text-cyan-600 dark:text-cyan-400 mb-2">Community</h3>
+							class="p-5 bg-gray-50 rounded-md shadow-lg text-center transition hover:-translate-y-2 dark:bg-gray-700 sm:p-6 md:p-8 lg:p-10">
+							<i data-lucide="house" class="block w-14 h-14 mx-auto mb-4 text-cyan-600 dark:text-gray-300"></i>
+							<h3 class="mb-2 text-lg font-bold text-cyan-600 dark:text-cyan-400 md:text-xl lg:text-2xl">Community</h3>
 							<p class="text-gray-700 dark:text-gray-300">
 								Proud to serve our neighbors throughout New Mexico with
 								dedicated local service.
@@ -415,12 +431,12 @@
 
 		<!-- Contact Section -->
 		<section id="contact"
-						 class="px-4 py-11 sm:px-6 sm:py-12 md:px-8 md:py-13 lg:px-10 lg:py-14 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
+						 class="px-4 py-11 bg-gray-50 transition-colors duration-300 dark:bg-gray-800 sm:px-6 sm:py-12 md:px-8 md:py-13 lg:px-10 lg:py-14">
 			<div class="max-w-7xl mx-auto">
 				<h2
-					class="text-2xl md:text-3xl lg:text-4xl font-bold text-left text-cyan-600 dark:text-gray-300 mb-3 sm:mb-5 md:mb-7 lg:mb-9">
+					class="mb-3 text-2xl font-bold text-left text-cyan-600 dark:text-gray-300 sm:mb-5 md:text-3xl md:mb-7 lg:text-4xl lg:mb-9">
 					Contact Us</h2>
-				<div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:items-start">
+				<div class="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:items-start">
 					<form id="contactForm" class="flex flex-col">
 						<div class="flex-grow">
 							<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -431,7 +447,7 @@
 										Name
 									</label>
 									<input type="text" id="name" name="name" placeholder="Full Name" required
-												 class="p-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-1 focus:ring-cyan-600 dark:focus:ring-gray-400 dark:bg-gray-700 dark:text-gray-300">
+												 class="p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-cyan-600 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:focus:ring-gray-400">
 								</div>
 
 								<!-- Phone Field -->
@@ -441,7 +457,7 @@
 									</label>
 									<input type="tel" id="phone" name="phone" maxlength="64" minlength="4" placeholder="(505) 555-5555"
 												 required
-												 class="p-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-1 focus:ring-cyan-600 dark:focus:ring-gray-400 dark:bg-gray-700 dark:text-gray-300">
+												 class="p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-cyan-600 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:focus:ring-gray-400">
 								</div>
 							</div>
 
@@ -452,49 +468,49 @@
 								</label>
 								<input type="email" id="email" name="email" maxlength="64" minlength="8"
 											 placeholder="youremail@example.com" required
-											 class="p-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-1 focus:ring-cyan-600 dark:focus:ring-gray-400 dark:bg-gray-700 dark:text-gray-300">
+											 class="p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-cyan-600 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:focus:ring-gray-400">
 							</div>
 
 							<!-- Subject Field -->
 							<div class="flex flex-col mt-2">
 								<label for="subject" class="mb-2 font-medium text-gray-700 dark:text-gray-300">
 									Subject
-									<span id="subjectCounter" class="text-xs text-gray-500 dark:text-gray-400 ml-2">(0/128)</span>
+									<span id="subjectCounter" class="ml-2 text-xs text-gray-500 dark:text-gray-400">(0/128)</span>
 								</label>
 								<input type="text" id="subject" name="subject" maxlength="128" minlength="4"
 											 placeholder="Enter the subject..." required
-											 class="p-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-1 focus:ring-cyan-600 dark:focus:ring-gray-400 dark:bg-gray-700 dark:text-gray-300">
+											 class="p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-cyan-600 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:focus:ring-gray-400">
 							</div>
 
 							<!-- Message Field -->
 							<div class="flex flex-col mt-2">
 								<label for="message" class="mb-2 font-medium text-gray-700 dark:text-gray-300">
 									Message
-									<span id="messageCounter" class="text-xs text-gray-500 dark:text-gray-400 ml-2">(0/1024)</span>
+									<span id="messageCounter" class="ml-2 text-xs text-gray-500 dark:text-gray-400">(0/1024)</span>
 								</label>
 								<textarea id="message" name="message" rows="11" minlength="16" maxlength="1024"
 													placeholder="Enter your message..." required
-													class="p-2 border border-gray-300 dark:border-gray-600 rounded-md resize-y focus:outline-none focus:ring-1 focus:ring-cyan-600 dark:focus:ring-gray-400 dark:bg-gray-700 dark:text-gray-300"></textarea>
+													class="p-2 border border-gray-300 rounded-md resize-y focus:outline-none focus:ring-1 focus:ring-cyan-600 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:focus:ring-gray-400"></textarea>
 							</div>
 						</div>
 
 						<!-- Submit Button -->
 						<button type="submit"
-										class="w-full bg-cyan-600 dark:bg-cyan-600 text-gray-100 dark:text-gray-200 mt-6 py-1.5 px-6 rounded-md hover:bg-cyan-700 dark:hover:bg-cyan-700 focus:bg-cyan-700 dark:focus:bg-cyan-900 transition font-medium text-lg">
+										class="w-full mt-6 px-6 py-1.5 text-lg font-medium text-gray-100 bg-cyan-600 rounded-md transition hover:bg-cyan-700 focus:bg-cyan-700 dark:bg-cyan-600 dark:text-gray-200 dark:hover:bg-cyan-700 dark:focus:bg-cyan-900">
 							Send Message
 						</button>
 
-						<p id="formStatus" class="text-center text-sm text-gray-700 dark:text-gray-400"></p>
+						<p id="formStatus" class="text-sm text-center text-gray-700 dark:text-gray-400"></p>
 					</form>
 
 					<!-- Company Map & Details -->
 					<div class="flex flex-col gap-4 sm:gap-6 md:gap-8 lg:gap-10">
 						<div id="contact-map"
-								 class="w-full h-72 lg:h-80 border-2 border-gray-300 dark:border-gray-700 rounded-md overflow-hidden shadow-lg"></div>
-						<div id="place-details" class="bg-gray-200 dark:bg-gray-700 p-5 sm:p-6 md:p-8 lg:p-10 rounded-md shadow-lg">
+								 class="w-full h-72 overflow-hidden border-2 border-gray-300 rounded-md shadow-lg dark:border-gray-700 lg:h-80"></div>
+						<div id="place-details" class="p-5 bg-gray-200 rounded-md shadow-lg dark:bg-gray-700 sm:p-6 md:p-8 lg:p-10">
 							<div class="animate-pulse">
-								<div class="h-4 bg-gray-200 dark:bg-gray-600 rounded w-3/4 mb-2"></div>
-								<div class="h-3 bg-gray-200 dark:bg-gray-600 rounded w-1/2"></div>
+								<div class="w-3/4 h-4 mb-2 bg-gray-200 rounded dark:bg-gray-600"></div>
+								<div class="w-1/2 h-3 bg-gray-200 rounded dark:bg-gray-600"></div>
 							</div>
 						</div>
 					</div>
@@ -504,10 +520,10 @@
 
 		<!-- Footer -->
 		<footer
-			class="bg-gray-100 dark:bg-gray-950 text-gray-700 dark:text-gray-300 px-4 py-11 sm:px-6 sm:py-12 md:px-8 md:py-13 lg:px-10 lg:py-14 transition-colors duration-300">
+			class="px-4 py-11 text-gray-700 bg-gray-100 transition-colors duration-300 dark:bg-gray-950 dark:text-gray-300 sm:px-6 sm:py-12 md:px-8 md:py-13 lg:px-10 lg:py-14">
 			<div class="max-w-7xl mx-auto">
 				<div
-					class="grid grid-cols-1 sm:grid-cols-3 sm:justify-items-center gap-8 sm:gap-10 md:gap-12 lg:gap-16 mb-8 sm:mb-10 md:mb-12">
+					class="grid grid-cols-1 gap-8 mb-8 sm:grid-cols-3 sm:justify-items-center sm:gap-10 sm:mb-10 md:gap-12 md:mb-12 lg:gap-16">
 
 					<!-- Company Info -->
 					<div>
@@ -516,25 +532,25 @@
 							<img src="public/assets/dawg.png" alt="Husky Logo" class="h-8 mr-2 dark:hidden">
 							<!-- Dark mode logo -->
 							<img src="public/assets/dawg-dark.png" alt="Husky Logo" class="h-8 mr-2 hidden dark:block">
-							<h3 class="text-xl sm:text-2xl font-bold text-gray-700 dark:text-gray-300">Husky Well & Pump Service</h3>
+							<h3 class="text-xl font-bold text-gray-700 dark:text-gray-300 sm:text-2xl">Husky Well & Pump Service</h3>
 						</div>
-						<p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+						<p class="leading-relaxed text-gray-600 dark:text-gray-400">
 							Professional water well drilling and pump services throughout central New Mexico.
 						</p>
 					</div>
 
 					<!-- Contact Info -->
 					<div>
-						<h3 class="text-xl sm:text-2xl font-bold mb-4 text-gray-700 dark:text-gray-300">Contact</h3>
+						<h3 class="mb-4 text-xl font-bold text-gray-700 dark:text-gray-300 sm:text-2xl">Contact</h3>
 						<div class="space-y-3">
 							<a href="tel:5058640779"
-								 class="flex items-center text-gray-700 dark:text-gray-400 hover:text-cyan-600 dark:hover:text-gray-500 transition group">
-								<i data-lucide="phone" class="inline w-5 h-5 mr-3 group-hover:scale-110 transition-transform"></i>
+								 class="group flex items-center text-gray-700 transition hover:text-cyan-600 dark:text-gray-400 dark:hover:text-gray-500">
+								<i data-lucide="phone" class="inline w-5 h-5 mr-3 transition-transform group-hover:scale-110"></i>
 								<span>(505) 864-0779</span>
 							</a>
 							<a href="mailto:huskywellservice@gmail.com"
-								 class="flex items-center text-gray-600 dark:text-gray-400 hover:text-cyan-600 dark:hover:text-gray-500 transition group">
-								<i data-lucide="mail" class="inline w-5 h-5 mr-3 group-hover:scale-110 transition-transform"></i>
+								 class="group flex items-center text-gray-600 transition hover:text-cyan-600 dark:text-gray-400 dark:hover:text-gray-500">
+								<i data-lucide="mail" class="inline w-5 h-5 mr-3 transition-transform group-hover:scale-110"></i>
 								<span>huskywellservice@gmail.com</span>
 							</a>
 							<div class="flex items-center text-gray-600 dark:text-gray-400">
@@ -546,27 +562,27 @@
 
 					<!-- Quick Links -->
 					<div>
-						<h3 class="text-xl sm:text-2xl font-bold mb-4 text-gray-700 dark:text-gray-300">Quick Links</h3>
+						<h3 class="mb-4 text-xl font-bold text-gray-700 dark:text-gray-300 sm:text-2xl">Quick Links</h3>
 						<nav class="space-y-2">
 							<a href="#services"
-								 class="block text-gray-600 dark:text-gray-400 hover:text-cyan-800 dark:hover:text-gray-500 transition hover:translate-x-1-x-1 transform duration-200">Services</a>
+								 class="block text-gray-600 transition duration-200 transform hover:text-cyan-800 hover:translate-x-1-x-1 dark:text-gray-400 dark:hover:text-gray-500">Services</a>
 							<a href="#service-area"
-								 class="block text-gray-600 dark:text-gray-400 hover:text-cyan-800 dark:hover:text-gray-500 transition hover:translate-x-1-x-1 transform duration-200">Service
+								 class="block text-gray-600 transition duration-200 transform hover:text-cyan-800 hover:translate-x-1-x-1 dark:text-gray-400 dark:hover:text-gray-500">Service
 								Area</a>
 							<a href="#gallery"
-								 class="block text-gray-600 dark:text-gray-400 hover:text-cyan-800 dark:hover:text-gray-500 transition hover:translate-x-1-x-1 transform duration-200">Gallery</a>
+								 class="block text-gray-600 transition duration-200 transform hover:text-cyan-800 hover:translate-x-1-x-1 dark:text-gray-400 dark:hover:text-gray-500">Gallery</a>
 							<a href="#about"
-								 class="block text-gray-600 dark:text-gray-400 hover:text-cyan-800 dark:hover:text-gray-500 transition hover:translate-x-1-x-1 transform duration-200">About
+								 class="block text-gray-600 transition duration-200 transform hover:text-cyan-800 hover:translate-x-1-x-1 dark:text-gray-400 dark:hover:text-gray-500">About
 								Us</a>
 							<a href="#contact"
-								 class="block text-gray-600 dark:text-gray-400 hover:text-cyan-800 dark:hover:text-gray-500 transition hover:translate-x-1-x-1 transform duration-200">Contact</a>
+								 class="block text-gray-600 transition duration-200 transform hover:text-cyan-800 hover:translate-x-1-x-1 dark:text-gray-400 dark:hover:text-gray-500">Contact</a>
 						</nav>
 					</div>
 				</div>
 
 				<!-- Copyright -->
-				<div class="border-t border-gray-300 dark:border-gray-800 pt-6 sm:pt-8 text-center">
-					<p class="text-gray-700 dark:text-gray-400 text-sm sm:text-base">&copy; 2025 Husky Well & Pump Service. All
+				<div class="pt-6 text-center border-t border-gray-300 dark:border-gray-800 sm:pt-8">
+					<p class="text-sm text-gray-700 dark:text-gray-400 sm:text-base">&copy; 2025 Husky Well & Pump Service. All
 						rights reserved.</p>
 				</div>
 			</div>
