@@ -155,7 +155,7 @@ Card features:
 - Hover effect: `hover:-translate-y-2` lift animation
 - Card styling: Gradient background with borders
   - Background: `bg-gradient-to-br from-secondary/20 dark:from-dark-primary/30 to-secondary/5 dark:to-dark-secondary/5`
-  - Border: `border-2 dark:border-1 border-secondary/50 dark:border-dark-secondary/50`
+  - Border: `border dark:border-1 border-secondary/50 dark:border-dark-secondary/50`
 - Icon color: `text-secondary` (light) / `dark:text-dark-secondary` (dark)
 - Heading color: `text-secondary` (light) / `dark:text-dark-secondary` (dark)
 - Card text: `text-base-content` (light) / `dark:text-base-150` (dark)
@@ -220,7 +220,7 @@ Photo gallery section (`#gallery`) displaying 6 images of drilling operations:
 - Fixed card height: `h-72` with `overflow-hidden`
 - Images use `object-cover` to fill card space
 - Hover effect: `group-hover:scale-105` for subtle zoom on image
-- Card styling: `bg-base-100 border-2 border-base-400 dark:border-base-600 rounded-md shadow-lg`
+- Card styling: `bg-base-100 border border-base-400 dark:border-base-600 rounded-md shadow-lg`
 - Images include: sunset drilling scenes, rig setup in El Cerro, Corrales job, equipment photos
 - All images stored in `/assets/images/` directory
 
@@ -234,7 +234,7 @@ Company history and values (`#about`) with two subsections:
 - Dot styling: `border-4 border-base-100 dark:border-base-800`
 - Cards with gradient background matching service cards:
   - Background: `bg-gradient-to-br from-secondary/20 dark:from-dark-primary/30 to-secondary/5 dark:to-dark-secondary/5`
-  - Border: `border-2 dark:border-1 border-secondary/50 dark:border-dark-secondary/50`
+  - Border: `border dark:border-1 border-secondary/50 dark:border-dark-secondary/50`
 - Timeline year labels: `text-secondary dark:text-dark-secondary`
 - Cards with hover translate-up effect (`hover:-translate-y-2`)
 - Card text: `text-base-content dark:text-dark-base-content`
@@ -289,7 +289,7 @@ The website uses a **custom OKLCH color system** defined in `src/style.css` with
 
 **Card Styling Pattern:**
 - Gradient backgrounds: `from-secondary/20 dark:from-dark-primary/30 to-secondary/5 dark:to-dark-secondary/5`
-- Borders: `border-2 dark:border-1 border-secondary/50 dark:border-dark-secondary/50`
+- Borders: `border dark:border-1 border-secondary/50 dark:border-dark-secondary/50`
 - Applied to: Service cards, Timeline cards, Values cards, Place details container
 
 **Interactive Elements:**
@@ -314,7 +314,7 @@ The website uses a **custom OKLCH color system** defined in `src/style.css` with
 - Content containers: `max-w-7xl mx-auto` for centered max-width layout
 - Cards: `rounded-md shadow-lg` for consistent card styling with gradient backgrounds
 - Card gradient pattern: `bg-gradient-to-br from-secondary/20 dark:from-dark-primary/30 to-secondary/5 dark:to-dark-secondary/5`
-- Card border pattern: `border-2 dark:border-1 border-secondary/50 dark:border-dark-secondary/50`
+- Card border pattern: `border dark:border-1 border-secondary/50 dark:border-dark-secondary/50`
 - Hover effects: `hover:-translate-y-2 transition` on service cards, timeline items, and value cards
 - Grid layouts: Responsive grids using `grid-cols-1` with breakpoint variants (sm:, md:, lg:, xl:)
 - Dark mode: Every styled element has `dark:` variants for colors using the custom OKLCH color system
