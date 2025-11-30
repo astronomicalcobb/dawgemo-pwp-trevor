@@ -331,7 +331,7 @@ function renderPlaceDetailsLegacy(place) {
 
   const hours = place.opening_hours?.weekday_text
     ? `<div class="mt-3">
-        <button id="toggle-hours" class="text-dark-secondary dark:text-dark-secondary text-sm font-medium hover:underline hover:cursor-pointer flex items-center gap-1">
+        <button id="toggle-hours" class="text-secondary dark:text-dark-secondary text-sm font-medium hover:underline hover:cursor-pointer flex items-center gap-1">
           <span>View hours</span>
           <svg class="w-4 h-4 transition-transform" id="hours-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
@@ -344,7 +344,7 @@ function renderPlaceDetailsLegacy(place) {
     : ''
 
   container.innerHTML = `
-    <h3 class="text-lg font-bold text-dark-base-700 dark:text-dark-base-100">${place.name}</h3>
+    <h3 class="text-lg font-bold text-dark-base-700 dark:text-dark-base-content">${place.name}</h3>
     <p class="text-dark-base-400 dark:text-dark-base-100 text-sm mt-1">${place.formatted_address}</p>
     ${rating}
     <div class="mt-2">${openStatus}</div>
@@ -400,7 +400,6 @@ function updateMapStyles() {
 }
 
 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', updateMapStyles)
-
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', initMaps)
 } else {

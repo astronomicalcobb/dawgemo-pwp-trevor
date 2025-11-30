@@ -6,9 +6,19 @@
 
 
 @theme {
-  --color-base-100: oklch(100% 0 0);
-  --color-base-200: oklch(98% 0 0);
-  --color-base-300: oklch(95% 0 0);
+  --color-base-50: oklch(95% 0.005 240);
+  --color-base-100: oklch(90% 0.01 240);
+  --color-base-200: oklch(80% 0.01 240);
+  --color-base-300: oklch(70% 0.01 240);
+  --color-base-400: oklch(60% 0.01 240);
+  --color-base-500: oklch(50% 0.01 240);
+  --color-base-600: oklch(40% 0.01 240);
+  --color-base-700: oklch(30% 0.01 240);
+  --color-base-750: oklch(25% 0.01 240);
+  --color-base-800: oklch(20% 0.01 240);
+  --color-base-850: oklch(15% 0.01 240);
+  --color-base-900: oklch(10% 0.01 240);
+  --color-base-950: oklch(5% 0.015 240);
   --color-base-content: oklch(16% 0.02 240);
   --color-primary-100: oklch(50% 0.08 240);
   --color-primary-200: oklch(45% 0.07 240);
@@ -29,17 +39,6 @@
   --color-error: oklch(62% 0.18 15);
   --color-error-content: oklch(16% 0.03 15);
 
-  --color-dark-base-50: oklch(90% 0.005 240);
-  --color-dark-base-100: oklch(75% 0.01 240);
-  --color-dark-base-200: oklch(55% 0.01 240);
-  --color-dark-base-300: oklch(40% 0.01 240);
-  --color-dark-base-400: oklch(32% 0.01 240);
-  --color-dark-base-500: oklch(25.3% 0.01 240);
-  --color-dark-base-600: oklch(23.2% 0.01 240);
-  --color-dark-base-700: oklch(21.1% 0.01 240);
-  --color-dark-base-800: oklch(19% 0.01 240);
-  --color-dark-base-900: oklch(17% 0.01 240);
-  --color-dark-base-950: oklch(15% 0.01 240);
   --color-dark-base-content: oklch(95% 0.01 240);
   --color-dark-primary-100: oklch(60% 0.12 240);
   --color-dark-primary-200: oklch(55% 0.11 240);
