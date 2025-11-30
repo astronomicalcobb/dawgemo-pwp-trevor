@@ -1,12 +1,10 @@
 ### To-do:
 - Switch the map to use the updated Google Maps and Place API
-- [x] Add favicon
-- [x] Finish styling
+- Change logo color
 
 ### Planned Features:
 - Add contact buttons
 - Add reCAPTCHA to the contact form
-- [x] Add actual logo and (maybe) font
 - Add pop-outs for some cards
 - Refresh buttons
 - Update timeline
@@ -15,12 +13,6 @@
 - Change links to buttons
 
 ### Bugs:
-- [x] Favicon is not showing
-- Navbar cuts off section titles
-- [x] Mobile view of the hero section (move image and center text)
-- Hamburger button hover state
-- Hamburger menu doesn't close when an option is selected
-- Mobile hover state for cards
 - Light mode styling
 - Dark mode styling
 

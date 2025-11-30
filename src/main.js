@@ -337,15 +337,15 @@ function renderPlaceDetailsLegacy(place) {
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
           </svg>
         </button>
-        <div id="hours-list" class="hidden mt-2 text-sm text-base-850 dark:text-base-100 space-y-1">
+        <div id="hours-list" class="hidden mt-2 text-sm text-base-750 dark:text-base-100 space-y-1">
           ${place.opening_hours.weekday_text.map(day => `<p>${day}</p>`).join('')}
         </div>
        </div>`
     : ''
 
   container.innerHTML = `
-    <h3 class="text-lg font-bold text-base-850 dark:text-dark-base-content">${place.name}</h3>
-    <p class="text-base-850 dark:text-base-100 text-sm mt-1">${place.formatted_address}</p>
+    <h3 class="text-lg font-bold text-base-content dark:text-dark-base-content">${place.name}</h3>
+    <p class="text-base-750 dark:text-base-100 text-sm mt-1">${place.formatted_address}</p>
     ${rating}
     <div class="mt-2">${openStatus}</div>
     ${hours}
@@ -367,26 +367,6 @@ function renderPlaceDetailsLegacy(place) {
       chevron.classList.toggle('rotate-180')
     })
   }
-}
-
-function renderPlaceDetailsError() {
-  const container = document.getElementById('place-details')
-  if (!container) return
-
-  const mapsUrl = huskyPlaceId
-    ? `https://www.google.com/maps/place/?q=place_id:${huskyPlaceId}`
-    : `https://www.google.com/maps/search/?api=1&query=${huskyLocation.lat},${huskyLocation.lng}`
-
-  container.innerHTML = `
-    <h3 class="text-lg font-bold text-base-content dark:text-dark-base-content">Husky Well & Pump Service</h3>
-    <p class="text-dark-base-400 dark:accent-dark-base-200 text-sm mt-1">Belen, NM</p>
-    <a href="${mapsUrl}"
-       target="_blank"
-       rel="noopener noreferrer"
-       class="inline-block mt-3 text-secondary dark:text-dark-secondary text-sm font-medium hover:underline">
-      View on Google Maps →
-    </a>
-  `
 }
 
 function updateMapStyles() {
