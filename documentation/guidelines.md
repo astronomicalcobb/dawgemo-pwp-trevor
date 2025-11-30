@@ -1,13 +1,12 @@
 ### To-do:
-- Switch the map to use the updated Google Maps and Place API 
-- Reorganize class attributes for faster and more efficient editing
+- Switch the map to use the updated Google Maps and Place API
 - [x] Add favicon
-- Finish styling
+- [x] Finish styling
 
 ### Planned Features:
 - Add contact buttons
 - Add reCAPTCHA to the contact form
-- Add actual logo and (maybe) font
+- [x] Add actual logo and (maybe) font
 - Add pop-outs for some cards
 - Refresh buttons
 - Update timeline
