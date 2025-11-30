@@ -311,9 +311,9 @@ function renderPlaceDetailsLegacy(place) {
 
   const rating = place.rating
     ? `<div class="flex items-center gap-1 mt-2">
-        <span class="text-yellow-500">★</span>
-        <span class="text-gray-700 dark:text-gray-300 font-medium">${place.rating.toFixed(1)}</span>
-        <span class="text-gray-500 dark:text-gray-400 text-sm">(${place.user_ratings_total} reviews)</span>
+        <span class="text-warning">★</span>
+        <span class="text-dark-base-700 dark:text-dark-base-100 font-medium">${place.rating.toFixed(1)}</span>
+        <span class="text-dark-base-200 dark:text-dark-base-200 text-sm">(${place.user_ratings_total} reviews)</span>
        </div>`
     : ''
 
@@ -322,8 +322,8 @@ function renderPlaceDetailsLegacy(place) {
     try {
       const isOpen = place.opening_hours.isOpen()
       openStatus = isOpen
-        ? '<span class="text-green-600 dark:text-green-400 font-medium">Open now</span>'
-        : '<span class="text-red-600 dark:text-red-400 font-medium">Closed now</span>'
+        ? '<span class="text-success dark:text-dark-success font-medium">Open now</span>'
+        : '<span class="text-error dark:text-dark-error font-medium">Closed now</span>'
     } catch (e) {
       openStatus = ''
     }
@@ -331,28 +331,28 @@ function renderPlaceDetailsLegacy(place) {
 
   const hours = place.opening_hours?.weekday_text
     ? `<div class="mt-3">
-        <button id="toggle-hours" class="text-cyan-600 dark:text-cyan-500 text-sm font-medium hover:underline hover:cursor-pointer flex items-center gap-1">
+        <button id="toggle-hours" class="text-dark-secondary dark:text-dark-secondary text-sm font-medium hover:underline hover:cursor-pointer flex items-center gap-1">
           <span>View hours</span>
           <svg class="w-4 h-4 transition-transform" id="hours-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
           </svg>
         </button>
-        <div id="hours-list" class="hidden mt-2 text-sm text-gray-600 dark:text-gray-400 space-y-1">
+        <div id="hours-list" class="hidden mt-2 text-sm text-dark-base-300 dark:text-dark-base-100 space-y-1">
           ${place.opening_hours.weekday_text.map(day => `<p>${day}</p>`).join('')}
         </div>
        </div>`
     : ''
 
   container.innerHTML = `
-    <h3 class="text-lg font-bold text-gray-800 dark:text-gray-200">${place.name}</h3>
-    <p class="text-gray-600 dark:text-gray-400 text-sm mt-1">${place.formatted_address}</p>
+    <h3 class="text-lg font-bold text-dark-base-700 dark:text-dark-base-100">${place.name}</h3>
+    <p class="text-dark-base-400 dark:text-dark-base-100 text-sm mt-1">${place.formatted_address}</p>
     ${rating}
     <div class="mt-2">${openStatus}</div>
     ${hours}
     <a href="${place.url}"
        target="_blank"
        rel="noopener noreferrer"
-       class="inline-block mt-3 text-cyan-600 dark:text-cyan-500 text-sm font-medium hover:underline">
+       class="inline-block mt-3 text-secondary dark:text-dark-secondary text-sm font-medium hover:underline">
       View on Google Maps →
     </a>
   `
@@ -378,12 +378,12 @@ function renderPlaceDetailsError() {
     : `https://www.google.com/maps/search/?api=1&query=${huskyLocation.lat},${huskyLocation.lng}`
 
   container.innerHTML = `
-    <h3 class="text-lg font-bold text-gray-800 dark:text-gray-200">Husky Well & Pump Service</h3>
-    <p class="text-gray-600 dark:text-gray-400 text-sm mt-1">Belen, NM</p>
+    <h3 class="text-lg font-bold text-base-content dark:text-dark-base-content">Husky Well & Pump Service</h3>
+    <p class="text-dark-base-400 dark:accent-dark-base-200 text-sm mt-1">Belen, NM</p>
     <a href="${mapsUrl}"
        target="_blank"
        rel="noopener noreferrer"
-       class="inline-block mt-3 text-cyan-600 dark:text-cyan-400 text-sm font-medium hover:underline">
+       class="inline-block mt-3 text-secondary dark:text-dark-secondary text-sm font-medium hover:underline">
       View on Google Maps →
     </a>
   `
@@ -451,11 +451,11 @@ function formatSubject() {
     counter.textContent = `(${length}/${maxLength})`
 
     if (length === maxLength || length < 4) {
-      counter.className = 'text-sm text-red-600 dark:text-red-400 ml-2 font-semibold'
+      counter.className = 'text-sm text-error dark:text-dark-error ml-2 font-semibold'
     } else if (length > maxLength * 0.8) {
-      counter.className = 'text-sm text-yellow-600 dark:text-yellow-400 ml-2 font-semibold'
+      counter.className = 'text-sm text-warning dark:text-dark-warning ml-2 font-semibold'
     } else {
-      counter.className = 'text-sm text-green-600 dark:text-green-400 ml-2 font-semibold'
+      counter.className = 'text-sm text-success dark:text-dark-success ml-2 font-semibold'
     }
   })
 }
@@ -476,11 +476,11 @@ function formatMessage() {
     counter.textContent = `(${length}/${maxLength})`
 
     if (length === maxLength || length < minLength) {
-      counter.className = 'text-sm text-red-600 dark:text-red-400 ml-2 font-semibold'
+      counter.className = 'text-sm text-error dark:text-dark-error ml-2 font-semibold'
     } else if (length > maxLength * 0.8) {
-      counter.className = 'text-sm text-yellow-600 dark:text-yellow-400 ml-2 font-semibold'
+      counter.className = 'text-sm text-warning dark:text-dark-warning ml-2 font-semibold'
     } else if (length >= minLength) {
-      counter.className = 'text-sm text-green-600 dark:text-green-400 ml-2 font-semibold'
+      counter.className = 'text-sm text-success dark:text-dark-success ml-2 font-semibold'
     }
   })
 }
@@ -501,21 +501,21 @@ document.getElementById('contactForm').addEventListener('submit', function (e) {
   const nameParts = name.split(/\s+/).filter(part => part.length > 0)
   if (nameParts.length < 2) {
     formStatus.textContent = 'Please enter both first and last name.'
-    formStatus.className = 'text-center text-sm text-red-600 dark:text-red-400 mt-2'
+    formStatus.className = 'text-center text-sm text-error dark:text-dark-error mt-2'
     return
   }
 
   const subject = document.getElementById('subject').value.trim()
   if (subject.length < 4) {
     formStatus.textContent = 'Subject must be at least 4 characters.'
-    formStatus.className = 'text-center text-sm text-red-600 dark:text-red-400 mt-2'
+    formStatus.className = 'text-center text-sm text-error dark:text-dark-error mt-2'
     return
   }
 
   const message = document.getElementById('message').value.trim()
   if (message.length < 16) {
     formStatus.textContent = 'Message must be at least 20 characters.'
-    formStatus.className = 'text-center text-sm text-red-600 dark:text-red-400 mt-2'
+    formStatus.className = 'text-center text-sm text-error dark:text-dark-error mt-2'
     return
   }
 
@@ -534,19 +534,19 @@ document.getElementById('contactForm').addEventListener('submit', function (e) {
     .then(function (response) {
       console.log('SUCCESS!', response.status)
       formStatus.textContent = 'Thank you! Your message has been sent successfully.'
-      formStatus.className = 'text-center text-sm text-green-600 dark:text-green-400 mt-2'
+      formStatus.className = 'text-center text-sm text-success dark:text-dark-success mt-2'
       document.getElementById('contactForm').reset()
       phoneMask.value = ''
 
       document.getElementById('subjectCounter').textContent = '(0/128)'
-      document.getElementById('subjectCounter').className = 'ml-2 text-sm text-gray-500 dark:text-gray-400'
+      document.getElementById('subjectCounter').className = 'ml-2 text-sm text-dark-base-100 dark:text-dark-base-200'
       document.getElementById('messageCounter').textContent = '(0/1024)'
-      document.getElementById('messageCounter').className = 'ml-2 text-sm text-gray-500 dark:text-gray-400'
+      document.getElementById('messageCounter').className = 'ml-2 text-sm text-dark-base-100 dark:text-dark-base-200'
     })
     .catch(function (error) {
       console.error('FAILED...', error)
       formStatus.textContent = 'Failed to send message. Please try again or call us directly.'
-      formStatus.className = 'text-center text-sm text-red-600 dark:text-red-400 mt-2'
+      formStatus.className = 'text-center text-sm text-error dark:text-dark-error mt-2'
     })
     .finally(function () {
       submitButton.disabled = false

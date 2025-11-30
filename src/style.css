@@ -37,6 +37,9 @@
   --color-dark-base-500: oklch(25.3% 0.01 240);
   --color-dark-base-600: oklch(23.2% 0.01 240);
   --color-dark-base-700: oklch(21.1% 0.01 240);
+  --color-dark-base-800: oklch(19% 0.01 240);
+  --color-dark-base-900: oklch(17% 0.01 240);
+  --color-dark-base-950: oklch(15% 0.01 240);
   --color-dark-base-content: oklch(95% 0.01 240);
   --color-dark-primary-100: oklch(60% 0.12 240);
   --color-dark-primary-200: oklch(55% 0.11 240);
