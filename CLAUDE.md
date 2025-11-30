@@ -25,12 +25,12 @@ npm run watch
 ## Tech Stack
 
 - **Build Tool**: Vite 7.2.4 (ESM-based)
-- **Styling**: Tailwind CSS (via CDN in index.html) + PostCSS with @tailwindcss/postcss plugin
+- **Styling**: Tailwind CSS 4.x via @tailwindcss/vite 4.1.17 plugin (PostCSS-based, no CDN)
 - **UI Components**: Flowbite 4.0.1 (pre-built Tailwind components)
-- **Icons**: Lucide 0.554.0 (icon library)
+- **Icons**: Lucide 0.555.0 (icon library)
 - **Maps**: Google Maps JavaScript API (loaded via inline script, version: weekly)
 - **Forms**: EmailJS 4.x (loaded via CDN, initialized with public key: 2Zxpf0h3F0WtUFVCf)
-- **Input Masking**: IMask (for phone number formatting)
+- **Input Masking**: IMask 7.6.1 (for phone number formatting)
 - **JavaScript**: Vanilla JS (ES modules)
 
 ## Architecture
@@ -74,10 +74,12 @@ Dark mode is implemented using Tailwind's `dark:` variant with `darkMode: 'media
 
 ### Styling
 
-`src/style.css` configures Tailwind CSS and imports:
+`src/style.css` configures Tailwind CSS v4 and defines custom color system:
 - Referenced in HTML via `<link href="/src/style.css" rel="stylesheet">`
-- Processed by PostCSS with @tailwindcss/postcss plugin during build
-- May include Flowbite integration or custom CSS
+- Processed by Vite using @tailwindcss/vite 4.1.17 plugin (not PostCSS)
+- Includes Flowbite theme imports and custom OKLCH color definitions in `@theme` block
+- Defines 48-shade base color scale (base-25 to base-975) and semantic color tokens
+- All colors use OKLCH color space for better perceptual uniformity
 
 Note: Tailwind classes are used extensively throughout the HTML with responsive variants and dark mode support.
 
@@ -154,14 +156,22 @@ Card features:
 - Centered text layout with Lucide icons
 - Hover effect: `hover:-translate-y-2` lift animation
 - Card styling: Gradient background with borders
-  - Background: `bg-gradient-to-br from-secondary/20 dark:from-dark-primary/30 to-secondary/5 dark:to-dark-secondary/5`
-  - Border: `border-2 dark:border-1 border-secondary/50 dark:border-dark-secondary/50`
+  - Background: `bg-gradient-to-br from-secondary/16 dark:from-dark-primary/30 to-secondary/4 dark:to-dark-secondary/5`
+  - Border: `border border-secondary/50 dark:border-dark-secondary/50`
 - Icon color: `text-secondary` (light) / `dark:text-dark-secondary` (dark)
 - Heading color: `text-secondary` (light) / `dark:text-dark-secondary` (dark)
 - Card text: `text-base-content` (light) / `dark:text-base-150` (dark)
 
 ### Forms
 Contact form (#contactForm) includes name, email, phone, subject, and message fields with full validation and submission handling via EmailJS. The form uses a responsive grid layout (`grid grid-cols-1 sm:grid-cols-2 gap-4`) for name/phone fields.
+
+**Input Styling (all fields):**
+- Background: `bg-base-100` (light) / `dark:bg-base-600` (dark)
+- Border: `border border-base-300` (light) / `dark:border-base-500` (dark)
+- Focus state: `focus:ring-2 ring-secondary` (light) / `dark:ring-dark-secondary` (dark)
+- Caret color: `caret-secondary` (light) / `dark:caret-dark-secondary` (dark)
+- Placeholder: `placeholder:text-base-250`
+- Text color: Inherits or `dark:text-dark-base-content`
 
 **Field Features:**
 - **Name**: Automatic capitalization on input, must have first and last name (2+ words)
@@ -195,12 +205,15 @@ Two embedded Google Maps initialized via JavaScript in `main.js` using Google Ma
 - 171 coordinate points defining the service boundary
 - Green polygon (`#0F9D58`) with 15% fill opacity
 - Auto-fitted bounds to center the polygon
-- Responsive height: `32vh` mobile, `64vh` desktop
+- Fixed height: `h-[64vh]` (64vh viewport height)
+- Map container styling: `bg-base-750 dark:bg-dark-base-600` with `border border-base-300 dark:border-base-600`
 
 **Contact Map** (`#contact-map`):
 - Marker at Husky Well & Pump Service location (34.656926, -106.757983)
 - Dynamically fetches Google Place details via Places API using `textSearch` and `getDetails`
 - Displays rating, reviews count, business hours, and open/closed status
+- Responsive height: `h-72 lg:h-80` (18rem mobile, 20rem desktop)
+- Map container styling: `border border-base-300 dark:border-base-600 rounded-md shadow-lg`
 - Collapsible hours section with toggle interaction
 - Toggle button: `text-secondary dark:text-dark-secondary` with underline hover
 - "View on Google Maps" link styled `text-secondary dark:text-dark-secondary`
@@ -220,7 +233,7 @@ Photo gallery section (`#gallery`) displaying 6 images of drilling operations:
 - Fixed card height: `h-72` with `overflow-hidden`
 - Images use `object-cover` to fill card space
 - Hover effect: `group-hover:scale-105` for subtle zoom on image
-- Card styling: `bg-base-100 border-2 border-base-400 dark:border-base-600 rounded-md shadow-lg`
+- Card styling: `bg-base-100 border border-base-300 dark:border-base-600 rounded-md shadow-lg`
 - Images include: sunset drilling scenes, rig setup in El Cerro, Corrales job, equipment photos
 - All images stored in `/assets/images/` directory
 
@@ -233,8 +246,8 @@ Company history and values (`#about`) with two subsections:
 - Each item has dot marker (`bg-accent dark:bg-dark-accent`) with scale-on-hover effect (`group-hover:scale-125`)
 - Dot styling: `border-4 border-base-100 dark:border-base-800`
 - Cards with gradient background matching service cards:
-  - Background: `bg-gradient-to-br from-secondary/20 dark:from-dark-primary/30 to-secondary/5 dark:to-dark-secondary/5`
-  - Border: `border-2 dark:border-1 border-secondary/50 dark:border-dark-secondary/50`
+  - Background: `bg-gradient-to-br from-secondary/16 dark:from-dark-primary/30 to-secondary/4 dark:to-dark-secondary/5`
+  - Border: `border border-secondary/50 dark:border-dark-secondary/50`
 - Timeline year labels: `text-secondary dark:text-dark-secondary`
 - Cards with hover translate-up effect (`hover:-translate-y-2`)
 - Card text: `text-base-content dark:text-dark-base-content`
@@ -288,8 +301,8 @@ The website uses a **custom OKLCH color system** defined in `src/style.css` with
   - Even sections (Service Area, About, Footer): `bg-base-100` (light) / `dark:bg-base-800` (dark)
 
 **Card Styling Pattern:**
-- Gradient backgrounds: `from-secondary/20 dark:from-dark-primary/30 to-secondary/5 dark:to-dark-secondary/5`
-- Borders: `border-2 dark:border-1 border-secondary/50 dark:border-dark-secondary/50`
+- Gradient backgrounds: `from-secondary/16 dark:from-dark-primary/30 to-secondary/4 dark:to-dark-secondary/5`
+- Borders: `border border-secondary/50 dark:border-dark-secondary/50`
 - Applied to: Service cards, Timeline cards, Values cards, Place details container
 
 **Interactive Elements:**
@@ -313,8 +326,8 @@ The website uses a **custom OKLCH color system** defined in `src/style.css` with
 - Sections use responsive padding: `px-4 sm:px-6 md:px-8 lg:px-10` (horizontal) and `py-11 sm:py-12 md:py-13 lg:py-14` (vertical)
 - Content containers: `max-w-7xl mx-auto` for centered max-width layout
 - Cards: `rounded-md shadow-lg` for consistent card styling with gradient backgrounds
-- Card gradient pattern: `bg-gradient-to-br from-secondary/20 dark:from-dark-primary/30 to-secondary/5 dark:to-dark-secondary/5`
-- Card border pattern: `border-2 dark:border-1 border-secondary/50 dark:border-dark-secondary/50`
+- Card gradient pattern: `bg-gradient-to-br from-secondary/16 dark:from-dark-primary/30 to-secondary/4 dark:to-dark-secondary/5`
+- Card border pattern: `border border-secondary/50 dark:border-dark-secondary/50`
 - Hover effects: `hover:-translate-y-2 transition` on service cards, timeline items, and value cards
 - Grid layouts: Responsive grids using `grid-cols-1` with breakpoint variants (sm:, md:, lg:, xl:)
 - Dark mode: Every styled element has `dark:` variants for colors using the custom OKLCH color system
