@@ -49,16 +49,7 @@ The entire website is contained in `index.html` with the following sections in o
 
 ### Dark Mode
 
-Dark mode is implemented using Tailwind's `dark:` variant with `darkMode: 'media'` configuration. Colors automatically switch based on user's system preference.
-
-**Dark Mode Color Palette:**
-- **Backgrounds**: gray-800 and gray-900 alternating for sections, gray-700 for cards
-- **primary Text**: gray-300 for body text
-- **Headings**: cyan-400 for all h2/h3 headings
-- **Accents**: cyan-400 for links, icons, and interactive elements
-- **Navigation**: gray-800 background with cyan-400 logo/links
-- **Buttons**: cyan-600 with cyan-700 hover states
-- **Borders**: gray-700 for subtle separation
+Dark mode is implemented using Tailwind's `dark:` variant with `darkMode: 'media'` configuration. Colors automatically switch based on user's system preference. The site uses a custom OKLCH color system defined in `src/style.css` with semantic color tokens.
 
 ### JavaScript Entry Point
 
@@ -137,8 +128,14 @@ Developer to run local development server via `npm run dev` instead of Claude Co
 ### Navigation
 Fixed-position navbar (`fixed top-0 w-full`) with smooth scrolling enabled via `scroll-smooth` class on `<html>`. All nav links use anchor links to section IDs. Responsive padding is applied to the nav element (`px-4 sm:px-6 md:px-8 lg:px-10`) to ensure content alignment with sections at all breakpoints.
 
+**Navigation Styling:**
+- Background: `bg-base-50/95` (light) / `dark:bg-base-750/95` (dark) with semi-transparency
+- Text: `text-base-content` (light) / `dark:text-dark-base-content` (dark)
+- Hover states: `hover:bg-base-100/50` (light) / `dark:hover:bg-base-800/50` (dark)
+- Contact button: `bg-primary` / `dark:bg-dark-primary` with `text-dark-base-content` styled as a CTA button
+
 All sections have responsive scroll margins to prevent navbar overlap:
-- Mobile: `scroll-mt-12` (48px) for regular sections, `scroll-mt-16` (64px) for hero
+- Mobile: `scroll-mt-14` (56px) for regular sections
 - Desktop: `sm:scroll-mt-16` (64px) for all sections
 
 Mobile menu uses Flowbite's `data-collapse-toggle` for hamburger menu functionality with Lucide menu icon. JavaScript automatically:
@@ -155,10 +152,13 @@ Four service cards in responsive grid layout (`#services`):
 Card features:
 - Responsive grid: 1 column mobile, 2 columns tablet, 4 columns desktop
 - Centered text layout with Lucide icons
-- Hover effect: `-translate-y-2` lift animation
-- Icon color: cyan-500 in both light and dark modes
-- Card background: gray-300 (light) / gray-700 (dark)
-- Card text: gray-700 (light) / gray-400 (dark)
+- Hover effect: `hover:-translate-y-2` lift animation
+- Card styling: Gradient background with borders
+  - Background: `bg-gradient-to-br from-secondary/20 dark:from-dark-primary/30 to-secondary/5 dark:to-dark-secondary/5`
+  - Border: `border-2 dark:border-1 border-secondary/50 dark:border-dark-secondary/50`
+- Icon color: `text-secondary` (light) / `dark:text-dark-secondary` (dark)
+- Heading color: `text-secondary` (light) / `dark:text-dark-secondary` (dark)
+- Card text: `text-base-content` (light) / `dark:text-base-150` (dark)
 
 ### Forms
 Contact form (#contactForm) includes name, email, phone, subject, and message fields with full validation and submission handling via EmailJS. The form uses a responsive grid layout (`grid grid-cols-1 sm:grid-cols-2 gap-4`) for name/phone fields.
@@ -199,12 +199,14 @@ Two embedded Google Maps initialized via JavaScript in `main.js` using Google Ma
 
 **Contact Map** (`#contact-map`):
 - Marker at Husky Well & Pump Service location (34.656926, -106.757983)
-- Dynamically fetches Google Place details via Places API
+- Dynamically fetches Google Place details via Places API using `textSearch` and `getDetails`
 - Displays rating, reviews count, business hours, and open/closed status
-- Collapsible hours section with toggle interaction (cyan-600/cyan-500 button color)
-- "View on Google Maps" link styled cyan-600 (light) / cyan-500 (dark)
-- Fallback to static info if Places API fails
-- Place details rendered in `#place-details` container with responsive padding
+- Collapsible hours section with toggle interaction
+- Toggle button: `text-secondary dark:text-dark-secondary` with underline hover
+- "View on Google Maps" link styled `text-secondary dark:text-dark-secondary`
+- Error handling: Falls back to `renderPlaceDetailsError()` if Places API fails (note: function is referenced but not implemented in current codebase)
+- Place details rendered in `#place-details` container with gradient background matching service cards
+- Loading state: Animated pulse skeleton while fetching place details
 
 **Map Styling:**
 - Dark mode styles automatically applied based on system preference
@@ -218,6 +220,7 @@ Photo gallery section (`#gallery`) displaying 6 images of drilling operations:
 - Fixed card height: `h-72` with `overflow-hidden`
 - Images use `object-cover` to fill card space
 - Hover effect: `group-hover:scale-105` for subtle zoom on image
+- Card styling: `bg-base-100 border-2 border-base-400 dark:border-base-600 rounded-md shadow-lg`
 - Images include: sunset drilling scenes, rig setup in El Cerro, Corrales job, equipment photos
 - All images stored in `/assets/images/` directory
 
@@ -225,68 +228,95 @@ Photo gallery section (`#gallery`) displaying 6 images of drilling operations:
 Company history and values (`#about`) with two subsections:
 
 **Our History Timeline:**
-- Vertical timeline with left border (`border-l-4 border-cyan-600 dark:border-cyan-500`)
+- Vertical timeline with left border (`border-l-4 border-accent dark:border-dark-accent`)
 - 5 timeline items: 1960, 1965, 1989, 1992, Present
-- Each item has cyan dot marker (`bg-cyan-600 dark:bg-cyan-500`) with scale-on-hover effect (`group-hover:scale-125`)
-- Timeline year labels: `text-cyan-600 dark:text-cyan-500`
+- Each item has dot marker (`bg-accent dark:bg-dark-accent`) with scale-on-hover effect (`group-hover:scale-125`)
+- Dot styling: `border-4 border-base-100 dark:border-base-800`
+- Cards with gradient background matching service cards:
+  - Background: `bg-gradient-to-br from-secondary/20 dark:from-dark-primary/30 to-secondary/5 dark:to-dark-secondary/5`
+  - Border: `border-2 dark:border-1 border-secondary/50 dark:border-dark-secondary/50`
+- Timeline year labels: `text-secondary dark:text-dark-secondary`
 - Cards with hover translate-up effect (`hover:-translate-y-2`)
-- Card background: gray-50 (light) / gray-700 (dark)
+- Card text: `text-base-content dark:text-dark-base-content`
 - Responsive left padding and dot positioning
 
 **Our Values Grid:**
 - 4 value cards: Reliability, Quality, Integrity, Community
 - Responsive grid: 1 column mobile, 2 columns tablet, 4 columns desktop
 - Lucide icons for each value (shield-check, badge-check, handshake, house)
-- Icon color: cyan-600 (light) / cyan-500 (dark)
-- Card text: gray-700 (light) / gray-400 (dark)
-- Same card styling as services section
+- Card styling matches service cards (gradient background with borders)
+- Icon color: `text-secondary` (light) / `dark:text-dark-secondary` (dark)
+- Heading color: `text-secondary` (light) / `dark:text-dark-secondary` (dark)
+- Card text: `text-base-content` (light) / `dark:text-dark-base-content` (dark)
+- Section separator: `border-t border-secondary dark:border-dark-primary`
 
 ### Footer
 Three-column footer layout with company info, contact details, and quick links:
 - Responsive grid: 1 column mobile, 3 columns tablet+
 - Dark/light mode logo switching
+- Background: `bg-base-100` (light) / `dark:bg-base-800` (dark)
+- Heading color: `text-base-content` (light) / `dark:text-dark-base-content` (dark)
+- Text color: `text-base-750` (light) / `dark:text-base-100` (dark)
 - Contact info with Lucide icons (phone, mail, clock-4)
-- Clickable phone/email links with hover effects
-- Quick navigation links with translate-x hover effect
-- Copyright notice with top border separator
-- Footer background: gray-100 (light) / gray-950 (dark)
+- Clickable phone/email links with hover effects: `hover:text-secondary dark:hover:text-dark-secondary`
+- Quick navigation links with translate-x hover effect: `hover:translate-x-1`
+- Copyright notice with top border: `border-t border-primary-300 dark:border-dark-primary-300`
+- Copyright text: `text-base-content dark:text-dark-base-content`
 
 ### Color Scheme
 
-**Light Mode:**
-- **Backgrounds**: gray-200 for body, gray-100 and gray-200 alternating for sections, gray-50 for cards
-- **primary Text**: gray-700 for body text
-- **Headings**: cyan-600 for all h2/h3 headings
-- **Accents**: cyan-600 for links, icons, and interactive elements
-- **Navigation**: gray-100 background with cyan-600 logo, gray-700 text with cyan-600 hover states
-- **Buttons**: cyan-600 with cyan-700 hover states, gray-100 text
-- **Borders**: gray-300 for subtle separation
-- **Footer**: gray-100 background with gray-700 text and cyan-600 headings
+The website uses a **custom OKLCH color system** defined in `src/style.css` with semantic color tokens for consistent theming. Colors are specified using the OKLCH color space for better perceptual uniformity and wider color gamut support.
 
-**Dark Mode:**
-- **Backgrounds**: gray-800 and gray-900 alternating for sections, gray-700 for cards
-- **primary Text**: gray-300 for headings and primary text, gray-400 for body/card text
-- **Headings**: gray-300 for all h2/h3 section headings
-- **Accents**: cyan-500 for icons, timeline elements, and interactive elements
-- **Navigation**: gray-800 background with gray-300 text
-- **Buttons**: cyan-500 background with cyan-700 hover states, gray-100 text
-- **Borders**: gray-700 for subtle separation, cyan-500 for timeline borders
-- **Footer**: gray-950 background with gray-400 text and gray-300 headings
+**Base Color Scale (Neutrals):**
+- 48 shades from base-25 (lightest) to base-975 (darkest)
+- Defined in increments of 25 (e.g., base-50, base-75, base-100, etc.)
+- Low chroma (0.000-0.02) for neutral appearance
+- Used for backgrounds, borders, and subtle UI elements
 
-**Consistent Elements:**
-- Both modes use gray color palette for backgrounds and neutrals
-- cyan is the primary brand color across both modes:
-  - Light mode: cyan-600 for most accents, cyan-500 for service icons
-  - Dark mode: cyan-500 for most accents (icons, buttons, timeline elements)
-- Smooth transitions on color changes: `transition-colors duration-300`
-- Buttons use cyan-500 (dark) / cyan-600 (light) with cyan-700 hover in both modes
+**Semantic Color Tokens:**
+- **base-content / dark-base-content**: Primary text colors
+- **primary / dark-primary**: Main brand color (blue) for CTAs and important actions
+  - Variants: primary-200, primary-300 for hover/focus states
+- **secondary / dark-secondary**: Accent color (cyan/turquoise) for icons, headings, links
+- **accent / dark-accent**: Tertiary color (orange) for timeline and special accents
+- **info, success, warning, error**: Status colors with dark mode variants
+- **neutral**: General neutral color with variants
+
+**Section Backgrounds:**
+- Alternating pattern for visual separation:
+  - Odd sections (Services, Gallery, Contact): `bg-base-50` (light) / `dark:bg-base-750` (dark)
+  - Even sections (Service Area, About, Footer): `bg-base-100` (light) / `dark:bg-base-800` (dark)
+
+**Card Styling Pattern:**
+- Gradient backgrounds: `from-secondary/20 dark:from-dark-primary/30 to-secondary/5 dark:to-dark-secondary/5`
+- Borders: `border-2 dark:border-1 border-secondary/50 dark:border-dark-secondary/50`
+- Applied to: Service cards, Timeline cards, Values cards, Place details container
+
+**Interactive Elements:**
+- Buttons: `bg-primary` / `dark:bg-dark-primary` with hover states (primary-200, primary-300)
+- Links: `text-secondary` / `dark:text-dark-secondary` with hover effects
+- Icons: `text-secondary` / `dark:text-dark-secondary` in most contexts
+- Form inputs: Focus ring uses `ring-secondary` / `dark:ring-dark-secondary`
+
+**Typography Colors:**
+- Section headings (h2): `text-base-content` / `dark:text-dark-base-content`
+- Card headings (h3): `text-secondary` / `dark:text-dark-secondary`
+- Body text: `text-base-content` / `dark:text-dark-base-content` or `text-base-750` / `dark:text-base-100`
+- Muted text: Various base shades (base-150, base-250, base-300, etc.)
+
+**Transitions:**
+- Color transitions: `transition-colors duration-300` applied globally
+- Map styles update automatically based on `prefers-color-scheme` media query
 
 ## Common Patterns
 
 - Sections use responsive padding: `px-4 sm:px-6 md:px-8 lg:px-10` (horizontal) and `py-11 sm:py-12 md:py-13 lg:py-14` (vertical)
 - Content containers: `max-w-7xl mx-auto` for centered max-width layout
-- Cards: `rounded-md shadow-lg` for consistent card styling
-- Hover effects: `hover:-translate-y-2 transition` on service cards and timeline items
+- Cards: `rounded-md shadow-lg` for consistent card styling with gradient backgrounds
+- Card gradient pattern: `bg-gradient-to-br from-secondary/20 dark:from-dark-primary/30 to-secondary/5 dark:to-dark-secondary/5`
+- Card border pattern: `border-2 dark:border-1 border-secondary/50 dark:border-dark-secondary/50`
+- Hover effects: `hover:-translate-y-2 transition` on service cards, timeline items, and value cards
 - Grid layouts: Responsive grids using `grid-cols-1` with breakpoint variants (sm:, md:, lg:, xl:)
-- Dark mode: Every styled element has `dark:` variants for colors
+- Dark mode: Every styled element has `dark:` variants for colors using the custom OKLCH color system
 - Color transitions: `transition-colors duration-300` for smooth theme changes
+- Icon animations: `group-hover:scale-110` or `group-hover:scale-125` for interactive feedback

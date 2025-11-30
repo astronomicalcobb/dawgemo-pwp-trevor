@@ -1,20 +1,21 @@
 ### To-do:
-- Switch the map to use the updated Google Maps and Place API
-- Change logo color
+- Implement `renderPlaceDetailsError()` function for Google Maps API fallback
+- Consider changing logo color scheme
 
 ### Planned Features:
-- Add contact buttons
 - Add reCAPTCHA to the contact form
-- Add pop-outs for some cards
-- Refresh buttons
-- Update timeline
-- Add meet the crew section
-- Switch UI package
-- Change links to buttons
+- Add pop-outs/modals for gallery images
+- Add refresh/reload buttons where needed
+- Expand timeline with more milestones
+- Add "Meet the Crew" section
+- Evaluate alternative UI component libraries
 
-### Bugs:
-- Light mode styling
-- Dark mode styling
+### Completed:
+- ✓ Switched to updated Google Maps and Places API (using `textSearch` and `getDetails`)
+- ✓ Implemented custom OKLCH color system
+- ✓ Light mode styling complete
+- ✓ Dark mode styling complete
+- ✓ Contact button in navigation styled as CTA
 
 ### Styling Guidelines:
 1. Layout (flex, grid, block, inline, hidden)
