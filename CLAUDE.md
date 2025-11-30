@@ -53,7 +53,7 @@ Dark mode is implemented using Tailwind's `dark:` variant with `darkMode: 'media
 
 **Dark Mode Color Palette:**
 - **Backgrounds**: gray-800 and gray-900 alternating for sections, gray-700 for cards
-- **primary-100 Text**: gray-300 for body text
+- **primary Text**: gray-300 for body text
 - **Headings**: cyan-400 for all h2/h3 headings
 - **Accents**: cyan-400 for links, icons, and interactive elements
 - **Navigation**: gray-800 background with cyan-400 logo/links
@@ -255,7 +255,7 @@ Three-column footer layout with company info, contact details, and quick links:
 
 **Light Mode:**
 - **Backgrounds**: gray-200 for body, gray-100 and gray-200 alternating for sections, gray-50 for cards
-- **primary-100 Text**: gray-700 for body text
+- **primary Text**: gray-700 for body text
 - **Headings**: cyan-600 for all h2/h3 headings
 - **Accents**: cyan-600 for links, icons, and interactive elements
 - **Navigation**: gray-100 background with cyan-600 logo, gray-700 text with cyan-600 hover states
@@ -265,7 +265,7 @@ Three-column footer layout with company info, contact details, and quick links:
 
 **Dark Mode:**
 - **Backgrounds**: gray-800 and gray-900 alternating for sections, gray-700 for cards
-- **primary-100 Text**: gray-300 for headings and primary-100 text, gray-400 for body/card text
+- **primary Text**: gray-300 for headings and primary text, gray-400 for body/card text
 - **Headings**: gray-300 for all h2/h3 section headings
 - **Accents**: cyan-500 for icons, timeline elements, and interactive elements
 - **Navigation**: gray-800 background with gray-300 text
@@ -275,7 +275,7 @@ Three-column footer layout with company info, contact details, and quick links:
 
 **Consistent Elements:**
 - Both modes use gray color palette for backgrounds and neutrals
-- cyan is the primary-100 brand color across both modes:
+- cyan is the primary brand color across both modes:
   - Light mode: cyan-600 for most accents, cyan-500 for service icons
   - Dark mode: cyan-500 for most accents (icons, buttons, timeline elements)
 - Smooth transitions on color changes: `transition-colors duration-300`

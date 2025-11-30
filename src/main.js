@@ -312,8 +312,8 @@ function renderPlaceDetailsLegacy(place) {
   const rating = place.rating
     ? `<div class="flex items-center gap-1 mt-2">
         <span class="text-warning">★</span>
-        <span class="text-dark-base-700 dark:text-dark-base-100 font-medium">${place.rating.toFixed(1)}</span>
-        <span class="text-dark-base-200 dark:text-dark-base-200 text-sm">(${place.user_ratings_total} reviews)</span>
+        <span class="text-base-850 dark:text-base-100 font-medium">${place.rating.toFixed(1)}</span>
+        <span class="text-base-850 dark:text-base-100 text-sm">(${place.user_ratings_total} reviews)</span>
        </div>`
     : ''
 
@@ -337,15 +337,15 @@ function renderPlaceDetailsLegacy(place) {
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
           </svg>
         </button>
-        <div id="hours-list" class="hidden mt-2 text-sm text-dark-base-300 dark:text-dark-base-100 space-y-1">
+        <div id="hours-list" class="hidden mt-2 text-sm text-base-850 dark:text-base-100 space-y-1">
           ${place.opening_hours.weekday_text.map(day => `<p>${day}</p>`).join('')}
         </div>
        </div>`
     : ''
 
   container.innerHTML = `
-    <h3 class="text-lg font-bold text-dark-base-700 dark:text-dark-base-content">${place.name}</h3>
-    <p class="text-dark-base-400 dark:text-dark-base-100 text-sm mt-1">${place.formatted_address}</p>
+    <h3 class="text-lg font-bold text-base-850 dark:text-dark-base-content">${place.name}</h3>
+    <p class="text-base-850 dark:text-base-100 text-sm mt-1">${place.formatted_address}</p>
     ${rating}
     <div class="mt-2">${openStatus}</div>
     ${hours}
