@@ -3,7 +3,10 @@
     "allow": [
       "WebFetch(domain:flowbite.com)",
       "WebSearch",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git checkout:*)",
+      "WebFetch(domain:www.vooma.com)",
+      "WebFetch(domain:www.cssscript.com)"
     ],
     "deny": [],
     "ask": []

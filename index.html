@@ -6,8 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		<title>Husky Well & Pump Service</title>
 		<link href="/src/style.css" rel="stylesheet">
-		<link rel="icon" href="/favicon.png" media="prefers-color-scheme: light">
-		<link rel="icon" href="/favicon-dark.png" media="prefers-color-scheme: dark">
+		<link rel="icon" href="/favicon.png">
 		<script>
 			(g => {
 				let
@@ -41,8 +40,8 @@
 
 		<!-- Navigation -->
 		<nav
-			class="fixed top-0 z-50 w-full m-3 px-4 bg-base-50/95 shadow-lg transition-colors duration-300 dark:bg-base-750/95 sm:px-6 md:px-8 lg:px-10">
-			<div class="max-w-7xl mx-auto">
+			class="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-7xl rounded-md backdrop-blur-md bg-base-50/80 border border-base-200/50 shadow-lg transition-colors duration-300 dark:bg-base-50/10 dark:border-base-50/20 sm:w-[calc(100%-3rem)] md:w-[calc(100%-4rem)] lg:w-[calc(100%-5rem)]">
+			<div class="px-4 sm:px-6 md:px-8 lg:px-10">
 				<div class="flex flex-wrap items-center justify-between py-3 lg:py-0">
 
 					<!-- Logo -->
@@ -64,40 +63,40 @@
 
 					<!-- Navigation Menu -->
 					<div class="hidden w-full lg:block lg:w-auto" id="navbar-menu">
-						<ul class="flex flex-col gap-2 pr-0 py-4 rounded-md lg:flex-row lg:items-center lg:m-0 md:rounded-none">
+						<ul class="flex flex-col gap-2 pr-0 py-3 rounded-md lg:flex-row lg:items-center lg:m-0 md:rounded-none">
 							<li>
 								<a href="#home"
-									 class="block px-3 py-2 pb-2.5 text-base-content rounded-md transition hover:bg-base-100/50 focus:bg-base-150/50 dark:text-dark-base-content dark:hover:bg-base-800/50 dark:focus:bg-base-850/50 md:inline-block">
+									 class="block px-3 py-2 pb-2.5 text-base-content rounded-md transition border border-transparent hover:bg-base-100/50 focus:bg-base-150/50 focus:border-base-200/50 dark:text-dark-base-content dark:hover:bg-base-100/20 dark:focus:bg-base-100/40 md:inline-block">
 									Home
 								</a>
 							</li>
 							<li>
 								<a href="#services"
-									 class="block px-3 py-2 pb-2.5 text-base-content rounded-md transition hover:bg-base-100/50 focus:bg-base-150/50 dark:text-dark-base-content dark:hover:bg-base-800/50 dark:focus:bg-base-850/50 md:inline-block">
+                                   class="block px-3 py-2 pb-2.5 text-base-content rounded-md transition border border-transparent hover:bg-base-100/50 focus:bg-base-150/50 focus:border-base-200/50 dark:text-dark-base-content dark:hover:bg-base-100/20 dark:focus:bg-base-100/40 md:inline-block">
 									Services
 								</a>
 							</li>
 							<li>
 								<a href="#service-area"
-									 class="block px-3 py-2 pb-2.5 text-base-content rounded-md transition hover:bg-base-100/50 focus:bg-base-150/50 dark:text-dark-base-content dark:hover:bg-base-800/50 dark:focus:bg-base-850/50 md:inline-block">
+                                   class="block px-3 py-2 pb-2.5 text-base-content rounded-md transition border border-transparent hover:bg-base-100/50 focus:bg-base-150/50 focus:border-base-200/50 dark:text-dark-base-content dark:hover:bg-base-100/20 dark:focus:bg-base-100/40 md:inline-block">
 									Service Area
 								</a>
 							</li>
 							<li>
 								<a href="#gallery"
-									 class="block px-3 py-2 pb-2.5 text-base-content rounded-md transition hover:bg-base-100/50 focus:bg-base-150/50 dark:text-dark-base-content dark:hover:bg-base-800/50 dark:focus:bg-base-850/50 md:inline-block">
+                                   class="block px-3 py-2 pb-2.5 text-base-content rounded-md transition border border-transparent hover:bg-base-100/50 focus:bg-base-150/50 focus:border-base-200/50 dark:text-dark-base-content dark:hover:bg-base-100/20 dark:focus:bg-base-100/40 md:inline-block">
 									Gallery
 								</a>
 							</li>
 							<li>
 								<a href="#about"
-									 class="block px-3 py-2 pb-2.5 text-base-content rounded-md transition hover:bg-base-100/50 focus:bg-base-150/50 dark:text-dark-base-content dark:hover:bg-base-800/50 dark:focus:bg-base-850/50 md:inline-block">
+                                   class="block px-3 py-2 pb-2.5 text-base-content rounded-md transition border border-transparent hover:bg-base-100/50 focus:bg-base-150/50 focus:border-base-200/50 dark:text-dark-base-content dark:hover:bg-base-100/20 dark:focus:bg-base-100/40 md:inline-block">
 									About Us
 								</a>
 							</li>
 							<li>
 								<a href="#contact"
-									 class="block px-6 pt-2 pb-2.5 font-semibold text-dark-base-content bg-secondary rounded-md transition hover:bg-secondary/75 focus:bg-secondary/50 dark:bg-dark-primary dark:hover:bg-dark-primary-200 dark:focus:bg-dark-primary-300 md:inline-block">
+									 class="block px-6 pt-2 pb-2.5 font-semibold border-2 border-base-50/50 text-base-50 rounded-md shadow-md transition hover:bg-base-50/20 hover:border-base-50/70 focus:bg-base-50/30 focus:border-base-50/70 md:inline-block">
 									Contact
 								</a>
 							</li>
@@ -117,6 +116,7 @@
 					alt="Sunset drilling baby!"
 					class="w-full h-full object-cover object-right sm:object-center">
 			</div>
+			<div class="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-base-50 via-base-50/50 to-transparent dark:from-base-750 dark:via-base-750/50"></div>
 			<div class="z-10 max-w-4xl px-4 mx-auto">
 				<h1 class="mb-4 text-3xl font-bold text-dark-base-content drop-shadow-lg sm:text-4xl md:text-5xl lg:text-6xl">
 					Husky Well & Pump Service
@@ -125,8 +125,8 @@
 					Water when you need it!
 				</p>
 				<a href="#contact"
-					 class="inline-block px-6 pt-2 pb-2.5 font-semibold rounded-md transition border border-base-50 text-base-50 hover:bg-base-50/20 focus:bg-base-50/40">
-					Get a Free Quote
+                   class="inline-block px-6 pt-2 pb-2.5 font-semibold border-2 border-base-50/50 text-base-50 rounded-md backdrop-blur-md shadow-md transition hover:bg-base-50/20 hover:border-base-50/70 focus:bg-base-50/30 focus:border-base-50/70">
+                    Get a Free Quote
 				</a>
 			</div>
 		</section>
@@ -134,7 +134,7 @@
 		<!-- Services -->
 		<section
 			id="services"
-			class="px-4 py-11 bg-base-50 transition-colors duration-300 scroll-mt-14 dark:bg-base-750 sm:px-6 sm:py-12 sm:scroll-mt-16 md:px-8 md:py-13 lg:px-10 lg:py-14">
+			class="px-4 pt-32 pb-11 bg-base-50 transition-colors duration-300 scroll-mt-0 dark:bg-base-750 sm:px-6 sm:pt-32 sm:pb-12 md:px-8 md:pt-28 md:pb-13 lg:px-10 lg:pt-32 lg:pb-14">
 			<div class="max-w-7xl mx-auto">
 				<h2 class="mb-3 text-2xl font-bold text-left text-base-content dark:text-dark-base-content md:text-3xl md:mb-7 lg:text-4xl lg:mb-9">
 					Services
@@ -142,7 +142,7 @@
 				<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 md:gap-8 lg:gap-10 xl:grid-cols-4">
 
 					<!--	Drilling	-->
-					<div class="p-5 bg-gradient-to-br from-secondary/16 dark:from-dark-primary/30 to-secondary/4 dark:to-dark-secondary/5 border border-secondary/50 dark:border-dark-secondary/50 rounded-md shadow-lg transition text-center hover:-translate-y-2 sm:p-6 md:p-8 lg:p-10">
+					<div class="p-5 backdrop-blur-md bg-base-100/80 border border-base-200/50 rounded-md shadow-lg transition-all duration-300 text-center hover:-translate-y-2 dark:bg-base-800/50 dark:border-base-600/50 sm:p-6 md:p-8 lg:p-10">
 						<i
 							data-lucide="arrow-down-to-line"
 							class="block w-14 h-14 mx-auto mb-4 text-secondary dark:text-dark-secondary"></i>
@@ -156,7 +156,7 @@
 					</div>
 
 					<!--	Pump Installation	 -->
-					<div class="p-5 bg-gradient-to-br from-secondary/16 dark:from-dark-primary/30 to-secondary/4 dark:to-dark-secondary/5 border border-secondary/50 dark:border-dark-secondary/50 rounded-md shadow-lg transition text-center hover:-translate-y-2 sm:p-6 md:p-8 lg:p-10">
+					<div class="p-5 backdrop-blur-md bg-base-100/80 border border-base-200/50 rounded-md shadow-lg transition-all duration-300 text-center hover:-translate-y-2 dark:bg-base-800/50 dark:border-base-600/50 sm:p-6 md:p-8 lg:p-10">
 						<i
 							data-lucide="droplet"
 							class="block w-14 h-14 mx-auto mb-4 text-secondary dark:text-dark-secondary"></i>
@@ -170,7 +170,7 @@
 					</div>
 
 					<!--	Well Services	 -->
-					<div class="p-5 bg-gradient-to-br from-secondary/16 dark:from-dark-primary/30 to-secondary/4 dark:to-dark-secondary/5 border border-secondary/50 dark:border-dark-secondary/50 rounded-md shadow-lg transition text-center hover:-translate-y-2 sm:p-6 md:p-8 lg:p-10">
+					<div class="p-5 backdrop-blur-md bg-base-100/80 border border-base-200/50 rounded-md shadow-lg transition-all duration-300 text-center hover:-translate-y-2 dark:bg-base-800/50 dark:border-base-600/50 sm:p-6 md:p-8 lg:p-10">
 						<i
 							data-lucide="wrench"
 							class="block w-14 h-14 mx-auto mb-4 text-secondary dark:text-dark-secondary"></i>
@@ -184,7 +184,7 @@
 					</div>
 
 					<!--	Maintenance	 -->
-					<div class="p-5 bg-gradient-to-br from-secondary/16 dark:from-dark-primary/30 to-secondary/4 dark:to-dark-secondary/5 border border-secondary/50 dark:border-dark-secondary/50 rounded-md shadow-lg transition text-center hover:-translate-y-2 sm:p-6 md:p-8 lg:p-10">
+					<div class="p-5 backdrop-blur-md bg-base-100/80 border border-base-200/50 rounded-md shadow-lg transition-all duration-300 text-center hover:-translate-y-2 dark:bg-base-800/50 dark:border-base-600/50 sm:p-6 md:p-8 lg:p-10">
 						<i
 							data-lucide="cog"
 							class="block w-14 h-14 mx-auto mb-4 text-secondary dark:text-dark-secondary"></i>
@@ -203,7 +203,7 @@
 		<!-- Service Area -->
 		<section
 			id="service-area"
-			class="px-4 py-11 bg-base-100 transition-colors duration-300 scroll-mt-14 dark:bg-base-800 sm:px-6 sm:py-12 sm:scroll-mt-16 md:px-8 md:py-13 lg:px-10 lg:py-14">
+			class="px-4 pt-32 pb-11 bg-base-100 transition-colors duration-300 scroll-mt-0 dark:bg-base-800 sm:px-6 sm:pt-32 sm:pb-12 md:px-8 md:pt-28 md:pb-13 lg:px-10 lg:pt-32 lg:pb-14">
 			<div class="max-w-7xl mx-auto">
 				<h2 class="mb-1 text-2xl font-bold text-left text-base-content dark:text-dark-base-content md:text-3xl md:mb-2 lg:text-4xl lg:mb-3">
 					Service Area
@@ -224,7 +224,7 @@
 		<!-- Gallery -->
 		<section
 			id="gallery"
-			class="px-4 py-11 bg-base-50 transition-colors duration-300 scroll-mt-14 dark:bg-base-750 sm:px-6 sm:py-12 sm:scroll-mt-16 md:px-8 md:py-13 lg:px-10 lg:py-14">
+			class="px-4 pt-32 pb-11 bg-base-50 transition-colors duration-300 scroll-mt-0 dark:bg-base-750 sm:px-6 sm:pt-32 sm:pb-12 md:px-8 md:pt-28 md:pb-13 lg:px-10 lg:pt-32 lg:pb-14">
 			<div class="max-w-7xl mx-auto">
 				<h2 class="mb-3 text-2xl font-bold text-left text-base-content dark:text-dark-base-content sm:mb-5 md:text-3xl md:mb-7 lg:text-4xl lg:mb-9">
 					Gallery
@@ -286,7 +286,7 @@
 		<!-- About Us -->
 		<section
 			id="about"
-			class="px-4 py-11 bg-base-100 transition-colors duration-300 scroll-mt-14 dark:bg-base-800 sm:px-6 sm:py-12 sm:scroll-mt-16 md:px-8 md:py-13 lg:px-10 lg:py-14">
+			class="px-4 pt-32 pb-11 bg-base-100 transition-colors duration-300 scroll-mt-0 dark:bg-base-800 sm:px-6 sm:pt-32 sm:pb-12 md:px-8 md:pt-28 md:pb-13 lg:px-10 lg:pt-32 lg:pb-14">
 			<div class="max-w-7xl mx-auto">
 				<h2 class="mb-3 text-2xl font-bold text-left text-base-content dark:text-dark-base-content sm:mb-5 md:text-3xl md:mb-7 lg:text-4xl lg:mb-9">
 					About Us
@@ -304,7 +304,7 @@
 							<div
 								class="absolute -left-10 top-1 w-6 h-6 bg-primary border-4 border-base-100 rounded-full transition-transform duration-300 group-hover:scale-125 dark:bg-dark-secondary dark:border-base-800 sm:-left-14">
 							</div>
-							<div class="p-5 bg-gradient-to-br from-secondary/16 dark:from-dark-primary/30 to-secondary/4 dark:to-dark-secondary/5 border border-secondary/50 dark:border-dark-secondary/50 rounded-md shadow-lg transition-all duration-300 hover:-translate-y-2 sm:p-6 md:p-8">
+							<div class="p-5 backdrop-blur-md bg-base-150/80 border border-base-200/50 rounded-md shadow-lg transition-all duration-300 hover:-translate-y-2 dark:bg-base-750/80 dark:border-base-600/50 sm:p-6 md:p-8">
 								<div class="mb-3 text-xl font-bold text-secondary dark:text-dark-secondary sm:text-2xl">
 									1960
 								</div>
@@ -321,7 +321,7 @@
 							<div
 								class="absolute -left-10 top-1 w-6 h-6 bg-primary border-4 border-base-100 rounded-full transition-transform duration-300 group-hover:scale-125 dark:bg-dark-secondary dark:border-base-800 sm:-left-14">
 							</div>
-							<div class="p-5 bg-gradient-to-br from-secondary/16 dark:from-dark-primary/30 to-secondary/4 dark:to-dark-secondary/5 border border-secondary/50 dark:border-dark-secondary/50 rounded-md shadow-lg transition-all duration-300 hover:-translate-y-2 sm:p-6 md:p-8">
+							<div class="p-5 backdrop-blur-md bg-base-150/80 border border-base-200/50 rounded-md shadow-lg transition-all duration-300 hover:-translate-y-2 dark:bg-base-750/80 dark:border-base-600/50 sm:p-6 md:p-8">
 								<div class="mb-3 text-xl font-bold text-secondary dark:text-dark-secondary sm:text-2xl">
 									1965
 								</div>
@@ -337,7 +337,7 @@
 							<div
 								class="absolute -left-10 top-1 w-6 h-6 bg-primary border-4 border-base-100 rounded-full transition-transform duration-300 group-hover:scale-125 dark:bg-dark-secondary dark:border-base-800 sm:-left-14">
 							</div>
-							<div class="p-5 bg-gradient-to-br from-secondary/16 dark:from-dark-primary/30 to-secondary/4 dark:to-dark-secondary/5 border border-secondary/50 dark:border-dark-secondary/50 rounded-md shadow-lg transition-all duration-300 hover:-translate-y-2 sm:p-6 md:p-8">
+							<div class="p-5 backdrop-blur-md bg-base-150/80 border border-base-200/50 rounded-md shadow-lg transition-all duration-300 hover:-translate-y-2 dark:bg-base-750/80 dark:border-base-600/50 sm:p-6 md:p-8">
 								<div class="mb-3 text-xl font-bold text-secondary dark:text-dark-secondary sm:text-2xl">
 									1989
 								</div>
@@ -355,7 +355,7 @@
 							<div
 								class="absolute -left-10 top-1 w-6 h-6 bg-primary border-4 border-base-100 rounded-full transition-transform duration-300 group-hover:scale-125 dark:bg-dark-secondary dark:border-base-800 sm:-left-14">
 							</div>
-							<div class="p-5 bg-gradient-to-br from-secondary/16 dark:from-dark-primary/30 to-secondary/4 dark:to-dark-secondary/5 border border-secondary/50 dark:border-dark-secondary/50 rounded-md shadow-lg transition-all duration-300 hover:-translate-y-2 sm:p-6 md:p-8">
+							<div class="p-5 backdrop-blur-md bg-base-150/80 border border-base-200/50 rounded-md shadow-lg transition-all duration-300 hover:-translate-y-2 dark:bg-base-750/80 dark:border-base-600/50 sm:p-6 md:p-8">
 								<div class="mb-3 text-xl font-bold text-secondary dark:text-dark-secondary sm:text-2xl">
 									1992
 								</div>
@@ -371,7 +371,7 @@
 							<div
 								class="absolute -left-10 top-1 w-6 h-6 bg-primary border-4 border-base-100 rounded-full transition-transform duration-300 group-hover:scale-125 dark:bg-dark-secondary dark:border-base-800 sm:-left-14">
 							</div>
-							<div class="p-5 bg-gradient-to-br from-secondary/16 dark:from-dark-primary/30 to-secondary/4 dark:to-dark-secondary/5 border border-secondary/50 dark:border-dark-secondary/50 rounded-md shadow-lg transition-all duration-300 hover:-translate-y-2 sm:p-6 md:p-8">
+							<div class="p-5 backdrop-blur-md bg-base-150/80 border border-base-200/50 rounded-md shadow-lg transition-all duration-300 hover:-translate-y-2 dark:bg-base-750/80 dark:border-base-600/50 sm:p-6 md:p-8">
 								<div class="mb-3 text-xl font-bold text-secondary dark:text-dark-secondary sm:text-2xl">
 									Present
 								</div>
@@ -394,7 +394,7 @@
 
 						<!-- Value 1 -->
 						<div
-							class="p-5 bg-gradient-to-br from-secondary/16 dark:from-dark-primary/30 to-secondary/4 dark:to-dark-secondary/5 border border-secondary/50 dark:border-dark-secondary/50 rounded-md shadow-lg text-center transition hover:-translate-y-2 sm:p-6 md:p-8 lg:p-10">
+							class="p-5 backdrop-blur-md bg-base-150/80 border border-base-200/50 rounded-md shadow-lg text-center transition-all duration-300 hover:-translate-y-2 dark:bg-base-750/80 dark:border-base-600/50 sm:p-6 md:p-8 lg:p-10">
 							<i data-lucide="shield-check" class="block w-14 h-14 mx-auto mb-4 text-secondary dark:text-dark-secondary"></i>
 							<h3 class="mb-2 text-lg font-bold text-secondary dark:text-dark-secondary md:text-xl lg:text-2xl">
 								Reliability
@@ -407,7 +407,7 @@
 
 						<!-- Value 2 -->
 						<div
-							class="p-5 bg-gradient-to-br from-secondary/16 dark:from-dark-primary/30 to-secondary/4 dark:to-dark-secondary/5 border border-secondary/50 dark:border-dark-secondary/50 rounded-md shadow-lg text-center transition hover:-translate-y-2 sm:p-6 md:p-8 lg:p-10">
+							class="p-5 backdrop-blur-md bg-base-150/80 border border-base-200/50 rounded-md shadow-lg text-center transition-all duration-300 hover:-translate-y-2 dark:bg-base-750/80 dark:border-base-600/50 sm:p-6 md:p-8 lg:p-10">
 							<i data-lucide="badge-check" class="block w-14 h-14 mx-auto mb-4 text-secondary dark:text-dark-secondary"></i>
 							<h3 class="mb-2 text-lg font-bold text-secondary dark:text-dark-secondary md:text-xl lg:text-2xl">
 								Quality
@@ -420,7 +420,7 @@
 
 						<!-- Value 3 -->
 						<div
-							class="p-5 bg-gradient-to-br from-secondary/16 dark:from-dark-primary/30 to-secondary/4 dark:to-dark-secondary/5 border border-secondary/50 dark:border-dark-secondary/50 rounded-md shadow-lg text-center transition hover:-translate-y-2 sm:p-6 md:p-8 lg:p-10">
+							class="p-5 backdrop-blur-md bg-base-150/80 border border-base-200/50 rounded-md shadow-lg text-center transition-all duration-300 hover:-translate-y-2 dark:bg-base-750/80 dark:border-base-600/50 sm:p-6 md:p-8 lg:p-10">
 							<i data-lucide="handshake" class="block w-14 h-14 mx-auto mb-4 text-secondary dark:text-dark-secondary"></i>
 							<h3 class="mb-2 text-lg font-bold text-secondary dark:text-dark-secondary md:text-xl lg:text-2xl">
 								Integrity
@@ -433,7 +433,7 @@
 
 						<!-- Value 4 -->
 						<div
-							class="p-5 bg-gradient-to-br from-secondary/16 dark:from-dark-primary/30 to-secondary/4 dark:to-dark-secondary/5 border border-secondary/50 dark:border-dark-secondary/50 rounded-md shadow-lg text-center transition hover:-translate-y-2 sm:p-6 md:p-8 lg:p-10">
+							class="p-5 backdrop-blur-md bg-base-150/80 border border-base-200/50 rounded-md shadow-lg text-center transition-all duration-300 hover:-translate-y-2 dark:bg-base-750/80 dark:border-base-600/50 sm:p-6 md:p-8 lg:p-10">
 							<i data-lucide="house" class="block w-14 h-14 mx-auto mb-4 text-secondary dark:text-dark-secondary"></i>
 							<h3 class="mb-2 text-lg font-bold text-secondary dark:text-dark-secondary md:text-xl lg:text-2xl">
 								Community
@@ -450,7 +450,7 @@
 
 		<!-- Contact Section -->
 		<section id="contact"
-						 class="px-4 py-11 bg-base-50 transition-colors duration-300 scroll-mt-14 dark:bg-base-750 sm:px-6 sm:py-12 sm:scroll-mt-16 md:px-8 md:py-13 lg:px-10 lg:py-14">
+						 class="px-4 pt-32 pb-11 bg-base-50 transition-colors duration-300 scroll-mt-0 dark:bg-base-750 sm:px-6 sm:pt-32 sm:pb-12 md:px-8 md:pt-28 md:pb-13 lg:px-10 lg:pt-32 lg:pb-14">
 			<div class="max-w-7xl mx-auto">
 				<h2 class="mb-1 text-2xl font-bold text-left text-base-content dark:text-dark-base-content sm:mb-5 md:text-3xl md:mb-4 lg:text-4xl lg:mb-6">
 					Contact Us
@@ -469,7 +469,7 @@
 										Name
 									</label>
 									<input type="text" id="name" name="name" placeholder="Full Name" required
-												 class="p-2 border bg-base-100 border-base-300 rounded-md focus:outline-none focus:border-none focus:ring-2 placeholder:text-base-250 caret-secondary focus:ring-secondary dark:caret-dark-secondary dark:border-base-500 dark:bg-base-600 dark:text-dark-base-content dark:focus:ring-dark-secondary"
+												 class="p-2 border bg-base-100 border-base-300 rounded-md focus:outline-none focus:border-none focus:ring-2 placeholder:text-base-250 caret-secondary focus:ring-secondary dark:caret-dark-secondary dark:border-base-500 dark:bg-base-700 dark:text-dark-base-content dark:focus:ring-dark-secondary"
 									>
 								</div>
 
@@ -480,7 +480,7 @@
 									</label>
 									<input type="tel" id="phone" name="phone" maxlength="64" minlength="4" placeholder="(505) 555-5555"
 												 required
-												 class="p-2 border bg-base-100 border-base-300 rounded-md focus:outline-none focus:border-none focus:ring-2 placeholder:text-base-250 caret-secondary focus:ring-secondary dark:caret-dark-secondary dark:border-base-500 dark:bg-base-600 dark:text-dark-base-content dark:focus:ring-dark-secondary"
+												 class="p-2 border bg-base-100 border-base-300 rounded-md focus:outline-none focus:border-none focus:ring-2 placeholder:text-base-250 caret-secondary focus:ring-secondary dark:caret-dark-secondary dark:border-base-500 dark:bg-base-700 dark:text-dark-base-content dark:focus:ring-dark-secondary"
 									>
 								</div>
 							</div>
@@ -492,7 +492,7 @@
 								</label>
 								<input type="email" id="email" name="email" maxlength="64" minlength="8"
 											 placeholder="youremail@example.com" required
-											 class="p-2 border bg-base-100 border-base-300 rounded-md focus:outline-none focus:border-none focus:ring-2 placeholder:text-base-250 caret-secondary focus:ring-secondary dark:caret-dark-secondary dark:border-base-500 dark:bg-base-600 dark:text-dark-base-content dark:focus:ring-dark-secondary"
+											 class="p-2 border bg-base-100 border-base-300 rounded-md focus:outline-none focus:border-none focus:ring-2 placeholder:text-base-250 caret-secondary focus:ring-secondary dark:caret-dark-secondary dark:border-base-500 dark:bg-base-700 dark:text-dark-base-content dark:focus:ring-dark-secondary"
 								>
 							</div>
 
@@ -504,7 +504,7 @@
 								</label>
 								<input type="text" id="subject" name="subject" maxlength="128" minlength="4"
 											 placeholder="Enter the subject..." required
-											 class="p-2 border bg-base-100 border-base-300 rounded-md focus:outline-none focus:border-none focus:ring-2 placeholder:text-base-250 caret-secondary focus:ring-secondary dark:caret-dark-secondary dark:border-base-500 dark:bg-base-600 dark:text-dark-base-content dark:focus:ring-dark-secondary">
+											 class="p-2 border bg-base-100 border-base-300 rounded-md focus:outline-none focus:border-none focus:ring-2 placeholder:text-base-250 caret-secondary focus:ring-secondary dark:caret-dark-secondary dark:border-base-500 dark:bg-base-700 dark:text-dark-base-content dark:focus:ring-dark-secondary">
 							</div>
 
 							<!-- Message Field -->
@@ -515,9 +515,7 @@
 								</label>
 								<textarea id="message" name="message" rows="11" minlength="16" maxlength="1024"
 													placeholder="Enter your message..." required
-													class="p-2 border bg-base-100 border-base-300 rounded-md focus:outline-none focus:border-none focus:ring-2 placeholder:text-base-250 caret-secondary focus:ring-secondary dark:caret-dark-secondary dark:border-base-500 dark:bg-base-600 dark:text-dark-base-content dark:focus:ring-dark-secondary">
-
-								</textarea>
+													class="p-2 border bg-base-100 border-base-300 rounded-md focus:outline-none focus:border-none focus:ring-2 placeholder:text-base-250 caret-secondary focus:ring-secondary dark:caret-dark-secondary dark:border-base-500 dark:bg-base-700 dark:text-dark-base-content dark:focus:ring-dark-secondary"></textarea>
 							</div>
 						</div>
 
@@ -539,7 +537,7 @@
 						</div>
 						<div
 							id="place-details"
-							class="flex-grow p-5 bg-gradient-to-br from-secondary/16 dark:from-dark-primary/30 to-secondary/4 dark:to-dark-secondary/5 border border-secondary/50 dark:border-dark-secondary/50 rounded-md shadow-lg sm:p-6 md:p-8 lg:p-10">
+							class="flex-grow p-5 bg-secondary/16 border border-secondary/50 dark:bg-base-800/50 dark:border-base-700 rounded-md shadow-lg sm:p-6 md:p-8 lg:p-10">
 							<div class="animate-pulse">
 								<div class="w-3/4 h-4 mb-2 rounded"></div>
 								<div class="w-1/2 h-3 rounded"></div>
